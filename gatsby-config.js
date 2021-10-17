@@ -2,19 +2,39 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
-    siteTitle: "gatsby-starter-shopify",
-    siteTitleDefault: "gatsby-starter-shopify by @GatsbyJS",
-    siteUrl: "https://shopify-demo.gatsbyjs.com",
+    siteTitle: "Pinewax Records",
+    siteTitleDefault: "Pinewax Records",
+    siteUrl: "https://pinewaxrecords.com",
     hrefLang: "en",
     siteDescription:
-      "A Gatsby starter using the latest Shopify plugin showcasing a store with product overview, individual product pages, and a cart.",
+      "Pinewax Records, a collectively-run record label based in Berlin",
     siteImage: "/default-og-image.jpg",
-    twitter: "@gatsbyjs",
+    twitter: "@pinewaxrecords",
+    menu: [
+      { name: "Store", to: "/products" },
+      { name: "Artists", to: "/artists" },
+      { name: "Radio", to: "/radio" },
+      { name: "Events", to: "/events" },
+      { name: "DJs", to: "/djs" },
+    ],
+    links: {
+      facebook: "https://www.facebook.com/pinewaxrecords",
+      instagram: "https://www.instagram.com/pinewaxrecords",
+      twitter: "https://twitter.com/pinewaxrecords",
+      youtube: "https://www.youtube.com/c/Pinewaxrecords"
+    },
   },
   flags: {
     FAST_DEV: true,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static/`,
+      },
+    },
     {
       resolve: "gatsby-source-shopify",
       options: {
@@ -29,6 +49,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-gatsby-cloud",
+    "gatsby-plugin-postcss",
     // Add your Google Analytics ID to the .env file to enable
     // Otherwise, this plugin can be removed
     process.env.GOOGLE_ANALYTICS_ID && {

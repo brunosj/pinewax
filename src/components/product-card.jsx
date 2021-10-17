@@ -48,26 +48,29 @@ export function ProductCard({ product, eager }) {
 
   return (
     <Link
-      className={productCardStyle}
+      className="bg-grey10 hover:bg-white"
       to={slug}
       aria-label={`View ${title} product page`}
     >
       {hasImage
         ? (
-          <div className={productImageStyle} data-name="product-image-box">
+          <div className="" data-name="product-image-box">
+            <div className="transform transition duration-300 ease-in-out scale-100 hover:scale-95">
             <GatsbyImage
               alt={firstImage?.altText ?? title}
               image={firstImage?.gatsbyImageData ?? storefrontImageData}
               loading={eager ? "eager" : "lazy"}
+              imgStyle={{ zIndex: '0'  }}
             />
+            </div>
           </div>
         ) : (
           <div style={{ height: defaultImageHeight, width: defaultImageWidth }} />
         )
       }
-      <div className={productDetailsStyle}>
-        <div className={productVendorStyle}>{vendor}</div>
-        <h2 as="h2" className={productHeadingStyle}>
+      <div className="pt-6">
+        {/* <div className={productVendorStyle}>{vendor}</div> */}
+        <h2 className="text-xl text-pwxBlue font-bold">
           {title}
         </h2>
         <div className={productPrice}>{price}</div>

@@ -37,38 +37,20 @@
   }
 }
 
-.logo {
-  display: flex;
-  grid-area: logo;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-color-secondary);
-}
-
-.logo:hover {
-  color: var(--text-color);
-  text-decoration: none;
-}
-
-.logo[aria-current="page"] {
-  color: var(--primary);
-}
-
 .nav {
   grid-area: navHeader;
   align-self: stretch;
 }
 
-.searchButton {
+/* .searchButton {
   color: var(--text-color-secondary);
   grid-area: searchButton;
   width: var(--size-input);
   height: var(--size-input);
   display: grid;
   place-items: center;
-}
+  margin-left: auto;
+} */
 
 .searchButton:hover {
   color: var(--text-color);

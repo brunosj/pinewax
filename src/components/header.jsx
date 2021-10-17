@@ -1,8 +1,8 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import { StoreContext } from "../context/store-context"
 import Logo from "../icons/logo"
-import { Navigation } from "./navigation"
+import { NavigationDesktop } from "./navigation-desktop"
 import { CartButton } from "./cart-button"
 import SearchIcon from "../icons/search"
 import { Toast } from "./toast"
@@ -16,25 +16,24 @@ import {
 
 export function Header() {
   const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
-
   const items = checkout ? checkout.lineItems : []
-
   const quantity = items.reduce((total, item) => {
     return total + item.quantity
   }, 0)
 
   return (
-    <div className={container}>
-      <header className={header}>
-        <Link to="/" className={logoCss}>
+    <div className="bg-white w-full flex z-1 bg-white">
+      <header className="flex w-full py-4 px-5 items-center">
+        <Link to="/">
           <Logo />
         </Link>
-        <Navigation className={nav} />
-        <Link to="/search" className={searchButton}>
+        <NavigationDesktop />
+        <Link to="/search" className='text-grey50 hover:text-grey90 place-items-center ml-auto lg:ml-0 '>
           <SearchIcon />
         </Link>
         <CartButton quantity={quantity} />
       </header>
+      
       <Toast show={loading || didJustAddToCart}>
         {!didJustAddToCart ? (
           "Updating…"

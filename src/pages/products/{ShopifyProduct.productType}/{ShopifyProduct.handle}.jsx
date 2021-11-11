@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby"
 import { Layout } from "../../../components/layout"
 import isEqual from "lodash.isequal"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { StoreContext } from "../../../context/store-context"
 import { AddToCart } from "../../../components/add-to-cart"
 import { NumericInput } from "../../../components/numeric-input"
@@ -29,7 +31,7 @@ import {
   productDescription,
 } from "./product-page.module.css"
 
-export default function Product({ data: { product, suggestions } }) {
+export default function Product({ data: { product, suggestions, cms } }) {
   const {
     options,
     variants,
@@ -38,8 +40,11 @@ export default function Product({ data: { product, suggestions } }) {
     title,
     description,
     images,
+    tags,
+    storefrontId,
     images: [firstImage],
   } = product
+
   const { client } = React.useContext(StoreContext)
 
   const [variant, setVariant] = React.useState({ ...initialVariant })
@@ -102,6 +107,31 @@ export default function Product({ data: { product, suggestions } }) {
   const hasImages = images.length > 0
   const hasMultipleImages = true || images.length > 1
 
+  // linking the Shopify product with the release data from Contentful
+  const productId = product.storefrontId
+  const allProductCms = cms.nodes
+  const productCms =  allProductCms.filter(node => node.shopifyProduct === productId)
+  const Bold = ({ children }) => <span className="font-semibold">{children}</span>
+  const Italic = ({ children }) => <span className="italic">{children}</span>
+  const formatVinyl = productCms.format
+    console.log(productCms)
+  
+
+  const richTextOptions = {
+    renderMark: {
+      [MARKS.BOLD]: text => <Bold>{text}</Bold>,
+      [MARKS.ITALIC]: text => <Italic>{text}</Italic>,
+    },
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base pb-3">{children}</div>,
+      [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">{children}</div>,
+      [BLOCKS.HEADING_2]: (node, children) => <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">{children}</div>,
+      [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc">{children}</ul>,
+      [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 pb-0">{children}</ol>,
+
+    },
+  }
+
   return (
     <Layout>
       {firstImage ? (
@@ -111,14 +141,16 @@ export default function Product({ data: { product, suggestions } }) {
           image={getSrc(firstImage.gatsbyImageData)}
         />
       ) : undefined}
-      <div className={container}>
-        <div className={productBox}>
+      <div className="border-t border-grey20">
+        <div className="grid grid-cols-1 lg:grid-cols-2">
+
           {hasImages && (
-            <div className={productImageWrapper}>
+            <div className="border-r border-grey20">
               <div
                 role="group"
                 aria-label="gallery"
                 aria-describedby="instructions"
+                className="my-12"
               >
                 <ul className={productImageList}>
                   {images.map((image, index) => (
@@ -151,17 +183,31 @@ export default function Product({ data: { product, suggestions } }) {
           {!hasImages && (
             <span className={noImagePreview}>No Preview image</span>
           )}
-          <div>
+
+          <div className="bg-white">
+          <div className="mt-12 ml-12 lg:pr-48">
             <div className={breadcrumb}>
               <Link to={product.productTypeSlug}>{product.productType}</Link>
               <ChevronIcon size={12} />
             </div>
-            <h1 className={header}>{title}</h1>
-            <p className={productDescription}>{description}</p>
-            <h2 className={priceValue}>
-              <span>{price}</span>
-            </h2>
-            <fieldset className={optionsWrapper}>
+            <h1 className="text-2xl pt-4">{product.variants[0].sku}</h1>
+            <h1 className="text-2xl font-semibold leading-none">{tags}</h1>
+            <h1 className="text-2xl">{title}</h1>
+
+            {product.productType === "Merch" && (
+              <p className="text-lg pt-12 pb-24">{description}</p>
+            )}
+
+            {product.productType === "Music" && (
+            <div className="pt-12 pb-12">
+              {productCms[0].description && renderRichText(productCms[0].description, richTextOptions)}
+            </div>
+            )}
+          </div>
+
+          <div className="border-t border-b border-grey20">
+          <div className="ml-12 flex items-center py-6 text-lg font-semibold">
+            <fieldset className="">
               {hasVariants &&
                 options.map(({ id, name, values }, index) => (
                   <div className={selectVariant} key={id}>
@@ -179,8 +225,19 @@ export default function Product({ data: { product, suggestions } }) {
                   </div>
                 ))}
             </fieldset>
-            <div className={addToCartStyle}>
-              <NumericInput
+
+            {product.productType === "Music" && (
+            <div className="">
+              Vinyl
+              <span className="text-sm ml-3">{productCms[0].vinylVariant}</span>
+
+            </div>
+            )}
+            <div className="m-auto">
+              {price}
+            </div>
+            <div className="ml-auto mr-12">
+              {/* <NumericInput
                 aria-label="Quantity"
                 onIncrement={() => setQuantity((q) => Math.min(q + 1, 20))}
                 onDecrement={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -188,14 +245,15 @@ export default function Product({ data: { product, suggestions } }) {
                 value={quantity}
                 min="1"
                 max="20"
-              />
+              /> */}
               <AddToCart
                 variantId={productVariant.storefrontId}
                 quantity={quantity}
                 available={available}
               />
             </div>
-            <div className={metaSection}>
+          </div>
+            {/* <div className={metaSection}>
               <span className={labelFont}>Type</span>
               <span className={tagList}>
                 <Link to={product.productTypeSlug}>{product.productType}</Link>
@@ -206,8 +264,10 @@ export default function Product({ data: { product, suggestions } }) {
                   <Link to={`/search?t=${tag}`}>{tag}</Link>
                 ))}
               </span>
-            </div>
+            </div> */}
           </div>
+          </div>
+
         </div>
       </div>
     </Layout>
@@ -249,6 +309,7 @@ export const query = graphql`
           name
           value
         }
+        sku
       }
       options {
         name
@@ -264,5 +325,17 @@ export const query = graphql`
         ...ProductCard
       }
     }
+    cms: allContentfulRelease(filter: { shopifyProduct: {ne: "null"}}) {
+      nodes {
+        id
+        title
+        format
+        vinylVariant
+        shopifyProduct
+        description {
+          raw
+        }
+    }
+  }
   }
 `

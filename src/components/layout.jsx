@@ -7,7 +7,7 @@ import { NavigationMobile } from "./navigation-mobile"
 
 export function Layout({ children }) {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Seo />
       <SkipNavLink />
       <Header />

@@ -1,0 +1,98 @@
+.artistCard {
+    background-color: transparent;
+    width: 445px;
+    height: 445px;
+  }
+
+  .cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .cardFront {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #bbb;
+    color: black;
+    display: flex;
+    overflow: hidden;
+
+  }
+
+  .cardFrontChild {
+      width: 100%;
+  }
+
+  .imgOverlay {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-items: flex-end;
+  }
+
+  .imgOverlayText {
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+  }
+
+    .cardBack {
+    display:none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #5463A5;
+    color: white;
+    text-align: center;
+  }
+
+  .cardBackText {
+    display:flex;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #5463A5;
+    color: white;
+    
+  }
+
+
+  .artistCard:hover .cardFront {
+    visibility: hidden;
+    }   
+
+    .artistCard:hover .cardBack {
+    display: block;
+    }
+
+    @media (min-width: 768px) {
+      .artistCard {
+        background-color: transparent;
+        width: 275px;
+        height: 275px;
+      }
+  }
+
+    @media (min-width: 1081px) {
+      .artistCard {
+        background-color: transparent;
+        width: 450px;
+        height: 450px;
+      }
+  }
+
+    @media (min-width: 1900px) {
+      .artistCard {
+        background-color: transparent;
+        width: 477px;
+        height: 477px;
+      }
+    }
+  

@@ -22,8 +22,8 @@ export function Header() {
   }, 0)
 
   return (
-    <div className="bg-white w-full flex z-1 bg-white">
-      <header className="flex w-full py-4 px-5 items-center">
+    <div className="bg-white w-full flex z-1">
+      <header className="flex w-full py-1 px-5 items-center">
         <Link to="/">
           <Logo />
         </Link>

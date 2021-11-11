@@ -10,6 +10,7 @@ import {
   totals,
   grandTotal,
   summary,
+  checkoutContainer,
   checkoutButton,
   collapseColumn,
   labelColumn,
@@ -35,12 +36,12 @@ export default function CartPage() {
         {emptyCart ? (
           <div className={emptyStateContainer}>
             <h1 className={emptyStateHeading}>Your cart is empty</h1>
-            <p>
+            {/* <p>
               Looks like you haven’t found anything yet. We understand that
               sometimes it’s hard to chose — maybe this helps:
-            </p>
-            <Link to="/search?s=BEST_SELLING" className={emptyStateLink}>
-              View trending products
+            </p> */}
+            <Link to="/products" className={emptyStateLink}>
+              View products
             </Link>
           </div>
         ) : (
@@ -58,7 +59,8 @@ export default function CartPage() {
               </thead>
               <tbody>
                 {checkout.lineItems.map((item) => (
-                  <LineItem item={item} key={item.id} />
+                  <LineItem item={item} key={item.id} 
+                  />
                 ))}
 
                 <tr className={summary}>
@@ -106,6 +108,7 @@ export default function CartPage() {
                 </tr>
               </tbody>
             </table>
+            <div className={checkoutContainer}>
             <button
               onClick={handleCheckout}
               disabled={loading}
@@ -113,6 +116,7 @@ export default function CartPage() {
             >
               Checkout
             </button>
+            </div>
           </>
         )}
       </div>

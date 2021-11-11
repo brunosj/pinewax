@@ -1,5 +1,11 @@
 require("dotenv").config()
 
+const contentfulConfig = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  downloadLocal: true,
+  };
+
 module.exports = {
   siteMetadata: {
     siteTitle: "Pinewax Records",
@@ -11,19 +17,22 @@ module.exports = {
     siteImage: "/default-og-image.jpg",
     twitter: "@pinewaxrecords",
     menu: [
-      { name: "Store", to: "/products" },
+      { name: "Latest", to: "/" },
+      { name: "Releases", to: "/releases" },
       { name: "Artists", to: "/artists" },
+      { name: "Store", to: "/products" },
       { name: "Radio", to: "/radio" },
-      { name: "Events", to: "/events" },
-      { name: "DJs", to: "/djs" },
+      // { name: "Events", to: "/events" },
+      // { name: "DJs", to: "/djs" },
     ],
-    links: {
-      facebook: "https://www.facebook.com/pinewaxrecords",
-      instagram: "https://www.instagram.com/pinewaxrecords",
-      twitter: "https://twitter.com/pinewaxrecords",
-      youtube: "https://www.youtube.com/c/Pinewaxrecords"
+    links: [
+      { name: "Spotify", to: "https://open.spotify.com/user/wqjrhoph2kzp7au7kysbu8spy" },
+      { name: "Instagram", to: "https://www.instagram.com/pinewaxrecords" },
+      { name: "YouTube", to: "https://www.youtube.com/c/Pinewaxrecords" },
+      { name: "Facebook", to: "https://www.facebook.com/pinewaxrecords" },
+      ]
     },
-  },
+
   flags: {
     FAST_DEV: true,
   },
@@ -43,6 +52,11 @@ module.exports = {
         shopifyConnections: ["collections"],
       },
     },
+    {
+      // This website relies on Contentful as main CMS. In some cases, content is rendered using the rich-text-react-renderer (https://github.com/contentful/rich-text/tree/master/packages/rich-text-react-renderer)
+        resolve: `gatsby-source-contentful`,
+        options: contentfulConfig,
+      },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",

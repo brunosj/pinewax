@@ -1,6 +1,7 @@
 import * as React from "react"
 import { StoreContext } from "../context/store-context"
 import { addToCart as addToCartStyle } from "./add-to-cart.module.css"
+import CartIcon from "../icons/cart"
 
 export function AddToCart({ variantId, quantity, available, ...props }) {
   const { addVariantToCart, loading } = React.useContext(StoreContext)
@@ -18,7 +19,9 @@ export function AddToCart({ variantId, quantity, available, ...props }) {
       disabled={!available || loading}
       {...props}
     >
-      {available ? "Add to Cart" : "Out of Stock"}
+      <CartIcon />
+
+      <span className="ml-2">{available ? "Buy" : "Out of Stock"}</span>
     </button>
   )
 }

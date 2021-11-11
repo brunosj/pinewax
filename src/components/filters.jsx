@@ -79,16 +79,16 @@ export function Filters({
         </div>
       </details>
       <hr />
-      <CheckFilter
+      {/* <CheckFilter
         name="Brands"
         items={vendors}
         selectedItems={filters.vendors}
         setSelectedItems={(value) => updateFilter("vendors", value)}
       />
-      <hr />
+      <hr /> */}
       <CheckFilter
         open={true}
-        name="Tags"
+        name="Artists"
         items={tags}
         selectedItems={filters.tags}
         setSelectedItems={(value) => updateFilter("tags", value)}

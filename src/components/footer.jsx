@@ -1,51 +1,49 @@
 import * as React from "react"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import Logo from "../icons/logo"
-import {
-  footerStyle,
-  copyright,
-  links,
-  blurb,
-  logos,
-  footerNavList,
-  footerNavListItem,
-} from "./footer.module.css"
 
 export function Footer() {
+  const data = useStaticQuery(graphql`
+  query Links {
+    site {
+      siteMetadata {
+        links {
+            name
+            to
+          }
+          menu {
+            name
+            to
+          }
+      }
+    }
+  }
+`)
+
   return (
-    <footer className={footerStyle}>
-      <div className={blurb}>
-        <div className={logos}>
-          <Logo />
-        </div>
-        <strong>gatsby-starter-shopify</strong> change this by editing{" "}
-        <code>src/components/footer.jsx</code>
-      </div>
-      <nav className={links} aria-label="footer">
-        <ul className={footerNavList}>
-          <li className={footerNavListItem}>
-            <a href="https://github.com/gatsbyjs/gatsby-starter-shopify">
-              Source Code and Docs
-            </a>
-          </li>
-          <li className={footerNavListItem}>
-            <a href="https://www.gatsbyjs.com/cloud/">About Gatsby Cloud</a>
-          </li>
-          {process.env.GATSBY_DEMO_STORE === "true" && (
-            <li className={footerNavListItem}>
-              <a href="https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-shopify&utm_campaign=shopify-starter">
-                <img
-                  src="https://www.gatsbyjs.com/deploynow.png"
-                  alt="Deploy to Gatsby Cloud"
-                  height="38"
-                  width="251"
-                />
-              </a>
-            </li>
-          )}
-        </ul>
-      </nav>
-      <div className={copyright}>
-        Copyright &copy; {new Date().getFullYear()} · All rights reserved
+    <footer className="bg-black text-white flex items-center">
+      <div className="ml-auto py-16">
+            <div className="">
+                <nav className="flex px-6 ml-auto" aria-label="footer">
+                    {/* <div className="pb-6"><p className="border-b pb-1">menu</p></div> */}
+                    {data.site.siteMetadata.links.map((link, key) => (
+                      <div className="py-1">
+                          <a 
+                            key={`social_link${key}`}
+                            className="block uppercase hover:underline tracking-wider hover:text-grey30 ml-4"
+                            activeClassName=""
+                            href={link.to}
+                            target="_blank"
+                          >
+                          {link.name} 
+                          </a>
+                          </div>
+                        ))}
+                </nav>
+            </div>
+            <div className="flex pt-6 px-6">
+              <div className="ml-auto text-sm">Copyright &copy; {new Date().getFullYear()} · All rights reserved</div>
+            </div>
       </div>
     </footer>
   )

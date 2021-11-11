@@ -19,7 +19,7 @@ export default function Products({ data: { products } }) {
     <Layout>
       <Seo title="All Products" />
       <NavigationStore className={nav} />
-      <div className="container">All Products</div>
+      {/* <div className="container">All Products</div> */}
       <ProductListing products={products.nodes} />
       {products.pageInfo.hasNextPage && (
         <MoreButton to={`/search#more`}>More products</MoreButton>

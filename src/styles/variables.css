@@ -12,6 +12,7 @@
   --green-80: #088413;
   --green-50-rgb: 55, 182, 53;
   --white: #ffffff;
+  --pwxBlue: #5463A5;
 
   /* radii */
   --radius-sm: 4px;
@@ -54,7 +55,7 @@
   /* role-based tokens */
 
   /* colors */
-  --primary: var(--green-80);
+  --primary: var(--pwxBlue);
   --background: var(--white);
   --border: var(--black-fade-5);
 

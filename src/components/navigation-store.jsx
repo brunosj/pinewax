@@ -15,7 +15,7 @@ export function NavigationStore({ className }) {
   `)
 
   return (
-    <div className="container">
+    <div className="bg-grey10 ml-auto flex border-b border-t border-grey20 text-sm">
     <nav className={[navStyle, className].join(" ")}>
       <Link
         key="All"

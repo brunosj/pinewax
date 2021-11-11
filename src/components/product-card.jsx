@@ -18,8 +18,9 @@ export function ProductCard({ product, eager }) {
     priceRangeV2,
     slug,
     images: [firstImage],
-    vendor,
+    tags,
     storefrontImages,
+    variants,
   } = product
 
   const price = formatPrice(
@@ -48,14 +49,21 @@ export function ProductCard({ product, eager }) {
 
   return (
     <Link
-      className="bg-grey10 hover:bg-white"
+      className="bg-grey10 hover:bg-white transform transition duration-300 ease-in-out group"
       to={slug}
       aria-label={`View ${title} product page`}
     >
+        <div className="pt-6 px-5 border-r border-grey20 leading-none">
+            {/* <div className={productVendorStyle}>{vendor}</div> */}
+            <h2 className="text-lg font-semibold leading-none">
+              {tags}
+            </h2>
+            <div className="text-lg ">{title}</div>
+        </div>
       {hasImage
         ? (
-          <div className="" data-name="product-image-box">
-            <div className="transform transition duration-300 ease-in-out scale-100 hover:scale-95">
+          <div className="border-r border-b border-grey20  box-border" data-name="product-image-box">
+            <div className="transform transition duration-300 ease-in-out scale-100 group-hover:scale-90 p-16">
             <GatsbyImage
               alt={firstImage?.altText ?? title}
               image={firstImage?.gatsbyImageData ?? storefrontImageData}
@@ -68,13 +76,7 @@ export function ProductCard({ product, eager }) {
           <div style={{ height: defaultImageHeight, width: defaultImageWidth }} />
         )
       }
-      <div className="pt-6">
-        {/* <div className={productVendorStyle}>{vendor}</div> */}
-        <h2 className="text-xl text-pwxBlue font-bold">
-          {title}
-        </h2>
-        <div className={productPrice}>{price}</div>
-      </div>
+
     </Link>
   )
 }
@@ -83,6 +85,7 @@ export const query = graphql`
   fragment ProductCard on ShopifyProduct {
     id
     title
+    tags
     slug: gatsbyPath(
       filePath: "/products/{ShopifyProduct.productType}/{ShopifyProduct.handle}"
     )
@@ -96,6 +99,9 @@ export const query = graphql`
         amount
         currencyCode
       }
+    }
+    catalog:variants {
+      sku
     }
     vendor
   }

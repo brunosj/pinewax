@@ -24,7 +24,7 @@ export function SkipNavContent({ children, id: idProp, ...props }) {
   const id = idProp || defaultId
 
   return (
-    <main {...props} id={id}>
+    <main {...props} id={id} className="bg-grey10">
       {children}
     </main>
   )

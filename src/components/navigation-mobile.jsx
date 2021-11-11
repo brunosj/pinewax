@@ -10,12 +10,6 @@ export function NavigationMobile() {
             name
             to
           }
-          links {
-            facebook
-            instagram
-            twitter
-            youtube
-          }
         }
       }
     }

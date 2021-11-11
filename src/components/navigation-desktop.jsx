@@ -10,24 +10,18 @@ export function NavigationDesktop() {
             name
             to
           }
-          links {
-            facebook
-            instagram
-            twitter
-            youtube
-          }
         }
       }
     }
   `)
 
   return (
-    <nav className="hidden md:flex ml-auto uppercase font-semibold">
+    <nav className="hidden md:flex ml-auto uppercase font-semibold tracking-wider">
       {data.site.siteMetadata.menu.map((link, key) => (
             <Link
               key={`menu_link${key}`}
-              className="block mr-3 lg:mr-6"
-              activeClassName="text-gray-800 "
+              className="block mr-3 lg:mr-6 hover:underline text-sm"
+              activeClassName="underline "
               to={link.to}
             >
               {link.name}

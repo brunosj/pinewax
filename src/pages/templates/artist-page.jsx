@@ -12,11 +12,11 @@ const ArtistPage = ({ data }) => {
           <GatsbyImage
             loading="eager"
             alt="Pinewax"
-            image={data.artist.picture.localFile.childImageSharp.gatsbyImageData}
+            image={data.item.picture.localFile.childImageSharp.gatsbyImageData}
               />  
         </div>
         <div>
-        {data.artist.name}
+        {data.item.name}
 
         </div>
       
@@ -33,8 +33,8 @@ const ArtistPage = ({ data }) => {
 export default ArtistPage
 
 export const query = graphql`
-query ArtistPageQuery($slug: String! ) {
-  artist: contentfulArtist(slug: {eq: $slug}) {
+query ArtistPageQuery($slug: String) {
+  item: contentfulArtist(slug: {eq: $slug}) {
       id
       name
       slug

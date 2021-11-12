@@ -6,7 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        Project: allContentfulArtist {
+        Artist: allContentfulArtist {
           nodes {
             slug
           }
@@ -17,9 +17,9 @@ exports.createPages = ({ graphql, actions }) => {
         reject(errors)
       }
 
-      if (data && data.Project) {
+      if (data && data.Artist) {
         const component = path.resolve("./src/pages/templates/artist-page.jsx")
-        data.Project.nodes.map(({ slug }) => {
+        data.Artist.nodes.map(({ slug }) => {
           createPage({
             path: `/artists/${slug}`,
             component,

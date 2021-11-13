@@ -22,27 +22,27 @@ export function Footer() {
 
   return (
     <footer className="bg-black text-white flex items-center">
-      <div className="ml-auto py-16">
-            <div className="">
-                <nav className="flex px-6 ml-auto" aria-label="footer">
+      <div className="w-full py-6 md:py-16">
+            <div className="flex">
+                <nav className="flex ml-auto px-6" aria-label="footer">
                     {/* <div className="pb-6"><p className="border-b pb-1">menu</p></div> */}
                     {data.site.siteMetadata.links.map((link, key) => (
-                      <div className="py-1">
+                      <span className="py-1">
                           <a 
                             key={`social_link${key}`}
-                            className="block uppercase hover:underline tracking-wider hover:text-grey30 ml-4"
+                            className="uppercase hover:underline tracking-wider hover:text-grey30 ml-4 text-xs md:text-base"
                             activeClassName=""
                             href={link.to}
                             target="_blank"
                           >
                           {link.name} 
                           </a>
-                          </div>
+                          </span>
                         ))}
                 </nav>
             </div>
             <div className="flex pt-6 px-6">
-              <div className="ml-auto text-sm">Copyright &copy; {new Date().getFullYear()} · All rights reserved</div>
+              <div className="ml-auto text-xs md:text-sm">Copyright &copy; {new Date().getFullYear()} · All rights reserved</div>
             </div>
       </div>
     </footer>

@@ -3,7 +3,7 @@ import * as React from "react"
 
 export function NavigationMobile() {
   const data = useStaticQuery(graphql`
-    query MobileMenu {
+    query MenuMobile {
       site {
         siteMetadata {
           menu {
@@ -16,19 +16,17 @@ export function NavigationMobile() {
   `)
 
   return (
-    <nav className="w-full bg-pwxBlue bottom-0 md:hidden justify-between px-5 border-t-2">
-      <ul className="flex justify-around items-center text-center text-white py-2">
-        {data.site.siteMetadata.menu.map((link, key) => (
-            <li key={`mobile_link${key}`} className="text-white">
+    <nav className="px-5 justify-between pt-2 pb-3 flex md:hidden ml-auto uppercase font-semibold tracking-wider">
+      {data.site.siteMetadata.menu.map((link, key) => (
             <Link
-              className="block mr-3 lg:mr-6"
+              key={`menu_link${key}`}
+              className="block hover:underline text-xs"
+              activeClassName="underline "
               to={link.to}
             >
               {link.name}
             </Link>
-            </li>
           ))}
-          </ul>
     </nav>
   )
 }

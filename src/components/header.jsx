@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby"
 import { StoreContext } from "../context/store-context"
 import Logo from "../icons/logo"
 import { NavigationDesktop } from "./navigation-desktop"
+import { NavigationMobile } from "./navigation-mobile"
 import { CartButton } from "./cart-button"
 import SearchIcon from "../icons/search"
 import { Toast } from "./toast"
@@ -22,7 +23,7 @@ export function Header() {
   }, 0)
 
   return (
-    <div className="bg-white w-full flex z-1">
+    <div className="bg-white z-1">
       <header className="flex w-full py-1 px-5 items-center">
         <Link to="/">
           <Logo />
@@ -31,9 +32,12 @@ export function Header() {
         <Link to="/search" className='text-grey50 hover:text-grey90 place-items-center ml-auto lg:ml-0 '>
           <SearchIcon />
         </Link>
-        <CartButton quantity={quantity} />
+        <CartButton quantity={quantity} />  
       </header>
-      
+      <header>
+      <NavigationMobile />
+
+        </header>
       <Toast show={loading || didJustAddToCart}>
         {!didJustAddToCart ? (
           "Updating…"

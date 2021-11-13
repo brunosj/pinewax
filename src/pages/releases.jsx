@@ -27,7 +27,7 @@ const Releases = ({ data }) => {
 
       {data.releases.nodes.map(node => {
             return (
-              <div>         
+              <div id={node.slug}>         
                 <div className="border-b border-t border-grey20 bg-grey10">
                     <div className="text-xl pl-12 p-5">
                         <p className="text-lg">{node.catalogNumber}</p>

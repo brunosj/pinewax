@@ -13,7 +13,7 @@ export function Layout({ children }) {
       <Header />
       <SkipNavContent>{children}</SkipNavContent>
       <Footer />
-      <NavigationMobile />
+      {/* <NavigationMobile /> */}
     </div>
   )
 }

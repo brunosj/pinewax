@@ -53,7 +53,7 @@ export function ProductCard({ product, eager }) {
       to={slug}
       aria-label={`View ${title} product page`}
     >
-        <div className="pt-6 px-5 border-r border-grey20 leading-none">
+        <div className="pt-6 mx-5 border-r border-grey20 leading-none">
             {/* <div className={productVendorStyle}>{vendor}</div> */}
             <h2 className="text-lg font-semibold leading-none">
               {tags}

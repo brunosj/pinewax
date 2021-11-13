@@ -6,17 +6,17 @@ const formats = release.format
 console.log(formats)
 
     return (
-        <div className="text-3xl">
+        <div className="text-base md:text-3xl">
             <h1 className="">
             {release.catalogNumber}
             </h1>
-            <h1 className="text-4xl font-semibold">
+            <h1 className="text-lg md:text-4xl font-semibold">
                 {release.releaseArtist}
             </h1>
-            <h1 className="text-4xl">
+            <h1 className="text-lg md:text-4xl ">
             {release.title}
             </h1>
-            <div className="grid grid-cols-4 font-bold mt-12">
+            <div className="grid grid-cols-3 font-bold mt-6 md:mt-12">
                 <h1 className="pr-5">BUY</h1>
                 {release.format[1] === "Vinyl" && (
                     <Link to={`/products/music/${release.slug}`} className="underline hover:text-pwxBlue px-2">

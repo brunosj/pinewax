@@ -21,7 +21,7 @@ module.exports = {
       { name: "Releases", to: "/releases" },
       { name: "Artists", to: "/artists" },
       { name: "Store", to: "/products" },
-      { name: "Radio", to: "/radio" },
+      // { name: "Radio", to: "/radio" },
       // { name: "Events", to: "/events" },
       // { name: "DJs", to: "/djs" },
     ],

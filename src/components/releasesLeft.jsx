@@ -14,7 +14,7 @@ const ReleasesLeft = ({ release }) => {
                                     /> 
                         </div> 
                         <div className={"flex items-center bg-" + release.twColourCode}>
-                            <div className="ml-32">
+                            <div className="p-5 md:p-0 md:ml-32">
                         <ReleasesInfo release={release}/>
                             </div>
                         </div> 

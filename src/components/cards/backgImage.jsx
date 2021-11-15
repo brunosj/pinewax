@@ -25,14 +25,14 @@ const BackgImage = ({ componentImage, bgColour }) => {
                 <div className={bgImgCardFrontChild}>
                 <BgImage image={image} style={{ minWidth: 300, minHeight: 200 }}>
                     <div className={imgOverlay}>
-                        <div className={imgOverlayText}>Land Governance</div>
+                        <div className={imgOverlayText}>Video</div>
                     </div>
                 </BgImage>
                 </div>
             </div>
             <div className={bgImgCardBack}>
                 <div className="flex h-full justify-center items-center">
-                    text 123
+                    text
                     </div>    
             </div>
         </div>

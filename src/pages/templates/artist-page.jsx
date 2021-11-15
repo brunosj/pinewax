@@ -33,17 +33,17 @@ const ArtistPage = ({ data }) => {
 
         <div className="flex flex-col">
             <div className="mt-12 ml-5 md:ml-12 mr-5 md:mr-12">
-                <h1 className="text-2xl font-semibold leading-none">{data.artist.name}</h1>
-                <p className="mt-8 mb-8"> {data.artist.bio && renderRichText(data.artist.bio, richTextOptions)}</p>
+                <h1 className="text-3xl font-semibold leading-none">{data.artist.name}</h1>
+                <p className="mt-8 md:mt-12 mb-8"> {data.artist.bio && renderRichText(data.artist.bio, richTextOptions)}</p>
           </div>
 
           <div className="mt-auto border-t border-grey20 bg-grey10">
             <div className="">
               <h2 className="border-b border-grey20 py-5 text-xl font-semibold leading-none"><span className="ml-5 md:ml-12">Releases</span></h2>
-              <div className="ml-5 md:ml-12 mr-5 md:mr-12 flex flex-wrap gap-3 md:gap-20">
 
+              <div className="ml-5 md:ml-12 mr-5 md:mr-12 flex flex-wrap md:justify-start justify-around">
                 {data.artist.releases.map(release => (
-                <div className="flex my-6 md:my-12">
+                <div className="flex my-6 md:my-12 mr-2 md:mr-8 ">
                 <Link
                   to={`/releases#${release.slug}`}
                   >
@@ -70,8 +70,8 @@ const ArtistPage = ({ data }) => {
                   </Link>
                 </div>
                 ))}
-
               </div>
+
               </div>
           </div>
         

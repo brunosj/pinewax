@@ -12,10 +12,11 @@
 }
 
 .remove button {
-  font-size: var(--text-md);
-
+  font-size: var(--text-sm);
+  color:#78757a;
   display: inline-flex;
   align-items: center;
+  padding-top: 6px;
 }
 
 .remove button svg {

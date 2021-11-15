@@ -30,6 +30,9 @@ export default function CartPage() {
     window.open(checkout.webUrl)
   }
 
+  const itemsInCart = checkout.lineItems
+  console.log(itemsInCart)
+
   return (
     <Layout>
       <div className={wrap}>
@@ -46,77 +49,63 @@ export default function CartPage() {
           </div>
         ) : (
           <>
-            <h1 className={title}>Your cart</h1>
-            <table className={table}>
-              <thead>
-                <tr>
-                  <th className={imageHeader}>Image</th>
-                  <th className={productHeader}>Product</th>
-                  <th className={collapseColumn}>Price</th>
-                  <th>Qty.</th>
-                  <th className={[totals, collapseColumn].join(" ")}>Total</th>
-                </tr>
-              </thead>
-              <tbody>
+            <h1 className={title}>Shopping Cart</h1>
+            <div className="">
+
+              <div className="grid grid-cols-6 border-b border-grey20 font-semibold">
+                  <div className="col-span-3 pb-2">Product</div>
+                  <div className="hidden md:block">Price</div>
+                  <div className="col-span-2 md:col-span-1">Qty.</div>
+                  <div className="">Total</div>
+              </div>
+              <div>
                 {checkout.lineItems.map((item) => (
                   <LineItem item={item} key={item.id} 
                   />
                 ))}
-
-                <tr className={summary}>
-                  <td className={collapseColumn}></td>
-                  <td className={collapseColumn}></td>
-                  <td className={collapseColumn}></td>
-                  <td className={labelColumn}>Subtotal</td>
-                  <td className={totals}>
+              </div>
+            
+            <div className="grid grid-cols-6 text-base md:text-lg font-semibold">
+                  <div className="col-span-4 md:col-span-5 border-b border-grey20 py-2">Subtotal</div>
+                  <div className="border-b border-grey20 py-2 col-span-2 md:col-span-1 text-right ">
                     {formatPrice(
                       checkout.subtotalPriceV2.currencyCode,
                       checkout.subtotalPriceV2.amount
                     )}
-                  </td>
-                </tr>
-                <tr className={summary}>
-                  <td className={collapseColumn}></td>
-                  <td className={collapseColumn}></td>
-                  <td className={collapseColumn}></td>
-                  <td className={labelColumn}>Taxes</td>
-                  <td className={totals}>
+
+                  </div>
+                {/* <div className={summary}>
+                  <div className={labelColumn}>Taxes</div>
+                  <div className={totals}>
                     {formatPrice(
                       checkout.totalTaxV2.currencyCode,
                       checkout.totalTaxV2.amount
                     )}
-                  </td>
-                </tr>
-                <tr className={summary}>
-                  <td className={collapseColumn}></td>
-                  <td className={collapseColumn}></td>
-                  <td className={collapseColumn}></td>
-                  <td className={labelColumn}>Shipping</td>
-                  <td className={totals}>Calculated at checkout</td>
-                </tr>
-                <tr className={grandTotal}>
-                  <td className={collapseColumn}></td>
-                  <td className={collapseColumn}></td>
-                  <td className={collapseColumn}></td>
-                  <td className={labelColumn}>Total Price</td>
-                  <td className={totals}>
+                  </div>
+                </div> */}
+                  <div className="col-span-4 md:col-span-5 border-b border-grey20 py-2">Shipping</div>
+                  <div className="border-b border-grey20 py-2 col-span-2 md:col-span-1 text-right">Calculated at checkout</div>
+                  <div className="col-span-4 md:col-span-5 py-2">Total Price</div>
+                  <div className="col-span-2 md:col-span-1 text-right py-2">
                     {formatPrice(
                       checkout.totalPriceV2.currencyCode,
                       checkout.totalPriceV2.amount
                     )}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div className={checkoutContainer}>
-            <button
-              onClick={handleCheckout}
-              disabled={loading}
-              className={checkoutButton}
-            >
-              Checkout
-            </button>
+                  </div>
+                  <div className="col-start-5 md:col-start-6 col-span-2 md:col-span-1 pt-3 md:pt-6 pb-6 md:pb-12">
+                  <button
+                    onClick={handleCheckout}
+                    disabled={loading}
+                    className={checkoutButton}
+                  >
+                    Checkout
+                  </button>
+                  </div>
             </div>
+
+
+            </div>
+
           </>
         )}
       </div>

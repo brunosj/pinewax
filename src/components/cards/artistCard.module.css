@@ -1,7 +1,7 @@
 .artistCard {
     background-color: transparent;
-    width: 445px;
-    height: 445px;
+    width: 375px;
+    height: 375px;
   }
 
   .cardInner {
@@ -15,7 +15,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #bbb;
+    background-color: #000;
     color: black;
     display: flex;
     overflow: hidden;
@@ -72,19 +72,19 @@
     display: block;
     }
 
-    @media (min-width: 768px) {
+    /* @media (min-width: 375px) {
       .artistCard {
         background-color: transparent;
-        width: 275px;
-        height: 275px;
+        width: 375px;
+        height: 375px;
       }
-  }
+  } */
 
     @media (min-width: 1081px) {
       .artistCard {
         background-color: transparent;
-        width: 450px;
-        height: 450px;
+        width: 444px;
+        height: 444px;
       }
   }
 

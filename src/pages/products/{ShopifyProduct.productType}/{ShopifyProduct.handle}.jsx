@@ -150,7 +150,7 @@ export default function Product({ data: { product, suggestions, cms } }) {
                 role="group"
                 aria-label="gallery"
                 aria-describedby="instructions"
-                className="my-12"
+                className="my-0 md:my-12"
               >
                 <ul className={productImageList}>
                   {images.map((image, index) => (
@@ -185,7 +185,7 @@ export default function Product({ data: { product, suggestions, cms } }) {
           )}
 
           <div className="bg-white">
-          <div className="mt-12 ml-12 lg:pr-48">
+          <div className="mt-12 mx-5 md:mx-12 lg:pr-48">
             <div className={breadcrumb}>
               <Link to={product.productTypeSlug}>{product.productType}</Link>
               <ChevronIcon size={12} />
@@ -206,7 +206,7 @@ export default function Product({ data: { product, suggestions, cms } }) {
           </div>
 
           <div className="border-t border-b border-grey20">
-          <div className="ml-12 flex items-center py-6 text-lg font-semibold">
+          <div className="ml-5 md:ml-12 flex items-center py-6 text-lg font-semibold">
             <fieldset className="">
               {hasVariants &&
                 options.map(({ id, name, values }, index) => (
@@ -233,10 +233,10 @@ export default function Product({ data: { product, suggestions, cms } }) {
 
             </div>
             )}
-            <div className="m-auto">
+            <div className="m-auto mr-3">
               {price}
             </div>
-            <div className="ml-auto mr-12">
+            <div className="ml-auto mr-5 md:mr-12">
               {/* <NumericInput
                 aria-label="Quantity"
                 onIncrement={() => setQuantity((q) => Math.min(q + 1, 20))}
@@ -266,8 +266,8 @@ export default function Product({ data: { product, suggestions, cms } }) {
               </span>
             </div> */}
           </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </Layout>

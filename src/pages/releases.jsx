@@ -29,7 +29,7 @@ const Releases = ({ data }) => {
             return (
               <div id={node.slug}>         
                 <div className="border-b border-t border-grey20 bg-grey10">
-                    <div className="text-xl pl-12 p-5">
+                    <div className="text-xl pl-5 md:pl-12 p-5">
                         <p className="text-lg">{node.catalogNumber}</p>
                         <p className="font-bold leading-none">{node.releaseArtist}
                         </p>
@@ -40,7 +40,7 @@ const Releases = ({ data }) => {
                 <div className="grid grid-cols-1 md:grid-cols-5">
 
                   <div className="flex items-center">
-                    <div className="w-48 h-48 ml-12">
+                    <div className="w-32 h-32 md:w-48 md:h-48 ml-5 md:ml-12 mt-6 md:mt-0">
                       <GatsbyImage
                             loading="eager"
                             alt="Pinewax"
@@ -49,12 +49,12 @@ const Releases = ({ data }) => {
                       </div>
                     </div>
 
-                  <div className="col-span-2 border-l border-grey20 flex flex-col ">
+                  <div className="col-span-1 md:col-span-2 border-l border-grey20 flex flex-col">
                       <div className="w-full px-5 pt-5 mt-auto"> {node.description && renderRichText(node.description, richTextOptions)}</div>
                       <div className="border-t border-grey20 p-5 mt-auto w-full font-semibold">Release date: <span className="font-normal">{node.releaseDate}</span></div>
                   </div>
 
-                  <div className="col-span-1 border-l border-t md:border-t-0 border-grey20">
+                  <div className="hidden md:block col-span-1 border-l border-t md:border-t-0 border-grey20 ">
                     <p className="font-semibold p-5 ">Tracklisting</p>
                   {node.tracklist.map(track => {
                     return (

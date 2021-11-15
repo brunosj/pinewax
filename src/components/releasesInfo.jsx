@@ -18,7 +18,7 @@ console.log(formats)
             </h1>
             <div className="grid grid-cols-3 font-bold mt-6 md:mt-12">
                 <h1 className="pr-5">BUY</h1>
-                {release.format[1] === "Vinyl" && (
+                {release.format[1] === "Vinyl"  && (
                     <Link to={`/products/music/${release.slug}`} className="underline hover:text-pwxBlue px-2">
                         Vinyl             
                     </Link>

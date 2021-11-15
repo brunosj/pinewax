@@ -18,7 +18,7 @@ const ArtistCard = ({ artists }) => {
   return (
 
     <div className="overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+        <div className="flex flex-wrap">
             {artists.map(artist => {
                 return (
               <div className={artistCard}>
@@ -30,7 +30,7 @@ const ArtistCard = ({ artists }) => {
                               loading="eager"
                               alt="Pinewax"
                               image={artist.picture.localFile.childImageSharp.gatsbyImageData}
-                              style={{ minWidth: 400, minHeight: 400 }}
+                              // style={{ minWidth: 275, minHeight: 275 }}
                               >
                               
                           </GatsbyImage>

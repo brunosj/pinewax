@@ -37,6 +37,9 @@ export function LineItem({ item }) {
     Number(item.variant.priceV2.amount) * quantity
   )
 
+  const tags = item.storefrontId
+console.log(tags)
+
   const handleRemove = () => {
     removeLineItem(checkout.id, item.id)
   }
@@ -80,30 +83,26 @@ export function LineItem({ item }) {
   )
 
   return (
-    <tr>
-      <td>
-        {image && (
-          <GatsbyImage
-            key={variantImage.src}
-            image={image}
-            alt={variantImage.altText ?? item.variant.title}
-          />
-        )}
-      </td>
-      <td>
-        <h2 className={title}>{item.title}</h2>
-        <h2 className={title}>{item.title}</h2>
-        <div className={variant}>
-          {item.variant.title === "Default Title" ? "" : item.variant.title}
+    <div className="grid grid-cols-6 border-b border-grey20 py-6">
+      <div className="col-span-3 block md:flex items-center">
+        <div className="w-16 h-16 md:w-32 md:h-32">
+          {image && (
+            <GatsbyImage
+              key={variantImage.src}
+              image={image}
+              alt={variantImage.altText ?? item.variant.title}
+            />
+          )}
         </div>
-        <div className={remove}>
-          <button onClick={handleRemove}>
-            <DeleteIcon /> Remove
-          </button>
+        <div className="ml-0 md:ml-12 mt-2 md:mt-0">
+          <h2 className="text-base md:text-xl font-semibold">{item.title}</h2>
+          <div className={variant}>
+            {item.variant.title === "Default Title" ? "" : item.variant.title}
+          </div>
         </div>
-      </td>
-      <td className={priceColumn}>{price}</td>
-      <td>
+      </div>
+      <div className="hidden md:block my-auto">{price}</div>
+      <div className="col-span-2 md:col-span-1 my-auto">
         <NumericInput
           disabled={loading}
           value={quantity}
@@ -112,8 +111,13 @@ export function LineItem({ item }) {
           onDecrement={doDecrement}
           onChange={(e) => handleQuantityChange(e.currentTarget.value)}
         />
-      </td>
-      <td className={totals}>{subtotal}</td>
-    </tr>
+                <div className={remove}>
+          <button onClick={handleRemove}>
+            <DeleteIcon /> Remove
+          </button>
+        </div>
+      </div>
+      <div className="my-auto">{subtotal}</div>
+    </div>
   )
 }

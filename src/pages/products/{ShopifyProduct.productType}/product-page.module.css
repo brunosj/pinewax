@@ -94,9 +94,9 @@
   border-radius: var(--radius-md);
   cursor: pointer;
   /* margin-top: var(--space-md); */
-  min-width: 18ch;
+  min-width: 12ch;
   position: relative;
-  margin-right: 48px;
+  margin-right: 8px;
 }
 
 .selectVariant select {

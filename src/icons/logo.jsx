@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function Logo() {
   const data = useStaticQuery(graphql`
     query Logo {
-      file(relativePath: {eq: "logo.png"}) {
+      file(relativePath: {eq: "pinewax_logo_white.png"}) {
             childImageSharp {
               gatsbyImageData(formats: WEBP, height: 32, layout: CONSTRAINED)
             }

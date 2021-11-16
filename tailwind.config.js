@@ -25,7 +25,7 @@ module.exports = {
     colors: {
       white: "#ffffff", 
       black: "#000000",
-      pwxBlue: "#5463A5",
+      pwxBlue: "#4349F6",
       pwxBlueLight: "#dcdfed",
       grey90: "#232129",
       grey50: "#78757a",

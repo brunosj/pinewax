@@ -21,10 +21,10 @@ export function Footer() {
 `)
 
   return (
-    <footer className="bg-black text-white flex items-center">
-      <div className="w-full py-6 md:py-16">
-            <div className="flex">
-                <nav className="flex ml-auto px-6" aria-label="footer">
+    <footer className="bg-grey10 text-pwxBlue flex items-center font-semibold">
+      <div className="w-full py-6">
+            <div className="flex px-6">
+                <nav className="flex" aria-label="footer">
                     {/* <div className="pb-6"><p className="border-b pb-1">menu</p></div> */}
                     {data.site.siteMetadata.links.map((link, key) => (
                       <span className="py-1">
@@ -40,9 +40,7 @@ export function Footer() {
                           </span>
                         ))}
                 </nav>
-            </div>
-            <div className="flex pt-6 px-6">
-              <div className="ml-auto text-xs md:text-sm">Copyright &copy; {new Date().getFullYear()} · All rights reserved</div>
+                <div className="ml-auto text-xs md:text-sm">Copyright &copy; {new Date().getFullYear()} Pinewax · All rights reserved</div>
             </div>
       </div>
     </footer>

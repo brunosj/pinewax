@@ -141,7 +141,7 @@ export default function Product({ data: { product, suggestions, cms } }) {
           image={getSrc(firstImage.gatsbyImageData)}
         />
       ) : undefined}
-      <div className="border-t border-grey20">
+      <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
           {hasImages && (
@@ -184,10 +184,10 @@ export default function Product({ data: { product, suggestions, cms } }) {
             <span className={noImagePreview}>No Preview image</span>
           )}
 
-          <div className="bg-white">
+          <div className="">
           <div className="mt-12 mx-5 md:mx-12 lg:pr-48">
             <div className={breadcrumb}>
-              <Link to={product.productTypeSlug}>{product.productType}</Link>
+              <Link to={product.productTypeSlug}>Store</Link>
               <ChevronIcon size={12} />
             </div>
             <h1 className="text-2xl pt-4">{product.variants[0].sku}</h1>
@@ -205,7 +205,7 @@ export default function Product({ data: { product, suggestions, cms } }) {
             )}
           </div>
 
-          <div className="border-t border-b border-grey20">
+          <div className="">
           <div className="ml-5 md:ml-12 flex items-center py-6 text-lg font-semibold">
             <fieldset className="">
               {hasVariants &&

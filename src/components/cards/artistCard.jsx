@@ -5,13 +5,13 @@ import {
     cardFront, 
     cardFrontChild, 
     cardBack,
+    cardBackChild,
     cardBackText
      } from "./artistCard.module.css"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 
 const ArtistCard = ({ artists }) => {
-
 
 //   I am using CSS Modules for this component as they are more straightforward than Tailwind for CSS animations
 
@@ -31,14 +31,20 @@ const ArtistCard = ({ artists }) => {
                               alt="Pinewax"
                               image={artist.picture.localFile.childImageSharp.gatsbyImageData}
                               // style={{ minWidth: 275, minHeight: 275 }}
-                              >
+                              />
                               
-                          </GatsbyImage>
                           </div>
                       </div>
                       <div className={cardBack}>
-                          <div className={cardBackText}>
+                          <div className={cardBackChild}>
                               {artist.name}
+                              <GatsbyImage 
+                              loading="eager"
+                              alt="Pinewax"
+                              image={artist.picture.localFile.childImageSharp.gatsbyImageData}
+                              // style={{ minWidth: 275, minHeight: 275 }}
+                              />
+                              
                               </div>    
                       </div>
                   </div>

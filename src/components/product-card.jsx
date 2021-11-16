@@ -49,16 +49,23 @@ export function ProductCard({ product, eager }) {
 
   return (
     <Link
-      className="bg-grey10 hover:bg-white transform transition duration-300 ease-in-out group"
+      className="bg-grey10 hover:bg-pwxBlue transform transition duration-300 ease-in-out group text-black hover:text-white"
       to={slug}
       aria-label={`View ${title} product page`}
     >
         <div className="border-r border-grey20 leading-none">
-            {/* <div className={productVendorStyle}>{vendor}</div> */}
-            <h2 className="pt-6 mx-5 text-lg font-semibold leading-none">
-              {tags}
-            </h2>
-            <h2 className="mx-5 text-lg ">{title}</h2>
+          <div className="flex items-center pt-6 ">
+                <div>
+                    {/* <div className={productVendorStyle}>{vendor}</div> */}
+                    <h2 className="mx-5 text-lg font-semibold leading-none">
+                      {tags}
+                    </h2>
+                    <h2 className="mx-5 text-lg ">{title}</h2>
+                </div>
+                <div className="mr-5 ml-auto">
+                  {price}
+                </div>
+            </div>
         </div>
       {hasImage
         ? (

@@ -20,7 +20,7 @@ export function NavigationDesktop() {
       {data.site.siteMetadata.menu.map((link, key) => (
             <Link
               key={`menu_link${key}`}
-              className="block mr-3 lg:mr-6 hover:underline text-sm"
+              className="block mr-3 lg:mr-6 hover:underline text-sm text-white"
               activeClassName="underline "
               to={link.to}
             >

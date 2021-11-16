@@ -23,13 +23,13 @@ const Releases = ({ data }) => {
 
   return (
     <Layout>
-      <section className="bg-white">
+      <section className="bg-grey10">
 
       {data.releases.nodes.map(node => {
             return (
-              <div id={node.slug}>         
-                <div className="border-b border-t border-grey20 bg-grey10">
-                    <div className="text-xl pl-5 md:pl-12 p-5">
+              <div className="border-b border-grey20 pt-5 pb-8" id={node.slug}>         
+                <div className="grid grid-cols-1 md:grid-cols-5 bg-grey10">
+                    <div className="text-xl pl-5 md:pl-12 p-5 ">
                         <p className="text-lg">{node.catalogNumber}</p>
                         <p className="font-bold leading-none">{node.releaseArtist}
                         </p>
@@ -39,7 +39,7 @@ const Releases = ({ data }) => {
               
                 <div className="grid grid-cols-1 md:grid-cols-5">
 
-                  <div className="flex items-center">
+                  <div className="flex pt-8">
                     <div className="w-32 h-32 md:w-48 md:h-48 ml-5 md:ml-12 mt-6 md:mt-0">
                       <GatsbyImage
                             loading="eager"
@@ -49,16 +49,16 @@ const Releases = ({ data }) => {
                       </div>
                     </div>
 
-                  <div className="col-span-1 md:col-span-2 border-l border-grey20 flex flex-col">
-                      <div className="w-full px-5 pt-5 mt-auto"> {node.description && renderRichText(node.description, richTextOptions)}</div>
-                      <div className="border-t border-grey20 p-5 mt-auto w-full font-semibold">Release date: <span className="font-normal">{node.releaseDate}</span></div>
+                  <div className="col-span-1 md:col-span-2 pt-8  flex flex-col">
+                      <div className="w-full pr-20 "> {node.description && renderRichText(node.description, richTextOptions)}</div>
+                      <div className=" py-5 mt-auto w-full font-semibold">Release date: <span className="font-normal">{node.releaseDate}</span></div>
                   </div>
 
-                  <div className="hidden md:block col-span-1 border-l border-t md:border-t-0 border-grey20 ">
-                    <p className="font-semibold p-5 ">Tracklisting</p>
+                  <div className="hidden md:block col-span-1 pt-8">
+                    <p className="font-semibold px-5 pb-5">Tracklisting</p>
                   {node.tracklist.map(track => {
                     return (
-                      <div className="border-t border-b border-grey20">
+                      <div className="">
                         <p className="ml-5 py-2 text-sm">{track}</p>
                         </div>
                     )
@@ -66,9 +66,9 @@ const Releases = ({ data }) => {
                     )}                      
                   </div>
 
-                  <div className="border-l border-grey20 border-t md:border-t-0">
-                        <div className="border-b border-grey20 pb-5">
-                          <h1 className="p-5 font-semibold uppercase">Buy</h1>
+                  <div className="pt-8">
+                        <div className="pb-5">
+                          <h1 className="px-5 pb-5 font-semibold uppercase">Buy</h1>
 
                         {node.format[0] === "Vinyl" && (
                           <Link to={`/products/music/${node.slug}`} className="underline hover:text-pwxBlue mr-2 p-5">
@@ -81,7 +81,7 @@ const Releases = ({ data }) => {
                           </a>
                       )}
                       </div>
-                      <div className="border-b border-grey20 pb-5">
+                      <div className=" pb-5">
                       <h1 className="p-5 font-semibold uppercase">Stream</h1>
 
                                           {node.urlListen && (

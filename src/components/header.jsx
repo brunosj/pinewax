@@ -23,14 +23,14 @@ export function Header() {
   }, 0)
 
   return (
-    <div className="bg-white z-1">
+    <div className="bg-pwxBlue z-1">
       <header className="flex w-full py-1 px-5 items-center">
         <Link to="/">
           <Logo />
         </Link>
         <NavigationDesktop />
         <Link to="/search" className='text-grey50 hover:text-grey90 place-items-center ml-auto lg:ml-0 '>
-          <SearchIcon />
+          {/* <SearchIcon /> */}
         </Link>
         <CartButton quantity={quantity} />  
       </header>

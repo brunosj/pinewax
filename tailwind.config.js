@@ -55,7 +55,11 @@ module.exports = {
       '14': '14px',
       '16': '16px',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        faune: ["faune"],
+      },
+    },
   },
   variants: {
     extend: {

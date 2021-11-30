@@ -24,7 +24,7 @@ export function Header() {
 
   return (
     <div className="bg-pwxBlue z-1">
-      <header className="flex w-full py-1 px-5 items-center">
+      <header className="flex w-full py-2 px-5 items-center">
         <Link to="/">
           <Logo />
         </Link>

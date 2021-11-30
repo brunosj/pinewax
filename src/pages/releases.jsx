@@ -4,6 +4,13 @@ import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+import Bandcamp from "../icons/bandcamp"
+import Spotify from "../icons/spotify"
+import Apple from "../icons/applemusic"
+import CartIcon from "../icons/cart"
+import {
+  stroke,
+} from "../components/releasesInfo.module.css"
 
 const Releases = ({ data }) => {  
 
@@ -18,84 +25,101 @@ const Releases = ({ data }) => {
     },
   }
 
-  const formats = data.releases.nodes
+  const formats = data.allContentfulRelease.nodes
   console.log(formats) 
 
   return (
     <Layout>
       <section className="bg-grey10">
 
-      {data.releases.nodes.map(node => {
+      {data.allContentfulRelease.nodes.map(node => {
             return (
-              <div className="border-b border-grey20 pt-5 pb-8" id={node.slug}>         
-                <div className="grid grid-cols-1 md:grid-cols-5 bg-grey10">
+              <div className="border-t border-grey20 pt-5 pb-3 md:pb-8" id={node.slug}>         
+                <div className="grid grid-cols-1 md:grid-cols-3 bg-grey10">
                     <div className="text-xl pl-5 md:pl-12 p-5 ">
-                        <p className="text-lg">{node.catalogNumber}</p>
-                        <p className="font-bold leading-none">{node.releaseArtist}
+                        <p className="text-sm md:text-lg font-bold pb-3">{node.catalogNumber}</p>
+                        <p className="font-faune uppercase text-3xl md:text-4xl"><span className={stroke}>{node.releaseArtist}</span>
                         </p>
-                        <p>{node.title}</p>
+                        <p className="font-faune uppercase text-3xl md:text-4xl"><span className={stroke}>{node.title}</span>
+                        </p>
                     </div>
                 </div>
               
-                <div className="grid grid-cols-1 md:grid-cols-5">
+                <div className="grid grid-cols-1 md:grid-cols-3">
 
-                  <div className="flex pt-8">
-                    <div className="w-32 h-32 md:w-48 md:h-48 ml-5 md:ml-12 mt-6 md:mt-0">
+                  <div className="flex items-center md:justify-center px-5 md:px-0">
+                  {node.vinylMockup && (
+                    <div className="w-32 h-32 md:w-48 md:h-48">
+                    <GatsbyImage
+                          loading="eager"
+                          alt="Pinewax"
+                          image={node.vinylMockup.localFile.childImageSharp.gatsbyImageData}
+                            />   
+                    </div>
+                  )}
+                  {!node.vinylMockup && (
+                    <div className="w-32 h-32 md:w-48 md:h-48">
                       <GatsbyImage
                             loading="eager"
                             alt="Pinewax"
                             image={node.cover.localFile.childImageSharp.gatsbyImageData}
                               />   
                       </div>
+                  )}
                     </div>
 
-                  <div className="col-span-1 md:col-span-2 pt-8  flex flex-col">
-                      <div className="w-full pr-20 "> {node.description && renderRichText(node.description, richTextOptions)}</div>
-                      <div className=" py-5 mt-auto w-full font-semibold">Release date: <span className="font-normal">{node.releaseDate}</span></div>
+                  <div className="md:pt-0 flex flex-col p-5 md:p-0">
+                      <div className="w-full pr-0 md:pr-20">
+                        {node.description && renderRichText(node.description, richTextOptions)}
+                        </div>
+                      <div className="py-2 md:py-5 w-full font-semibold">Release date: <span className="font-normal">{node.releaseDate}</span>
+                      </div>
+                      <div className="pt-6">
+                          <div className="flex items-center">
+                                {node.vinylMockup && (
+                                    <Link to={`/products/music/${node.slug}`} className="pr-6">
+                                            <button
+                                            type="submit"
+                                            className="flex flex-row border-black border-2 items-center py-1 md:py-2 px-3 md:px-5 hover:bg-pwxBlue hover:text-white hover:border-pwxBlue"
+                                            >
+                                            <CartIcon />
+
+                                            <span className="ml-2 text-base md:text-lg font-bold">BUY</span>
+                                            </button>                      
+                                    </Link>
+                                )}
+                                {node.urlBandcamp && (
+                                    <a href={node.urlBandcamp} target="_blank" rel="noreferrer" className="underline hover:text-pwxBlue pr-6">
+                                        <Bandcamp />            
+                                    </a>
+                                )}
+                                {node.urlListen && (
+                                    <a href={node.urlListen} target="_blank" rel="noreferrer" className=" col-start-2 underline hover:text-pwxBlue pr-6">
+                                        <Spotify />             
+                                    </a>
+                                )}
+                                {node.urlAppleMusic && (
+                                    <a href={node.urlAppleMusic} target="_blank" rel="noreferrer" className=" underline hover:text-pwxBlue pr-6">
+                                        <Apple />             
+                                    </a>
+                                )}
+                            </div>
+                  </div>
                   </div>
 
-                  <div className="hidden md:block col-span-1 pt-8">
-                    <p className="font-semibold px-5 pb-5">Tracklisting</p>
+                  <div className="hidden md:block col-span-1">
+                    <p className="font-semibold px-5 pb-3 underline">Tracklisting</p>
                   {node.tracklist.map(track => {
                     return (
                       <div className="">
-                        <p className="ml-5 py-2 text-sm">{track}</p>
+                        <p className="ml-5 mb-1 text-base">{track}</p>
                         </div>
                     )
                   } 
                     )}                      
                   </div>
 
-                  <div className="pt-8">
-                        <div className="pb-5">
-                          <h1 className="px-5 pb-5 font-semibold uppercase">Buy</h1>
 
-                        {node.format[0] === "Vinyl" && (
-                          <Link to={`/products/music/${node.slug}`} className="underline hover:text-pwxBlue mr-2 p-5">
-                              Vinyl             
-                          </Link>
-                          )}
-                          {node.urlBandcamp && (
-                          <a href={node.urlBandcamp} target="_blank" rel="noreferrer" className="underline hover:text-pwxBlue mr-2 p-5">
-                              Digital             
-                          </a>
-                      )}
-                      </div>
-                      <div className=" pb-5">
-                      <h1 className="p-5 font-semibold uppercase">Stream</h1>
-
-                                          {node.urlListen && (
-                              <a href={node.urlListen} target="_blank" rel="noreferrer" className="pt-2 underline hover:text-pwxBlue mr-2 p-5">
-                                  Spotify             
-                              </a>
-                          )}
-                          {node.urlAppleMusic && (
-                              <a href={node.urlAppleMusic} target="_blank" rel="noreferrer" className="pt-2 underline hover:text-pwxBlue mr-2 p-5">
-                                  Apple Music             
-                              </a>
-                          )}
-                      </div>
-                  </div>
 
               </div>
               </div>
@@ -113,7 +137,7 @@ export default Releases
 
 export const query = graphql`
 query Releases {
-  releases: allContentfulRelease(sort: {fields: releaseDate, order: DESC}) {
+  allContentfulRelease(sort: {fields: catalogNumber, order: DESC}) {
       nodes {
         id
         slug
@@ -132,6 +156,16 @@ query Releases {
         urlListen
         urlBandcamp
         cover {
+        localFile {
+          childImageSharp {
+            gatsbyImageData(
+              placeholder: NONE, 
+              formats: AUTO, 
+              layout: CONSTRAINED)
+          }
+        }
+      }
+      vinylMockup {
         localFile {
           childImageSharp {
             gatsbyImageData(

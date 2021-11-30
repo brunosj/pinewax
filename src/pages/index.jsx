@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import ReleasesLeft from "../components/releasesLeft"
@@ -12,19 +12,22 @@ const Homepage = ({ data }) => {
   
   return (
     <Layout>
-   <GatsbyImage
+   {/* <GatsbyImage
       loading="eager"
       alt="Pinewax"
       image={data.banner.localFile.childImageSharp.gatsbyImageData}
-        />   
+        />    */}
     <ReleasesLeft release={releaseOne}/>
-    <a href="https://youtu.be/-iuxHzLB7xM" target="_blank" rel="noreferrer" >
-    <GatsbyImage
-      loading="eager"
-      alt="Live Session"
-      image={data.live.localFile.childImageSharp.gatsbyImageData}
-        />   
-      </a>
+    <Link 
+      to={`/videos/${data.live.slug}`}
+      >
+        <GatsbyImage
+          loading="eager"
+          alt="Live Session"
+          image={data.live.image.localFile.childImageSharp.gatsbyImageData}
+          className="w-full"
+            />   
+      </Link>
     <ReleasesRight release={releaseTwo}/>
     <ReleasesLeft release={releaseThree}/>
     </Layout>
@@ -49,19 +52,24 @@ query Banner {
         }
       }
     }
-    live:contentfulAsset(title: {eq: "live_yasmin"}) {
+    live:contentfulVideo(slug: {eq: "livesession-yasminumay"}) {
       id
-      localFile {
-        childImageSharp {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            formats: WEBP
-            quality: 85
-            placeholder: NONE
-            transformOptions: {grayscale: true}
+      title
+      url
+      image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData (
+              layout: FULL_WIDTH
+              formats: WEBP
+              quality: 85
+              placeholder: NONE
+              transformOptions: {grayscale: true}
             )
+          }
         }
       }
+      slug
     }
   releases: allContentfulRelease(
           limit: 3, 
@@ -80,6 +88,14 @@ query Banner {
           twColourCode
           slug
           cover {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+            title
+          }
+          vinylMockup {
             localFile {
               childImageSharp {
                 gatsbyImageData

@@ -1,0 +1,5 @@
+.stroke {
+    -webkit-text-stroke: 1px black;
+    color: rgba(0, 0, 0, 0);
+
+}

@@ -91,7 +91,7 @@
 
 .selectVariant {
   background-color: var(--input-background);
-  border-radius: var(--radius-md);
+  /* border-radius: var(--radius-md); */
   cursor: pointer;
   /* margin-top: var(--space-md); */
   min-width: 12ch;

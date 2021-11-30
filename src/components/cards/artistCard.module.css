@@ -1,101 +1,118 @@
-.artistCard {
-    background-color: transparent;
-    width: 375px;
-    height: 375px;
-  }
-
-  .cardInner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-  }
-  
-  .cardFront {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    color: black;
-    display: flex;
-    overflow: hidden;
-
-  }
-
-  .cardFrontChild {
-      width: 100%;
-  }
-
-  .imgOverlay {
-      display: flex;
-      height: 100%;
-      width: 100%;
-      align-items: flex-end;
-  }
-
-  .imgOverlayText {
-      color: white;
-      font-size: 1rem;
-      font-weight: 700;
-  }
-
-    .cardBack {
-    display:none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #4349F6;
-    color: white;
-    text-align: center;
-  }
-
-  .cardBackText {
-    display:flex;
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    text-transform: uppercase;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: #4349F6;
-    color: white;
-    
-  }
-
-  .cardBackChild {
-    width: 100%;
+.artistGrid {
+	padding: 0;
+	list-style: none;
+	position: relative;
+	width: 100%;
 }
 
-  .artistCard:hover .cardFront {
-    visibility: hidden;
-    }   
+.artistCard {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	width: 16.6666667%; /* Fallback */
+	width: -webkit-calc(100% / 4);
+	width: calc(100% / 4);
+}
 
-    .artistCard:hover .cardBack {
-    display: block;
-    }
+.cardInner {
+	display: block;
+	width: 100%;
+	cursor: pointer;
+}
 
-    /* @media (min-width: 375px) {
-      .artistCard {
-        background-color: transparent;
-        width: 375px;
-        height: 375px;
-      }
-  } */
+.cardFront {
+	max-width: 100%;
+}
 
-    @media (min-width: 1081px) {
-      .artistCard {
-        background-color: transparent;
-        width: 444px;
-        height: 444px;
-      }
-  }
+.cardImg {
+  opacity:1;
+}
 
-    @media (min-width: 1900px) {
-      .artistCard {
-        background-color: transparent;
-        width: 477px;
-        height: 477px;
-      }
-    }
-  
+.cardBackImg {
+  opacity: 0;
+}
+
+/* Flexbox is used for centering the heading */
+.cardBack {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: flex;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+}
+
+.artistCard:hover .cardBack {
+	opacity: 1;
+}
+
+.artistCard:hover .cardImg {
+	opacity: 1;
+}
+
+.cardBackText {
+	width: 100%;
+	color: #fff;
+	text-transform: lowercase;
+  background-color: #4349F6;
+	font-size: 1.4em;
+	letter-spacing: 2px;
+	padding: 0 10px;
+}
+
+/* Example for media query: change number of items per row */
+
+@media screen and (max-width: 1190px) {
+	.artistCard{
+		width: 20%; /* Fallback */
+		width: -webkit-calc(100% / 5);
+		width: calc(100% / 5);
+	}
+}
+
+@media screen and (max-width: 945px) {
+	.artistCard{
+		width: 25%; /* Fallback */
+		width: -webkit-calc(100% / 4);
+		width: calc(100% / 4);
+	}
+}
+
+@media screen and (max-width: 660px) {
+	.artistCard{
+		width: 33.3333333%; /* Fallback */
+		width: -webkit-calc(100% / 3);
+		width: calc(100% / 3);
+	}
+}
+
+@media screen and (max-width: 660px) {
+	.artistCard{
+		width: 33.3333333%; /* Fallback */
+		width: -webkit-calc(100% / 3);
+		width: calc(100% / 3);
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.artistCard{
+		width: 50%; /* Fallback */
+		width: -webkit-calc(100% / 2);
+		width: calc(100% / 2);
+	}
+}
+
+@media screen and (max-width: 300px) {
+	.artistCard {
+		width: 100%;
+	}
+}

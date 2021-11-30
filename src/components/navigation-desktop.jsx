@@ -16,11 +16,11 @@ export function NavigationDesktop() {
   `)
 
   return (
-    <nav className="hidden md:flex ml-auto uppercase font-semibold tracking-wider">
+    <nav className="hidden md:flex ml-auto lowercase font-semibold tracking-wider font-faune">
       {data.site.siteMetadata.menu.map((link, key) => (
             <Link
               key={`menu_link${key}`}
-              className="block mr-3 lg:mr-6 hover:underline text-sm text-white"
+              className="block mr-3 lg:mr-10 hover:underline text-lg text-white"
               activeClassName="underline "
               to={link.to}
             >

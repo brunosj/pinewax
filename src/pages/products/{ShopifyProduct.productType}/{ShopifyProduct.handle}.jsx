@@ -30,6 +30,9 @@ import {
   metaSection,
   productDescription,
 } from "./product-page.module.css"
+import {
+  stroke,
+} from "../../../components/releasesInfo.module.css"
 
 export default function Product({ data: { product, suggestions, cms } }) {
   const {
@@ -145,7 +148,7 @@ export default function Product({ data: { product, suggestions, cms } }) {
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
           {hasImages && (
-            <div className="border-r border-grey20">
+            <div className="">
               <div
                 role="group"
                 aria-label="gallery"
@@ -186,13 +189,15 @@ export default function Product({ data: { product, suggestions, cms } }) {
 
           <div className="">
           <div className="mt-12 mx-5 md:mx-12 lg:pr-48">
-            <div className={breadcrumb}>
+            {/* <div className={breadcrumb}>
               <Link to={product.productTypeSlug}>Store</Link>
               <ChevronIcon size={12} />
-            </div>
-            <h1 className="text-2xl pt-4">{product.variants[0].sku}</h1>
-            <h1 className="text-2xl font-semibold leading-none">{tags}</h1>
-            <h1 className="text-2xl">{title}</h1>
+            </div> */}
+            <h1 className="text-xl font-bold pt-4 pb-3">{product.variants[0].sku}</h1>
+                        <p className="font-faune uppercase text-5xl"><span className={stroke}>{tags}</span>
+                        </p>
+                        <p className="font-faune uppercase text-5xl"><span className={stroke}>{title}</span>
+                        </p>
 
             {product.productType === "Merch" && (
               <p className="text-lg pt-12 pb-24">{description}</p>
@@ -227,13 +232,13 @@ export default function Product({ data: { product, suggestions, cms } }) {
             </fieldset>
 
             {product.productType === "Music" && (
-            <div className="">
+            <div className="text-xl">
               Vinyl
-              <span className="text-sm ml-3">{productCms[0].vinylVariant}</span>
+              <span className="text-base ml-3">{productCms[0].vinylVariant}</span>
 
             </div>
             )}
-            <div className="m-auto mr-3">
+            <div className="ml-auto mr-3">
               {price}
             </div>
             <div className="ml-auto mr-5 md:mr-12">

@@ -37,14 +37,13 @@ query Artists {
           }
         }
       }
-      duotone:picture {
+      pictureVariation {
         localFile {
           childImageSharp {
             gatsbyImageData(
               placeholder: NONE
               formats: WEBP
               layout:FULL_WIDTH
-              transformOptions: {duotone: {highlight: "#4349F6", shadow: "#4349F6", opacity: 80}}
               )
           }
         }

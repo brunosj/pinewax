@@ -16,11 +16,11 @@ export function NavigationMobile() {
   `)
 
   return (
-    <nav className="px-5 justify-between pt-2 pb-3 flex md:hidden ml-auto uppercase font-semibold tracking-wider">
+    <nav className="px-5 justify-between pt-2 pb-3 flex md:hidden ml-auto lowercase font-semibold tracking-wider font-faune">
       {data.site.siteMetadata.menu.map((link, key) => (
             <Link
               key={`menu_link${key}`}
-              className="block hover:underline text-xs"
+              className="block hover:underline text-base text-white"
               activeClassName="underline "
               to={link.to}
             >

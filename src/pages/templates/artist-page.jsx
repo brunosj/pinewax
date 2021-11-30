@@ -4,6 +4,9 @@ import { Layout } from "../../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+import {
+  stroke,
+} from "../../components/releasesInfo.module.css"
 
 const ArtistPage = ({ data }) => {  
 
@@ -21,7 +24,7 @@ const ArtistPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="border-t border-grey20 bg-white grid grid-cols-1 md:grid-cols-2">
+      <div className="bg-white grid grid-cols-1 md:grid-cols-2">
 
         <div>
           <GatsbyImage

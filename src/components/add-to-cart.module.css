@@ -5,7 +5,7 @@
   /* background-color: var(--primary); */
   align-self: flex-end;
   padding: var(--space-sm) var(--space-xl);
-  border-width: 1px;
+  border-width: 2px;
   border-color: black;
   font-weight: var(--bold);
   align-items: center;

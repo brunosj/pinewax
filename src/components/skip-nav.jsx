@@ -1,5 +1,8 @@
 import * as React from "react"
-import { navLink } from "./skip-nav.module.css"
+import {
+  navLink,
+  section,
+} from "./skip-nav.module.css"
 
 const defaultId = `skip-to-content`
 
@@ -24,7 +27,7 @@ export function SkipNavContent({ children, id: idProp, ...props }) {
   const id = idProp || defaultId
 
   return (
-    <main {...props} id={id} className="bg-grey10">
+    <main {...props} id={id} className={section}>
       {children}
     </main>
   )

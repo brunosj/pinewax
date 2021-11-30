@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'faune';
+    src: url('./fonts/Faune-TextRegular.ttf');
+    font-weight: 500;
+    font-style: normal;
+    }
+  
+  @font-face {
+    font-family: 'faune';
+    src: url('./fonts/Faune-TextItalic.ttf');
+    font-weight: 500;
+    font-style: italic;
+    }

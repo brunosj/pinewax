@@ -25,7 +25,7 @@ const Homepage = ({ data }) => {
           loading="eager"
           alt="Live Session"
           image={data.live.image.localFile.childImageSharp.gatsbyImageData}
-          className="w-full"
+          className="w-full h-full md:h-96"
             />   
       </Link>
     <ReleasesRight release={releaseTwo}/>
@@ -44,9 +44,9 @@ query Banner {
         childImageSharp {
           gatsbyImageData(
             layout: FULL_WIDTH
-            formats: WEBP
+            formats: AUTO
             quality: 85
-            placeholder: NONE
+            placeholder: BLURRED
             transformOptions: {grayscale: false}
           )
         }
@@ -61,9 +61,9 @@ query Banner {
           childImageSharp {
             gatsbyImageData (
               layout: FULL_WIDTH
-              formats: WEBP
+              formats: AUTO
               quality: 85
-              placeholder: NONE
+              placeholder: BLURRED
               transformOptions: {grayscale: true}
             )
           }

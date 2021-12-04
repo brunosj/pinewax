@@ -35,13 +35,13 @@ const ArtistCard = ({ artists }) => {
                               </div>
                 
                       <div className={cardBack}>
-                        <div className={cardBackImg}>
+                        {/* <div className={cardBackImg}>
                               <GatsbyImage 
                               loading="eager"
                               alt="Pinewax"
                               image={artist.pictureVariation.localFile.childImageSharp.gatsbyImageData}
                               />
-                              </div>
+                              </div> */}
                               <div className={cardBackText}>
                               {artist.name}          
                               </div>    

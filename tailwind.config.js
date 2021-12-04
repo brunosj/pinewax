@@ -41,6 +41,8 @@ module.exports = {
       erpel: "#000000",
       samba: "#FFFFFF",
       gaggia: "#B4C5DF",
+      saltwater: "#FFE639",
+      villain: "#AAA2C5",
     },
     borderWidth: {
       DEFAULT: '1px',

@@ -8,7 +8,7 @@ export default function Bandcamp() {
     query Bandcamp {
       file(relativePath: {eq: "bandcamp.png"}) {
             childImageSharp {
-              gatsbyImageData(formats: WEBP, height: 28, layout: CONSTRAINED)
+              gatsbyImageData(formats: AUTO, height: 28, layout: CONSTRAINED)
             }
           }
     }

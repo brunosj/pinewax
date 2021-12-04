@@ -25,9 +25,9 @@ query Radio {
         childImageSharp {
           gatsbyImageData(
             layout: CONSTRAINED
-            formats: WEBP
+            formats: AUTO
             quality: 85
-            placeholder: NONE
+            placeholder: BLURRED
           )
         }
       }

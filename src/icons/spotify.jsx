@@ -8,7 +8,7 @@ export default function Spotify() {
     query Spotify {
       file(relativePath: {eq: "spotify.png"}) {
             childImageSharp {
-              gatsbyImageData(formats: WEBP, height: 28, layout: CONSTRAINED)
+              gatsbyImageData(formats: AUTO, height: 28, layout: CONSTRAINED)
             }
           }
     }

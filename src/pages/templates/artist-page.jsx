@@ -24,7 +24,7 @@ const ArtistPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="bg-white grid grid-cols-1 md:grid-cols-2">
+      <div className="bg-grey10 grid grid-cols-1 md:grid-cols-2">
 
         <div>
           <GatsbyImage
@@ -40,9 +40,10 @@ const ArtistPage = ({ data }) => {
                 <p className="mt-8 md:mt-12 mb-8"> {data.artist.bio && renderRichText(data.artist.bio, richTextOptions)}</p>
           </div>
 
-          <div className="mt-auto border-t border-grey20 bg-grey10">
-            <div className="">
-              <h2 className="border-b border-grey20 py-5 text-xl font-semibold leading-none"><span className="ml-5 md:ml-12">Releases</span></h2>
+          {data.artist.releases && (
+          <div className="mt-auto border-t border-grey20">
+              
+              <div className=""><h2 className="border-b border-grey20 py-5 text-xl font-semibold leading-none"><span className="ml-5 md:ml-12">Releases</span></h2></div>
 
               <div className="ml-5 md:ml-12 mr-5 md:mr-12 flex flex-wrap md:justify-start justify-around">
                 {data.artist.releases.map(release => (
@@ -66,17 +67,14 @@ const ArtistPage = ({ data }) => {
                       <p className="font-bold">{release.releaseArtist}</p>
                         <p className="leading-none">{release.title}</p>
                         </div>
-                      
                     </div>
-
                   </div>
                   </Link>
                 </div>
                 ))}
               </div>
-
-              </div>
           </div>
+           )}
         
 
 
@@ -106,8 +104,8 @@ query ArtistPageQuery($slug: String) {
         localFile {
           childImageSharp {
             gatsbyImageData(
-              placeholder: NONE
-              formats: WEBP
+              placeholder: BLURRED
+              formats: AUTO
               aspectRatio: 1
               layout:FULL_WIDTH
               )

@@ -29,8 +29,8 @@ query Artists {
         localFile {
           childImageSharp {
             gatsbyImageData(
-              placeholder: NONE
-              formats: WEBP
+              placeholder: BLURRED
+              formats: AUTO
               layout:FULL_WIDTH
               transformOptions: {grayscale: true}
               )
@@ -41,8 +41,8 @@ query Artists {
         localFile {
           childImageSharp {
             gatsbyImageData(
-              placeholder: NONE
-              formats: WEBP
+              placeholder: BLURRED
+              formats: AUTO
               layout:FULL_WIDTH
               )
           }

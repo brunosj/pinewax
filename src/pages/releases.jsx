@@ -159,7 +159,7 @@ query Releases {
         localFile {
           childImageSharp {
             gatsbyImageData(
-              placeholder: NONE, 
+              placeholder: BLURRED, 
               formats: AUTO, 
               layout: CONSTRAINED)
           }
@@ -169,7 +169,7 @@ query Releases {
         localFile {
           childImageSharp {
             gatsbyImageData(
-              placeholder: NONE, 
+              placeholder: BLURRED, 
               formats: AUTO, 
               layout: CONSTRAINED)
           }

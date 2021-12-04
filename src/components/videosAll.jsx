@@ -15,8 +15,8 @@ const VideosAll = ({ className }) => {
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    placeholder: NONE
-                    formats: WEBP
+                    placeholder: BLURRED
+                    formats: AUTO
                     layout:FULL_WIDTH
                   )
                 }

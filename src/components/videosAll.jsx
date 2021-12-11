@@ -5,7 +5,7 @@ import VideoCard from "./cards/videoCard"
 const VideosAll = ({ className }) => {  
   const data = useStaticQuery(graphql`
     query VideosAll {
-      videos:allContentfulVideo {
+      videos:allContentfulVideo(sort: {fields: releaseDate, order: DESC}) {
           nodes {
             id
             title
@@ -34,6 +34,7 @@ const VideosAll = ({ className }) => {
             <VideoCard
             image={node.image.localFile.childImageSharp.gatsbyImageData}
             title={node.title}
+            textSize="text-lg md:text-2xl"
             slug={`/videos/${node.slug}`}/>
           )
         } 

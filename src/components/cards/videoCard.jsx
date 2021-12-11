@@ -10,7 +10,7 @@ import {
   cardImg,
 } from "./videoCard.module.css"
 
-const VideoCard = ({ image, title, slug }) => {  
+const VideoCard = ({ image, title, slug, textSize }) => {  
   return (
     <div className={videoCard}>
       <Link to={slug}>
@@ -31,7 +31,7 @@ const VideoCard = ({ image, title, slug }) => {
                               />
                               </div> */}
                               <div className={cardBackText}>
-                              {title}          
+                                <span className={textSize}>{title}</span>
                               </div>    
                       </div>
 

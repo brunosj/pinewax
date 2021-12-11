@@ -19,12 +19,13 @@ const Homepage = ({ data }) => {
       image={data.banner.localFile.childImageSharp.gatsbyImageData}
         />    */}
     <ReleasesLeft release={releaseOne}/>
-        <VideoCard
-            image={data.live.image.localFile.childImageSharp.gatsbyImageData}
-            title={data.live.title}
-            slug={`/videos/${data.live.slug}`}
-            />   
     <ReleasesRight release={releaseTwo}/>
+    <VideoCard
+        image={data.live.image.localFile.childImageSharp.gatsbyImageData}
+        title={data.live.title}
+        textSize="text-3xl lg:text-4xl"
+        slug={`/videos/${data.live.slug}`}
+        />   
     <ReleasesLeft release={releaseThree}/>
     </Layout>
   )

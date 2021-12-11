@@ -4,6 +4,7 @@ import { Layout } from "../../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+import VideoCard from "../../components/cards/videoCard"
 import {
   stroke,
 } from "../../components/releasesInfo.module.css"
@@ -75,16 +76,28 @@ const ArtistPage = ({ data }) => {
               </div>
           </div>
            )}
-        
-
-
-
-
-      
+ 
+ 
       
       </div>
 
       </div>
+      {data.artist.videos && (
+              <div className="">
+                {/* <div className=""><h2 className="border-b border-grey20 py-5 text-xl font-semibold leading-none"><span className="ml-5 md:ml-12">Videos</span></h2></div> */}
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                {data.artist.videos.map(node => {
+                    return (
+                      <VideoCard
+                      image={node.image.localFile.childImageSharp.gatsbyImageData}
+                      title={node.title}
+                      textSize="text-sm md:text-xl"
+                      slug={`/videos/${node.slug}`}/>
+                    )
+                })}
+                </div>
+              </div>
+           )}
     </Layout>
   )
 }
@@ -132,6 +145,17 @@ query ArtistPageQuery($slug: String) {
         shopifyProduct
         urlBuy
         urlListen
+      }
+      videos {
+        title
+        slug
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
       }
   }
 }

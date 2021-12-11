@@ -53,7 +53,9 @@ query Artists {
         cover {
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(
+                placeholder: BLURRED
+              )
             }
           }
         }

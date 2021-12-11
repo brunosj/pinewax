@@ -47,9 +47,9 @@
 	color: #fff;
 	text-transform: lowercase;
     background-color: #4349F6;
-	font-size: 1.4em;
 	letter-spacing: 2px;
-	padding: 0 10px;
+	padding: 1rem 3rem;
+	line-height: 1;
 }
 
 .videoCard:hover {

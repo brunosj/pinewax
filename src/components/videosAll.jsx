@@ -1,7 +1,6 @@
 import * as React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import Video from "./video"
-import { GatsbyImage } from "gatsby-plugin-image"
+import VideoCard from "./cards/videoCard"
 
 const VideosAll = ({ className }) => {  
   const data = useStaticQuery(graphql`
@@ -29,23 +28,17 @@ const VideosAll = ({ className }) => {
   `)
 
   return (
-    <nav className="grid grid-cols-2">
+    <div className="grid grid-cols-2">
         {data.videos.nodes.map(node => {
           return (
-            <Link 
-                to={`/videos/${node.slug}`}>
-                <GatsbyImage
-                  loading="eager"
-                  alt="Live Session"
-                  image={node.image.localFile.childImageSharp.gatsbyImageData}
-                  className="w-full"
-                />  
-            </Link>
-
+            <VideoCard
+            image={node.image.localFile.childImageSharp.gatsbyImageData}
+            title={node.title}
+            slug={`/videos/${node.slug}`}/>
           )
         } 
-          )} 
-    </nav>
+          )}
+    </div>
   )
 }
 

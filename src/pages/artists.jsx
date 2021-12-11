@@ -32,7 +32,7 @@ query Artists {
               placeholder: BLURRED
               formats: AUTO
               layout:FULL_WIDTH
-              transformOptions: {grayscale: true}
+              transformOptions: {grayscale: false}
               )
           }
         }

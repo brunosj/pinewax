@@ -2,15 +2,12 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
+import BackgroundSection from "../components/cards/backgImage"
 
 const Radio = ({ data }) => {  
   return (
     <Layout>
-   <GatsbyImage
-      loading="eager"
-      alt="Pinewax"
-      image={data.banner.localFile.childImageSharp.gatsbyImageData}
-        />   
+      <BackgroundSection />
     </Layout>
   )
 }

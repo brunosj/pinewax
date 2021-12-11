@@ -4,6 +4,7 @@ import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import ReleasesLeft from "../components/releasesLeft"
 import ReleasesRight from "../components/releasesRight"
+import VideoCard from "../components/cards/videoCard"
 
 const Homepage = ({ data }) => {  
   const releaseOne = data.releases.nodes[0]
@@ -18,16 +19,11 @@ const Homepage = ({ data }) => {
       image={data.banner.localFile.childImageSharp.gatsbyImageData}
         />    */}
     <ReleasesLeft release={releaseOne}/>
-    <Link 
-      to={`/videos/${data.live.slug}`}
-      >
-        <GatsbyImage
-          loading="eager"
-          alt="Live Session"
-          image={data.live.image.localFile.childImageSharp.gatsbyImageData}
-          className="w-full h-full md:h-96"
+        <VideoCard
+            image={data.live.image.localFile.childImageSharp.gatsbyImageData}
+            title={data.live.title}
+            slug={`/videos/${data.live.slug}`}
             />   
-      </Link>
     <ReleasesRight release={releaseTwo}/>
     <ReleasesLeft release={releaseThree}/>
     </Layout>
@@ -64,7 +60,7 @@ query Banner {
               formats: AUTO
               quality: 85
               placeholder: BLURRED
-              transformOptions: {grayscale: true}
+              transformOptions: {grayscale: false}
             )
           }
         }
@@ -90,7 +86,9 @@ query Banner {
           cover {
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(
+                  placeholder: BLURRED
+                )
               }
             }
             title
@@ -98,7 +96,9 @@ query Banner {
           vinylMockup {
             localFile {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(
+                  placeholder: BLURRED
+                )
               }
             }
             title

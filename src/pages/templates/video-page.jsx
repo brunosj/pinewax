@@ -1,7 +1,6 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { Layout } from "../../components/layout"
-import { GatsbyImage } from "gatsby-plugin-image"
 import Video from "../../components/video"
 import VideosAll from "../../components/videosAll"
 import {

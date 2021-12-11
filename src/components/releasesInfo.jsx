@@ -19,7 +19,7 @@ console.log(formats)
             {/* <h1 className="">
             {release.catalogNumber}
             </h1> */}
-            <div className="text-3xl md:text-5xl font-faune uppercase">
+            <div className="text-3xl md:text-5xl font-bold font-faune uppercase">
                 <h1 className="">
                     <span className={stroke}>{release.releaseArtist}</span>
                 </h1>

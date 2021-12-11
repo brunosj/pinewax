@@ -43,6 +43,7 @@ module.exports = {
       gaggia: "#B4C5DF",
       saltwater: "#FFE639",
       villain: "#AAA2C5",
+      iboWhite: "#F898A2",
     },
     borderWidth: {
       DEFAULT: '1px',

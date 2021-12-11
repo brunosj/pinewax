@@ -2,12 +2,10 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
-import BackgroundSection from "../components/cards/backgImage"
 
 const Radio = ({ data }) => {  
   return (
     <Layout>
-      <BackgroundSection />
     </Layout>
   )
 }

@@ -19,12 +19,12 @@ console.log(formats)
             {/* <h1 className="">
             {release.catalogNumber}
             </h1> */}
-            <div className="text-3xl md:text-5xl font-bold font-faune uppercase">
-                <h1 className="">
+            <div className="font-faune">
+                <h1 className="text-3xl md:text-5xl font-bold uppercase">
                     <span className={stroke}>{release.releaseArtist}</span>
                 </h1>
                 <h1 className="pt-1">
-                <span className={stroke}> {release.title}</span>
+                <span className="text-2xl md:text-4xl font-normal"> {release.title}</span>
                 </h1>
             </div>
             <div className="pt-10 w-full ">
@@ -34,11 +34,11 @@ console.log(formats)
                             <Link to={`/products/music/${release.slug}`}>
                                     <button
                                     type="submit"
-                                    className="flex flex-row border-black border-2 items-center py-1 md:py-2 px-3 md:px-5 hover:bg-black hover:text-white"
+                                    className="flex flex-row border-black border items-center py-1 md:py-2 px-3 md:px-5 hover:bg-black hover:text-white"
                                     >
                                     <CartIcon />
 
-                                    <span className="ml-2 text-base md:text-lg font-bold">BUY</span>
+                                    <span className="ml-2 text-sm md:text-lg font-semibold">BUY</span>
                                     </button>                      
                              </Link>
                         )}

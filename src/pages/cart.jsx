@@ -66,7 +66,7 @@ export default function CartPage() {
               </div>
             
             <div className="grid grid-cols-6 text-base md:text-lg font-semibold">
-                  <div className="col-start-4  col-span-2 border-b border-grey20 py-2">Subtotal</div>
+                  <div className="col-start-3 md:col-start-4 col-span-2 border-b border-grey20 py-2">Subtotal</div>
                   <div className="border-b border-grey20 py-2 col-span-2 md:col-span-1 text-right ">
                     {formatPrice(
                       checkout.subtotalPriceV2.currencyCode,
@@ -83,9 +83,9 @@ export default function CartPage() {
                     )}
                   </div>
                 </div> */}
-                  <div className="col-start-4  col-span-2 border-b border-grey20 py-2">Shipping</div>
-                  <div className="border-b border-grey20 py-2 col-span-2 md:col-span-1 text-right">Calculated at checkout</div>
-                  <div className="col-start-4  col-span-2 py-2">Total Price</div>
+                  <div className="col-start-3 md:col-start-4  col-span-2 border-b border-grey20 py-2">Shipping</div>
+                  <div className="border-b border-grey20 py-2 font-normal col-span-2 md:col-span-1 text-right">Calculated at checkout</div>
+                  <div className="col-start-3 md:col-start-4  col-span-2 py-2">Total Price</div>
                   <div className="col-span-2 md:col-span-1 text-right py-2">
                     {formatPrice(
                       checkout.totalPriceV2.currencyCode,

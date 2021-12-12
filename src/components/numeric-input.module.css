@@ -60,43 +60,4 @@
 }
 
 /* On mobile, make the buttons easier to press */
-@media (pointer: coarse) {
-  .wrap {
-    grid-template-columns: var(--size-input) 1fr var(--size-input);
-    grid-template-areas: "decrement input increment";
-    color: var(--input-color);
-  }
 
-  .input {
-    text-align: center;
-    border-width: 0 1px;
-  }
-
-  .wrap button {
-    padding: 0 var(--space-md);
-    font-size: var(--text-lg);
-    font-weight: var(--bold);
-  }
-
-  .wrap button span {
-    display: inline;
-  }
-
-  .wrap button svg {
-    display: none;
-  }
-
-  .wrap button.increment {
-    border: none;
-  }
-
-  .wrap button:active {
-    background-color: var(--input-background-hover);
-    color: var(--input-ui-active);
-  }
-
-  .wrap button:hover {
-    background-color: inherit;
-    color: inherit;
-  }
-}

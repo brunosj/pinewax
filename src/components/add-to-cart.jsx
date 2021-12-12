@@ -21,7 +21,7 @@ export function AddToCart({ variantId, quantity, available, ...props }) {
     >
       <CartIcon />
 
-      <span className="ml-2">{available ? "BUY" : "Out of Stock"}</span>
+      <span className="ml-2 text-sm md:text-lg font-semibold">{available ? "BUY" : "Out of Stock"}</span>
     </button>
   )
 }

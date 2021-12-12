@@ -188,23 +188,23 @@ export default function Product({ data: { product, suggestions, cms } }) {
           )}
 
           <div className="">
-          <div className="mt-12 mx-5 md:mx-12 lg:pr-48">
+          <div className="mt-6 md:mt-12 mx-5 md:mx-12 lg:pr-48">
             {/* <div className={breadcrumb}>
               <Link to={product.productTypeSlug}>Store</Link>
               <ChevronIcon size={12} />
             </div> */}
-            <h1 className="text-xl font-bold pt-4 pb-3">{product.variants[0].sku}</h1>
-                        <p className="font-faune uppercase text-5xl"><span className={stroke}>{tags}</span>
+            <h1 className="text-sm md:text-lg font-bold pt-4 pb-3 ">{product.variants[0].sku}</h1>
+                        <p className="font-faune uppercase text-3xl md:text-5xl"><span className={stroke}>{tags}</span>
                         </p>
-                        <p className="font-faune uppercase text-5xl"><span className={stroke}>{title}</span>
+                        <p className="font-faune font-normal text-2xl md:text-4xl"><span className="">{title}</span>
                         </p>
 
             {product.productType === "Merch" && (
-              <p className="text-lg pt-12 pb-24">{description}</p>
+              <p className="text-lg pt-6 md:pt-12 pb-12 md:pb-24">{description}</p>
             )}
 
             {product.productType === "Music" && (
-            <div className="pt-12 pb-12">
+            <div className="pt-6 md:pt-12 pb-3 md:pb-12">
               {productCms[0].description && renderRichText(productCms[0].description, richTextOptions)}
             </div>
             )}

@@ -33,9 +33,9 @@ const ReleasesChild = ({ releases }) => {
                 <div className="grid grid-cols-1 md:grid-cols-3 bg-grey10">
                     <div className="text-xl pl-5 md:pl-12 p-5 ">
                         <p className="text-sm md:text-lg font-bold pb-3">{node.catalogNumber}</p>
-                        <p className="font-faune uppercase text-3xl md:text-4xl"><span className={stroke}>{node.releaseArtist}</span>
+                        <p className="font-faune uppercase text-3xl md:text-5xl"><span className={stroke}>{node.releaseArtist}</span>
                         </p>
-                        <p className="font-faune uppercase text-3xl md:text-4xl"><span className={stroke}>{node.title}</span>
+                        <p className="font-faune font-normal text-2xl md:text-4xl"><span className="">{node.title}</span>
                         </p>
                     </div>
                 </div>
@@ -75,11 +75,11 @@ const ReleasesChild = ({ releases }) => {
                                     <Link to={`/products/music/${node.slug}`} className="pr-6">
                                             <button
                                             type="submit"
-                                            className="flex flex-row border-black border-2 items-center py-1 md:py-2 px-3 md:px-5 hover:bg-pwxBlue hover:text-white hover:border-pwxBlue"
+                                            className="flex flex-row border-black border items-center py-1 md:py-2 px-3 md:px-5 hover:bg-pwxBlue hover:text-white hover:border-pwxBlue"
                                             >
                                             <CartIcon />
 
-                                            <span className="ml-2 text-base md:text-lg font-bold">BUY</span>
+                                            <span className="ml-2 text-sm md:text-lg font-semibold">BUY</span>
                                             </button>                      
                                     </Link>
                                 )}

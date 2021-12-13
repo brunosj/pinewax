@@ -7,6 +7,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { StoreContext } from "../../../context/store-context"
 import { AddToCart } from "../../../components/add-to-cart"
+import { AddToCartVinyl } from "../../../components/add-to-cartVinyl"
 import { NumericInput } from "../../../components/numeric-input"
 import { formatPrice } from "../../../utils/format-price"
 import { Seo } from "../../../components/seo"
@@ -32,6 +33,8 @@ import {
 } from "./product-page.module.css"
 import {
   stroke,
+  buyButton,
+  icon,
 } from "../../../components/releasesInfo.module.css"
 
 export default function Product({ data: { product, suggestions, cms } }) {
@@ -241,6 +244,8 @@ export default function Product({ data: { product, suggestions, cms } }) {
             <div className="ml-auto mr-3">
               {price}
             </div>
+
+            {product.productType === "Music" && (
             <div className="ml-auto mr-5 md:mr-12">
               {/* <NumericInput
                 aria-label="Quantity"
@@ -250,13 +255,32 @@ export default function Product({ data: { product, suggestions, cms } }) {
                 value={quantity}
                 min="1"
                 max="20"
-              /> */}
+              /> */}  
+              <AddToCartVinyl
+                variantId={productVariant.storefrontId}
+                quantity={quantity}
+                available={available}
+              />
+            </div>
+            )}
+            {product.productType !== "Music" && (
+            <div className="ml-auto mr-5 md:mr-12">
+              {/* <NumericInput
+                aria-label="Quantity"
+                onIncrement={() => setQuantity((q) => Math.min(q + 1, 20))}
+                onDecrement={() => setQuantity((q) => Math.max(1, q - 1))}
+                onChange={(event) => setQuantity(event.currentTarget.value)}
+                value={quantity}
+                min="1"
+                max="20"
+              /> */}  
               <AddToCart
                 variantId={productVariant.storefrontId}
                 quantity={quantity}
                 available={available}
               />
             </div>
+            )}
           </div>
             {/* <div className={metaSection}>
               <span className={labelFont}>Type</span>

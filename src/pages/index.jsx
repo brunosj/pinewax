@@ -23,7 +23,7 @@ const Homepage = ({ data }) => {
     <VideoCard
         image={data.live.image.localFile.childImageSharp.gatsbyImageData}
         title={data.live.title}
-        textSize="text-3xl lg:text-4xl"
+        textSize="text-lg lg:text-4xl"
         slug={`/videos/${data.live.slug}`}
         />   
     <ReleasesLeft release={releaseThree}/>

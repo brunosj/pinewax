@@ -53,6 +53,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
+    },
+    {
       // This website relies on Contentful as main CMS. In some cases, content is rendered using the rich-text-react-renderer (https://github.com/contentful/rich-text/tree/master/packages/rich-text-react-renderer)
         resolve: `gatsby-source-contentful`,
         options: contentfulConfig,

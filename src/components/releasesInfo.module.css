@@ -1,5 +1,20 @@
 .stroke {
     -webkit-text-stroke: 1px black;
     color: rgba(0, 0, 0, 0);
-
 }
+
+.buyButton {
+    display:flex;
+    justify-content: space-around;
+}
+
+.buyButton:hover .icon {
+    fill: white;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill:black;
+}
+

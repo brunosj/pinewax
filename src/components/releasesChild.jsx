@@ -8,8 +8,11 @@ import Bandcamp from "../icons/bandcamp"
 import Spotify from "../icons/spotify"
 import Apple from "../icons/applemusic"
 import CartIcon from "../icons/cart"
+import Record from "../assets/vinyl.svg";
 import {
   stroke,
+  buyButton,
+  icon,
 } from "../components/releasesInfo.module.css"
 
 const ReleasesChild = ({ releases }) => {  
@@ -72,16 +75,20 @@ const ReleasesChild = ({ releases }) => {
                       <div className="pt-6">
                           <div className="flex items-center">
                                 {node.vinylMockup && (
+                                  <div className={buyButton}>
                                     <Link to={`/products/music/${node.slug}`} className="pr-6">
                                             <button
                                             type="submit"
                                             className="flex flex-row border-black border items-center py-1 md:py-2 px-3 md:px-5 hover:bg-pwxBlue hover:text-white hover:border-pwxBlue"
                                             >
-                                            <CartIcon />
+                                              <svg className={icon}>
+                                            <Record />
+                                            </svg>
 
                                             <span className="ml-2 text-sm md:text-lg font-semibold">BUY</span>
                                             </button>                      
                                     </Link>
+                                    </div>
                                 )}
                                 {node.urlBandcamp && (
                                     <a href={node.urlBandcamp} target="_blank" rel="noreferrer" className="underline hover:text-pwxBlue pr-6">
@@ -89,7 +96,7 @@ const ReleasesChild = ({ releases }) => {
                                     </a>
                                 )}
                                 {node.urlListen && (
-                                    <a href={node.urlListen} target="_blank" rel="noreferrer" className=" col-start-2 underline hover:text-pwxBlue pr-6">
+                                    <a href={node.urlListen} target="_blank" rel="noreferrer" className=" col-start-2 underline hover:text-pwxBlue pr-6 mt-1">
                                         <Spotify />             
                                     </a>
                                 )}

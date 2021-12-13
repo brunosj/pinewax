@@ -5,7 +5,7 @@ import { addToCart as addToCartStyle, icon }
 import CartIcon from "../icons/cart"
 import Record from "../assets/vinyl.svg";
 
-export function AddToCart({ variantId, quantity, available, ...props }) {
+export function AddToCartVinyl({ variantId, quantity, available, ...props }) {
   const { addVariantToCart, loading } = React.useContext(StoreContext)
 
   function addToCart(e) {
@@ -21,9 +21,7 @@ export function AddToCart({ variantId, quantity, available, ...props }) {
       disabled={!available || loading}
       {...props}
     >
-      
-      <CartIcon />
-      {/* <svg className={icon}><Record /></svg> */}
+    <svg className={icon}><Record /></svg>
 
       <span className="ml-2 text-sm md:text-lg font-semibold">{available ? "BUY" : "Out of Stock"}</span>
     </button>

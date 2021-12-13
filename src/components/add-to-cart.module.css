@@ -19,3 +19,13 @@
   color: white;
   border-color:white;
 }
+
+.addToCart:hover .icon {
+  fill: white;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill:black;
+}

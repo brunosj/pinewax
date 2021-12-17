@@ -26,9 +26,9 @@ module.exports = {
       // { name: "DJs", to: "/djs" },
     ],
     links: [
-      { name: "Spotify", to: "https://open.spotify.com/user/wqjrhoph2kzp7au7kysbu8spy" },
       { name: "Instagram", to: "https://www.instagram.com/pinewaxrecords" },
       { name: "YouTube", to: "https://www.youtube.com/c/Pinewaxrecords" },
+      { name: "Spotify", to: "https://open.spotify.com/user/wqjrhoph2kzp7au7kysbu8spy" },
       { name: "Facebook", to: "https://www.facebook.com/pinewaxrecords" },
       ]
     },

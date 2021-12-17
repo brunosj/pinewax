@@ -1,13 +1,6 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { renderRichText } from "gatsby-source-contentful/rich-text"
-import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
-import Bandcamp from "../icons/bandcamp"
-import Spotify from "../icons/spotify"
-import Apple from "../icons/applemusic"
-import CartIcon from "../icons/cart"
 import ReleasesChild from "../components/releasesChild"
 import {
   stroke,
@@ -15,19 +8,7 @@ import {
 
 const Releases = ({ data }) => {  
 
-  const richTextOptions = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base pb-3">{children}</div>,
-      [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">{children}</div>,
-      [BLOCKS.HEADING_2]: (node, children) => <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">{children}</div>,
-      [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc">{children}</ul>,
-      [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 pb-0">{children}</ol>,
-
-    },
-  }
-
-
-  return (
+ return (
     <Layout>
       <section className="bg-grey10">
       <ReleasesChild releases={data.albums.nodes} />
@@ -49,7 +30,7 @@ query Releases {
         slug
         title
         releaseArtist
-        releaseDate(formatString: "D.MM.YYYY")
+        releaseDate(formatString: "D MMMM YYYY")
         catalogNumber
         format
         tracklist
@@ -89,7 +70,7 @@ query Releases {
         slug
         title
         releaseArtist
-        releaseDate(formatString: "D.MM.YYYY")
+        releaseDate(formatString: "D MMMM YYYY")
         catalogNumber
         format
         tracklist

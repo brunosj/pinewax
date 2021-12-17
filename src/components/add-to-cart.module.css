@@ -1,23 +1,15 @@
 .addToCart {
+  background: rgba(0, 0, 0, 0.05);
   display: flex;
-  flex-direction: row;
-  /* color: var(--text-color-inverted); */
-  /* background-color: var(--primary); */
-  align-self: flex-end;
-  padding: var(--space-sm) var(--space-xl);
-  border-width: 1px;
-  border-color: black;
-  font-weight: var(--bold);
   align-items: center;
-  height: var(--size-input);
-  justify-content: center;
-  transition: var(--transition);
+  padding: 0.5rem;
+  color:black;
+  border-radius: 4px;
 }
 
 .addToCart:hover {
-  background-color: #4349F6;
   color: white;
-  border-color:white;
+  background:rgba(0, 0, 0, 1)
 }
 
 .addToCart:hover .icon {

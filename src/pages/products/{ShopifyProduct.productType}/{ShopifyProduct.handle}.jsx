@@ -8,6 +8,10 @@ import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { StoreContext } from "../../../context/store-context"
 import { AddToCart } from "../../../components/add-to-cart"
 import { AddToCartVinyl } from "../../../components/add-to-cartVinyl"
+import ReleaseIcon from "../../../icons/releaseIcon"
+import { FaSpotify, FaApple } from 'react-icons/fa';
+import { SiTidal, SiBandcamp } from 'react-icons/si';
+import { BsFillVinylFill } from 'react-icons/bs';
 import { NumericInput } from "../../../components/numeric-input"
 import { formatPrice } from "../../../utils/format-price"
 import { Seo } from "../../../components/seo"
@@ -209,7 +213,31 @@ export default function Product({ data: { product, suggestions, cms } }) {
             {product.productType === "Music" && (
             <div className="pt-6 md:pt-12 pb-3 md:pb-12">
               {productCms[0].description && renderRichText(productCms[0].description, richTextOptions)}
+
+              <div className="flex items-center pt-6 gap-5">
+                         {productCms[0].urlBandcamp && (
+                             <ReleaseIcon 
+                                url={productCms[0].urlBandcamp}
+                                icon={<SiBandcamp/>}
+                                text="Bandcamp" />
+                        )}
+                        {productCms[0].urlListen && (
+                            <ReleaseIcon 
+                            url={productCms[0].urlListen}
+                            icon={<FaSpotify/>}
+                            text="Spotify" />
+                        )}
+                        {productCms[0].urlAppleMusic && (
+                            <ReleaseIcon 
+                            url={productCms[0].urlListen}
+                            icon={<FaApple/>}
+                            text="Apple Music" />
+                        )}
+
+                        </div>
+
             </div>
+            
             )}
           </div>
 
@@ -360,6 +388,9 @@ export const query = graphql`
         title
         format
         vinylVariant
+        urlAppleMusic
+        urlListen
+        urlBandcamp
         shopifyProduct
         description {
           raw

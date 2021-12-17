@@ -5,6 +5,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import VideoCard from "../../components/cards/videoCard"
+import ReleaseCard from "../../components/cards/releaseCard"
 import {
   stroke,
 } from "../../components/releasesInfo.module.css"
@@ -47,32 +48,7 @@ const ArtistPage = ({ data }) => {
               <div className=""><h2 className="border-b border-grey20 py-5 text-xl font-semibold leading-none"><span className="ml-5 md:ml-12">Releases</span></h2></div>
 
               <div className="ml-5 md:ml-12 mr-5 md:mr-12 flex flex-wrap md:justify-start justify-around">
-                {data.artist.releases.map(release => (
-                <div className="flex my-6 md:my-12 mr-2 md:mr-8 ">
-                <Link
-                  to={`/releases#${release.slug}`}
-                  >
-                  <div className="flex flex-col items-center">
-
-                    <div className="">
-                      <div className="w-40 h-40 transform transition duration-300 ease-in-out scale-100 hover:scale-90">
-                  <GatsbyImage 
-                    loading="eager"
-                    alt={release.title}
-                    image={release.cover.localFile.childImageSharp.gatsbyImageData} />
-                    </div>
-                    </div>
-
-                    <div className="flex col-span-2 flex-col text-center mt-5">
-                      <div className="">
-                      <p className="font-bold">{release.releaseArtist}</p>
-                        <p className="leading-none">{release.title}</p>
-                        </div>
-                    </div>
-                  </div>
-                  </Link>
-                </div>
-                ))}
+                  <ReleaseCard releases={data.artist.releases} />
               </div>
           </div>
            )}
@@ -85,17 +61,32 @@ const ArtistPage = ({ data }) => {
       {data.artist.videos && (
               <div className="">
                 {/* <div className=""><h2 className="border-b border-grey20 py-5 text-xl font-semibold leading-none"><span className="ml-5 md:ml-12">Videos</span></h2></div> */}
-                <div className="grid grid-cols-1 md:grid-cols-2">
-                {data.artist.videos.map(node => {
-                    return (
-                      <VideoCard
-                      image={node.image.localFile.childImageSharp.gatsbyImageData}
-                      title={node.title}
-                      textSize="text-sm md:text-xl"
-                      slug={`/videos/${node.slug}`}/>
-                    )
-                })}
-                </div>
+
+                {data.artist.videos.length > 1 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2">
+                    {data.artist.videos.map(node => {
+                        return (
+                          <VideoCard
+                          image={node.image.localFile.childImageSharp.gatsbyImageData}
+                          title={node.title}
+                          textSize="text-sm md:text-xl"
+                          slug={`/videos/${node.slug}`}/>
+                        )
+                    })}
+                    </div>
+                )}
+                {data.artist.videos.length == 1 && (
+                    <div className="">
+                          <VideoCard
+                          image={data.artist.videos[0].image.localFile.childImageSharp.gatsbyImageData}
+                          title={data.artist.videos[0].title}
+                          textSize="text-sm md:text-xl"
+                          slug={`/videos/${data.artist.videos[0].slug}`}/>
+      
+                    </div>
+                )}
+ 
+ 
               </div>
            )}
     </Layout>
@@ -141,10 +132,21 @@ query ArtistPageQuery($slug: String) {
         description {
           raw
         }
+        vinylMockup {
+        localFile {
+          childImageSharp {
+            gatsbyImageData(
+              placeholder: BLURRED, 
+              formats: AUTO, 
+              layout: CONSTRAINED)
+          }
+        }
+      }
         releaseDate
         shopifyProduct
-        urlBuy
+        urlAppleMusic
         urlListen
+        urlBandcamp
       }
       videos {
         title

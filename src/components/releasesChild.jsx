@@ -1,14 +1,12 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
-import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
-import Bandcamp from "../icons/bandcamp"
-import Spotify from "../icons/spotify"
-import Apple from "../icons/applemusic"
-import CartIcon from "../icons/cart"
-import Record from "../assets/vinyl.svg";
+import { FaSpotify, FaApple } from 'react-icons/fa';
+import { SiTidal, SiBandcamp } from 'react-icons/si';
+import { BsFillVinylFill } from 'react-icons/bs';
+import ReleaseIcon from "../icons/releaseIcon"
+import VinylIcon from "../icons/vinylIcon"
 import {
   stroke,
   buyButton,
@@ -30,15 +28,15 @@ const ReleasesChild = ({ releases }) => {
 
     return (
         <div className="">
-            {releases.map(node => {
+            {releases.map(release => {
             return (
-              <div className="border-t border-grey20 pt-5 pb-3 md:pb-8" id={node.slug}>         
+              <div className="border-t border-grey20 pt-5 pb-3 md:pb-8" id={release.slug}>         
                 <div className="grid grid-cols-1 md:grid-cols-3 bg-grey10">
                     <div className="text-xl pl-5 md:pl-12 p-5 ">
-                        <p className="text-sm md:text-lg font-bold pb-3">{node.catalogNumber}</p>
-                        <p className="font-faune uppercase text-3xl md:text-5xl"><span className={stroke}>{node.releaseArtist}</span>
+                        <p className="text-sm md:text-lg font-bold pb-3">{release.catalogNumber}</p>
+                        <p className="font-faune uppercase text-3xl md:text-4xl"><span className={stroke}>{release.releaseArtist}</span>
                         </p>
-                        <p className="font-faune font-normal text-2xl md:text-4xl"><span className="">{node.title}</span>
+                        <p className="font-faune font-normal text-2xl md:text-3xl"><span className="">{release.title}</span>
                         </p>
                     </div>
                 </div>
@@ -46,21 +44,21 @@ const ReleasesChild = ({ releases }) => {
                 <div className="grid grid-cols-1 md:grid-cols-3">
 
                   <div className="flex items-center md:justify-center px-5 md:px-0">
-                  {node.vinylMockup && (
+                  {release.vinylMockup && (
                     <div className="w-40 h-40 md:w-60 md:h-60">
                     <GatsbyImage
                           loading="eager"
                           alt="Pinewax"
-                          image={node.vinylMockup.localFile.childImageSharp.gatsbyImageData}
+                          image={release.vinylMockup.localFile.childImageSharp.gatsbyImageData}
                             />   
                     </div>
                   )}
-                  {!node.vinylMockup && (
+                  {!release.vinylMockup && (
                     <div className="w-32 h-32 md:w-48 md:h-48">
                       <GatsbyImage
                             loading="eager"
                             alt="Pinewax"
-                            image={node.cover.localFile.childImageSharp.gatsbyImageData}
+                            image={release.cover.localFile.childImageSharp.gatsbyImageData}
                               />   
                       </div>
                   )}
@@ -68,53 +66,68 @@ const ReleasesChild = ({ releases }) => {
 
                   <div className="md:pt-0 flex flex-col p-5 md:p-0">
                       <div className="w-full pr-0 md:pr-20">
-                        {node.description && renderRichText(node.description, richTextOptions)}
+                        {release.description && renderRichText(release.description, richTextOptions)}
                         </div>
-                      <div className="py-2 md:py-5 w-full font-semibold">Release date: <span className="font-normal">{node.releaseDate}</span>
+                      
+                      <div className="flex flex-wrap items-end text-sm">
+                          <div className="pt-2 md:pt-5 w-1/4 font-semibold text-grey50">Release date
+                          </div>
+                          <div className="w-3/4">
+                                {release.releaseDate}
+                          </div>
+                          <div className="w-1/4 font-semibold text-grey50">
+                            Formats
+                          </div>
+                          <div className="w-3/4">
+                            {release.format[0]} 
+                            {release.format[1] && (
+                              <span> / {release.format[1]}</span>
+                            )}</div>
                       </div>
-                      <div className="pt-6">
-                          <div className="flex items-center">
-                                {node.vinylMockup && (
-                                  <div className={buyButton}>
-                                    <Link to={`/products/music/${node.slug}`} className="pr-6">
-                                            <button
-                                            type="submit"
-                                            className="flex flex-row border-black border items-center py-1 md:py-2 px-3 md:px-5 hover:bg-pwxBlue hover:text-white hover:border-pwxBlue"
-                                            >
-                                              <svg className={icon}>
-                                            <Record />
-                                            </svg>
 
-                                            <span className="ml-2 text-sm md:text-lg font-semibold">BUY</span>
-                                            </button>                      
-                                    </Link>
-                                    </div>
-                                )}
-                                {node.urlBandcamp && (
-                                    <a href={node.urlBandcamp} target="_blank" rel="noreferrer" className="underline hover:text-pwxBlue pr-6">
-                                        <Bandcamp />            
-                                    </a>
-                                )}
-                                {node.urlListen && (
-                                    <a href={node.urlListen} target="_blank" rel="noreferrer" className=" col-start-2 underline hover:text-pwxBlue pr-6 mt-1">
-                                        <Spotify />             
-                                    </a>
-                                )}
-                                {node.urlAppleMusic && (
-                                    <a href={node.urlAppleMusic} target="_blank" rel="noreferrer" className=" underline hover:text-pwxBlue pr-6">
-                                        <Apple />             
-                                    </a>
-                                )}
-                            </div>
+              <div className="pt-5 md:pt-8">
+                 <div className="flex items-center gap-5">
+                        {release.vinylMockup && (
+                            <VinylIcon 
+                            url={`/products/music/${release.slug}`}
+                            icon={<BsFillVinylFill/>}
+                            text="Buy Vinyl" />
+                        )}
+                         {release.urlBandcamp && (
+                             <ReleaseIcon 
+                                url={release.urlBandcamp}
+                                icon={<SiBandcamp/>}
+                                text="Bandcamp"
+                                textMargin="ml-0 md:ml-2"
+                                />
+                        )}
+                        {release.urlListen && (
+                            <ReleaseIcon 
+                            url={release.urlListen}
+                            icon={<FaSpotify/>}
+                            text="Spotify"
+                            textMargin="ml-0 md:ml-2"
+                            />
+                        )}
+                        {release.urlAppleMusic && (
+                            <ReleaseIcon 
+                            url={release.urlListen}
+                            icon={<FaApple/>}
+                            text="Apple Music"
+                            textMargin="ml-0 md:ml-2"
+                            />
+                        )}
+
+                        </div>
                   </div>
                   </div>
 
-                  <div className="hidden md:block col-span-1">
-                    <p className="font-semibold px-5 pb-3 underline">Tracklisting</p>
-                  {node.tracklist.map(track => {
+                  <div className="hidden md:block col-span-1 mr-48 text-sm">
+                    <p className="font-semibold px-5 pb-5 text-grey50">Tracklisting</p>
+                  {release.tracklist.map(track => {
                     return (
-                      <div className="">
-                        <p className="ml-5 mb-1 text-base">{track}</p>
+                      <div className="border-b border-grey20 mb-1">
+                        <p className="ml-5 mb-1 text-sm leading-relaxed">{track}</p>
                         </div>
                     )
                   } 

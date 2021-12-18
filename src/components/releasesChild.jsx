@@ -70,15 +70,24 @@ const ReleasesChild = ({ releases }) => {
                         </div>
                       
                       <div className="flex flex-wrap items-end text-sm">
-                          <div className="pt-2 md:pt-5 w-1/4 font-semibold text-grey50">Release date
+                          <div className="pt-2 md:pt-5 w-1/2 md:w-1/4 font-semibold text-grey50">Release date
                           </div>
-                          <div className="w-3/4">
+                          <div className="w-1/2 md:w-3/4">
                                 {release.releaseDate}
                           </div>
-                          <div className="w-1/4 font-semibold text-grey50">
-                            Formats
+                          <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
+                            {release.format.length > 1 && (
+                              <span>
+                                Formats
+                              </span>
+                            )}
+                            {release.format.length == 1 && (
+                              <span>
+                                Format
+                              </span>
+                            )}
                           </div>
-                          <div className="w-3/4">
+                          <div className="w-1/2 md:w-3/4">
                             {release.format[0]} 
                             {release.format[1] && (
                               <span> / {release.format[1]}</span>

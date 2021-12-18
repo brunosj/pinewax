@@ -7,8 +7,10 @@ import { Link } from "gatsby"
 const ReleasesLeft = ({ release }) => { 
  
     return (
-        <div className="">
-                    <div className={"grid grid-cols-1 md:grid-cols-2 bg-" + release.twColourCode}>
+            <div style={{
+                backgroundColor: release.mainColour
+                 }} > 
+        <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="flex">
                         <div className="flex ml-0 md:ml-auto items-center">
                         <Link 

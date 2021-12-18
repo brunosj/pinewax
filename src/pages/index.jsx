@@ -82,7 +82,7 @@ query Banner {
           urlListen
           urlAppleMusic
           shopifyProduct
-          twColourCode
+          mainColour
           slug
           cover {
             localFile {

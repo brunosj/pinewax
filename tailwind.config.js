@@ -1,6 +1,10 @@
 module.exports = {
-  purge: [],
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./src/**/*.{html,js,jsx,ts,tsx}",
+    "./src/components/**/*.{html,js,jsx,ts,tsx}",
+    "./src/pages/**/*.{html,js,jsx,ts,tsx}",
+    "./src/icons/**/*.{html,js,jsx,ts,tsx}",  
+  ],
   theme: {
     container: {
       center: true,
@@ -32,18 +36,6 @@ module.exports = {
       grey30: "#dcdcdc",
       grey20: "#d9d9d9",
       grey10: "#f7f7f7",
-      room407: "#DA92AA",
-      early: "#645B9E",
-      lfts: "#FFE961",
-      sw: "#BE2C2F",
-      sw_instru:"#BE2C2F",
-      gettingBy: "#EBD4C2",
-      erpel: "#000000",
-      samba: "#FFFFFF",
-      gaggia: "#B4C5DF",
-      saltwater: "#FFE639",
-      villain: "#AAA2C5",
-      iboWhite: "#F898A2",
     },
     borderWidth: {
       DEFAULT: '1px',
@@ -66,11 +58,6 @@ module.exports = {
   },
   variants: {
     extend: {
-        opacity: ["responsive", "hover", "focus", "group-hover"],
-        display: ["responsive", "hover", "focus", "last"],
-        transform: ["group-hover"],
-        translate: ["group-hover"],
-        scale: ["group-hover"],
     },
   },
   plugins: [],

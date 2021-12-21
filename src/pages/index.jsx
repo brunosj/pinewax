@@ -21,7 +21,7 @@ const Homepage = ({ data }) => {
     <ReleasesLeft release={releaseOne}/>
     <ReleasesRight release={releaseTwo}/>
     <VideoCard
-        image={data.live.image.localFile.childImageSharp.gatsbyImageData}
+        image={data.live.imageBanner.localFile.childImageSharp.gatsbyImageData}
         title={data.live.title}
         textSize="text-lg lg:text-3xl"
         slug={`/videos/${data.live.slug}`}
@@ -54,6 +54,19 @@ query Banner {
       title
       url
       image {
+        localFile {
+          childImageSharp {
+            gatsbyImageData (
+              layout: FULL_WIDTH
+              formats: AUTO
+              quality: 85
+              placeholder: BLURRED
+              transformOptions: {grayscale: false}
+            )
+          }
+        }
+      }
+      imageBanner {
         localFile {
           childImageSharp {
             gatsbyImageData (

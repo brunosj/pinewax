@@ -219,19 +219,25 @@ export default function Product({ data: { product, suggestions, cms } }) {
                              <ReleaseIcon 
                                 url={productCms[0].urlBandcamp}
                                 icon={<SiBandcamp/>}
-                                text="Bandcamp" />
+                                text="Bandcamp"
+                                textMargin="ml-0 md:ml-2"
+                                />
                         )}
                         {productCms[0].urlListen && (
                             <ReleaseIcon 
                             url={productCms[0].urlListen}
                             icon={<FaSpotify/>}
-                            text="Spotify" />
+                            text="Spotify"
+                            textMargin="ml-0 md:ml-2"
+                            />
                         )}
                         {productCms[0].urlAppleMusic && (
                             <ReleaseIcon 
                             url={productCms[0].urlListen}
                             icon={<FaApple/>}
-                            text="Apple Music" />
+                            text="Apple Music"
+                            textMargin="ml-0 md:ml-2"
+                            />
                         )}
 
                         </div>

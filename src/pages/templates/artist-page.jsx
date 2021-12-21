@@ -124,7 +124,10 @@ query ArtistPageQuery($slug: String) {
         cover {
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(
+              placeholder: BLURRED, 
+              formats: AUTO, 
+              layout: CONSTRAINED)
             }
           }
         }

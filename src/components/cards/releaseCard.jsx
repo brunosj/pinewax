@@ -33,7 +33,7 @@ const ReleaseCard = ({ releases }) => {
                             />   
                     </div>
                   )}
-                  {!release.vinylMockup && (
+                  {!release.vinylMockup && release.cover.localFile.childImageSharp.gatsbyImageData && (
                     <div className="px-3 mb-3">
                       <GatsbyImage
                             loading="eager"

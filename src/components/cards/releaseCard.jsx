@@ -24,7 +24,7 @@ const ReleaseCard = ({ releases }) => {
                         <p className="leading-none">{release.title}</p>
                         </div>
                     </div>
-                    {release.vinylMockup && (
+                    {/* {release.vinylMockup && (
                     <div className="">
                     <GatsbyImage
                           loading="eager"
@@ -32,8 +32,8 @@ const ReleaseCard = ({ releases }) => {
                           image={release.vinylMockup.localFile.childImageSharp.gatsbyImageData}
                             />   
                     </div>
-                  )}
-                  {!release.vinylMockup && release.cover.localFile.childImageSharp.gatsbyImageData && (
+                  )} */}
+                  {/* {!release.vinylMockup && (
                     <div className="px-3 mb-3">
                       <GatsbyImage
                             loading="eager"
@@ -41,7 +41,7 @@ const ReleaseCard = ({ releases }) => {
                             image={release.cover.localFile.childImageSharp.gatsbyImageData}
                               />   
                       </div>
-                  )}
+                  )} */}
                   </Link>
                   <div className="flex h-2/5">
                         <div className=" flex flex-wrap items-center self-end gap-3">

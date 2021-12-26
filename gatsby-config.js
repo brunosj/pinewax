@@ -38,7 +38,12 @@ module.exports = {
     DEV_SSR: true,
   },
   plugins: [
-    "gatsby-plugin-sharp",
+    { 
+      resolve: 'gatsby-plugin-sharp', 
+      options: { 
+        failOnError: false 
+      },
+    },
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
     {

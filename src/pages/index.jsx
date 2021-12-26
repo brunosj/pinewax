@@ -1,4 +1,7 @@
 import * as React from "react"
+import { useEffect } from "react";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { graphql, Link } from "gatsby"
 import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
@@ -11,6 +14,21 @@ const Homepage = ({ data }) => {
   const releaseTwo = data.releases.nodes[1]
   const releaseThree = data.releases.nodes[2]
   
+  const indexVariants = {
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+    hidden: { opacity: 0 }
+  };
+
+  const controls = useAnimation();
+  const [ref, inView] = useInView( { rootMargin: '0px 0px', } );
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+
   return (
     <Layout>
    {/* <GatsbyImage
@@ -19,14 +37,17 @@ const Homepage = ({ data }) => {
       image={data.banner.localFile.childImageSharp.gatsbyImageData}
         />    */}
     <ReleasesLeft release={releaseOne}/>
-    <ReleasesRight release={releaseTwo}/>
+      <ReleasesRight release={releaseTwo}/>
     <VideoCard
         image={data.live.imageBanner.localFile.childImageSharp.gatsbyImageData}
         title={data.live.title}
         textSize="text-lg lg:text-3xl"
         slug={`/videos/${data.live.slug}`}
         />   
-    <ReleasesLeft release={releaseThree}/>
+
+       <ReleasesLeft release={releaseThree} />
+
+
     </Layout>
   )
 }

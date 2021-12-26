@@ -2,13 +2,36 @@ import * as React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import ReleasesInfo from "./releasesInfo"
 import { Link } from "gatsby"
+import { useEffect } from "react";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 
 const ReleasesRight = ({ release }) => {  
+
+    const releaseVariants = {
+        visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+        hidden: { opacity: 0, y: 200 }
+      };
+    
+      const controls = useAnimation();
+      const [ref, inView] = useInView( { threshold: 0.0 } );
+    
+      useEffect(() => {
+        if (inView) {
+          controls.start("visible");
+        }
+      }, [controls, inView]);
+
     return (
         <div style={{
             backgroundColor: release.mainColour
              }} > 
+        <motion.div
+                  ref={ref}
+                  animate={controls}
+                  initial="hidden"
+                  variants={releaseVariants}>
         <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="flex items-center justify-start md:justify-end order-last md:order-first">
                         <div className="p-5 md:p-0 md:ml-48">
@@ -46,7 +69,8 @@ const ReleasesRight = ({ release }) => {
                          </div>
                     </div> 
 
-                    </div>     
+                    </div>  
+                    </motion.div>   
         </div>
     )
   }

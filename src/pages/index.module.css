@@ -38,3 +38,15 @@
 .deployButton {
   margin-top: var(--space-lg);
 }
+
+.fadeSection {
+  position: relative;
+  opacity: 0;
+  transform: translateY(300px);
+  transition: transform 1s, opacity 1s;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0px);
+}

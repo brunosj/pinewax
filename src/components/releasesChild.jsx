@@ -1,4 +1,7 @@
 import * as React from "react"
+import { useEffect } from "react";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
@@ -7,6 +10,7 @@ import { SiTidal, SiBandcamp } from 'react-icons/si';
 import { BsFillVinylFill } from 'react-icons/bs';
 import ReleaseIcon from "../icons/releaseIcon"
 import VinylIcon from "../icons/vinylIcon"
+
 import {
   stroke,
   buyButton,
@@ -26,11 +30,31 @@ const ReleasesChild = ({ releases }) => {
         },
       }
 
+      const releaseVariants = {
+        visible: { opacity: 1, transition: { duration: 0.5 } },
+        hidden: { opacity: 1 }
+      };
+    
+      const controls = useAnimation();
+      const [ref, inView] = useInView( { threshold: 0, initialInView: true } );
+    
+      useEffect(() => {
+        if (inView) {
+          controls.start("visible");
+        }
+      }, [controls, inView]);
+
     return (
-        <div className="">
+        <div 
+        className="">
             {releases.map(release => {
             return (
-              <div className="border-t border-grey20 pt-5 pb-3 md:pb-8" id={release.slug}>         
+              <motion.div
+              ref={ref}
+              animate={controls}
+              initial="hidden"
+              variants={releaseVariants}>
+              <div className="border-t border-grey20 pt-5 pb-3 md:pb-8" id={release.slug}>   
                 <div className="grid grid-cols-1 md:grid-cols-3 bg-grey10">
                     <div className="text-xl pl-5 md:pl-12 p-5 ">
                         <p className="text-sm md:text-lg font-bold pb-3">{release.catalogNumber}</p>
@@ -147,6 +171,7 @@ const ReleasesChild = ({ releases }) => {
 
               </div>
               </div>
+              </motion.div>
             )
       }
       )}

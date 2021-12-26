@@ -6,6 +6,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import VideoCard from "../../components/cards/videoCard"
 import ReleaseCard from "../../components/cards/releaseCard"
+import { motion } from "framer-motion"
 import {
   stroke,
 } from "../../components/releasesInfo.module.css"

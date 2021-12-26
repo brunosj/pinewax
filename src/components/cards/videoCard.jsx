@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { useEffect } from "react";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import {
   videoCard,
   cardInner, 
@@ -11,6 +14,22 @@ import {
 } from "./videoCard.module.css"
 
 const VideoCard = ({ image, title, slug, textSize }) => {  
+
+  const animationVariants = {
+    visible: { opacity: 1, transition: { duration: 0.5 } },
+    hidden: { opacity: 0  }
+  };
+
+  const controls = useAnimation();
+  const [ref, inView] = useInView( { threshold: 0, initialInView: true } );
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+
   return (
     <div className={videoCard}>
       <Link to={slug}>
@@ -22,6 +41,11 @@ const VideoCard = ({ image, title, slug, textSize }) => {
                                   image={image}
                                   />
                     
+                <motion.div
+                  ref={ref}
+                  animate={controls}
+                  initial="hidden"
+                  variants={animationVariants}>
                       <div className={cardBack}>
                         {/* <div className={cardBackImg}>
                               <GatsbyImage 
@@ -34,6 +58,7 @@ const VideoCard = ({ image, title, slug, textSize }) => {
                                 <span className={textSize}>{title}</span>
                               </div>    
                       </div>
+                    </motion.div>
 
                       </div>
                   </div> 

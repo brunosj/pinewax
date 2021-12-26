@@ -14,3 +14,12 @@ body {
 .gatsby-image-wrapper [data-main-image] {
   border-radius: var(--radius-sm);
 }
+
+/* a {
+  color: #4349F6; 
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+} */

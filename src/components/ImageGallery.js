@@ -3,7 +3,8 @@ import React from 'react'
 import Gallery from '@browniebroke/gatsby-image-gallery'
 
 const ImageGallery = ( { pics }) => {
-const images = pics.map(({ localFile }) => localFile.childImageSharp)
+const images = pics
+console.log(images)
 
 return (
 <div className="mx-3 lg:mx-0 cursor-pointer">

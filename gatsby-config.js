@@ -3,7 +3,7 @@ require("dotenv").config()
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  downloadLocal: true,
+  downloadLocal: false,
   };
 
 module.exports = {
@@ -35,7 +35,6 @@ module.exports = {
 
   flags: {
     FAST_DEV: true,
-    DEV_SSR: true,
   },
   plugins: [
     { 

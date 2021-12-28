@@ -33,7 +33,7 @@ const ArtistPage = ({ data }) => {
           <GatsbyImage
             loading="eager"
             alt="Pinewax"
-            image={data.artist.picture.localFile.childImageSharp.gatsbyImageData}
+            image={data.artist.picture.gatsbyImageData}
               />  
         </div>
 
@@ -68,7 +68,7 @@ const ArtistPage = ({ data }) => {
                     {data.artist.videos.map(node => {
                         return (
                           <VideoCard
-                          image={node.image.localFile.childImageSharp.gatsbyImageData}
+                          image={node.image.gatsbyImageData}
                           title={node.title}
                           textSize="text-sm md:text-xl"
                           slug={`/videos/${node.slug}`}/>
@@ -79,7 +79,7 @@ const ArtistPage = ({ data }) => {
                 {data.artist.videos.length == 1 && (
                     <div className="">
                           <VideoCard
-                          image={data.artist.videos[0].image.localFile.childImageSharp.gatsbyImageData}
+                          image={data.artist.videos[0].image.gatsbyImageData}
                           title={data.artist.videos[0].title}
                           textSize="text-sm md:text-xl"
                           slug={`/videos/${data.artist.videos[0].slug}`}/>
@@ -106,46 +106,34 @@ query ArtistPageQuery($slug: String) {
         raw
       }
       picture {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED
               formats: AUTO
               aspectRatio: 1
               layout:FULL_WIDTH
               )
-          }
-        }
-      }
+           }
       releases {
         catalogNumber
         releaseArtist
         title
         slug
         cover {
-          localFile {
-            childImageSharp {
               gatsbyImageData(
               placeholder: BLURRED, 
               formats: AUTO, 
               layout: CONSTRAINED)
-            }
-          }
-        }
+           }
         format
         description {
           raw
         }
         vinylMockup {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED, 
               formats: AUTO, 
               layout: CONSTRAINED)
-          }
-        }
-      }
+              }
         releaseDate
         shopifyProduct
         urlAppleMusic
@@ -156,13 +144,9 @@ query ArtistPageQuery($slug: String) {
         title
         slug
         image {
-          localFile {
-            childImageSharp {
               gatsbyImageData
             }
           }
         }
       }
-  }
-}
 `

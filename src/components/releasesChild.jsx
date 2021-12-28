@@ -73,7 +73,7 @@ const ReleasesChild = ({ releases }) => {
                     <GatsbyImage
                           loading="eager"
                           alt="Pinewax"
-                          image={release.vinylMockup.localFile.childImageSharp.gatsbyImageData}
+                          image={release.vinylMockup.gatsbyImageData}
                             />   
                     </div>
                   )}
@@ -82,7 +82,7 @@ const ReleasesChild = ({ releases }) => {
                       <GatsbyImage
                             loading="eager"
                             alt="Pinewax"
-                            image={release.cover.localFile.childImageSharp.gatsbyImageData}
+                            image={release.cover.gatsbyImageData}
                               />   
                       </div>
                   )}

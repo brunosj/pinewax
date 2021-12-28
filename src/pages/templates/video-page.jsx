@@ -38,12 +38,8 @@ query VideoQuery($slug: String) {
     title
     url
     image {
-      localFile {
-        childImageSharp {
           gatsbyImageData
         }
-      }
-    }
     slug
   }
 }

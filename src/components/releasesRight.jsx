@@ -48,7 +48,7 @@ const ReleasesRight = ({ release }) => {
                                     <GatsbyImage
                                     loading="eager"
                                     alt={release.cover.title}
-                                    image={release.vinylMockup.localFile.childImageSharp.gatsbyImageData}
+                                    image={release.vinylMockup.gatsbyImageData}
                                         /> 
                                     </div>
                                     </div>
@@ -59,7 +59,7 @@ const ReleasesRight = ({ release }) => {
                                     <GatsbyImage
                                     loading="eager"
                                     alt={release.cover.title}
-                                    image={release.cover.localFile.childImageSharp.gatsbyImageData}
+                                    image={release.cover.gatsbyImageData}
                                         /> 
                                  </div>
                                  </div>

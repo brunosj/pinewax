@@ -18,19 +18,13 @@ const Radio = () => {
           raw
         }
         mainPicture {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED
               formats: AUTO
               layout:FULL_WIDTH
               )
-          }
-        }
       }
         pictures {
-          localFile {
-            childImageSharp {
               thumb: gatsbyImageData(
               width: 280
               height: 280
@@ -43,8 +37,6 @@ const Radio = () => {
               formats: WEBP
               quality: 85)
             }
-          }
-        }
   }
 }
 `
@@ -76,7 +68,7 @@ const richTextOptions = {
             <GatsbyImage
               loading="eager"
               alt="Pinewax"
-              image={data.contentfulPage.mainPicture.localFile.childImageSharp.gatsbyImageData}
+              image={data.contentfulPage.mainPicture.gatsbyImageData}
                 />  
         </div>
         <div className="flex flex-col">

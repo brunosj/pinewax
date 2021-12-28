@@ -43,24 +43,16 @@ query Releases {
         urlListen
         urlBandcamp
         cover {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED, 
               formats: AUTO, 
               layout: CONSTRAINED)
-          }
-        }
       }
       vinylMockup {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED, 
               formats: AUTO, 
               layout: CONSTRAINED)
-          }
-        }
       }
     }
   }
@@ -83,24 +75,16 @@ query Releases {
         urlListen
         urlBandcamp
         cover {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED, 
               formats: AUTO, 
               layout: CONSTRAINED)
-          }
-        }
       }
       vinylMockup {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED, 
               formats: AUTO, 
               layout: CONSTRAINED)
-          }
-        }
       }
     }
   }

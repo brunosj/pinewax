@@ -48,7 +48,7 @@ const ArtistCard = ({ artists }) => {
                           <GatsbyImage 
                               loading="eager"
                               alt="Pinewax"
-                              image={artist.picture.localFile.childImageSharp.gatsbyImageData}
+                              image={artist.picture.gatsbyImageData}
                               />
                 
                       <div className={cardBack}>
@@ -56,7 +56,7 @@ const ArtistCard = ({ artists }) => {
                               <GatsbyImage 
                               loading="eager"
                               alt="Pinewax"
-                              image={artist.pictureVariation.localFile.childImageSharp.gatsbyImageData}
+                              image={artist.pictureVariation.gatsbyImageData}
                               />
                               </div> */}
                               <div className={cardBackText}>

@@ -34,12 +34,12 @@ const Homepage = ({ data }) => {
    {/* <GatsbyImage
       loading="eager"
       alt="Pinewax"
-      image={data.banner.localFile.childImageSharp.gatsbyImageData}
+      image={data.banner.gatsbyImageData}
         />    */}
     <ReleasesLeft release={releaseOne}/>
       <ReleasesRight release={releaseTwo}/>
     <VideoCard
-        image={data.live.imageBanner.localFile.childImageSharp.gatsbyImageData}
+        image={data.live.imageBanner.gatsbyImageData}
         title={data.live.title}
         textSize="text-lg lg:text-3xl"
         slug={`/videos/${data.live.slug}`}
@@ -58,47 +58,32 @@ export const query = graphql`
 query Banner {
   banner:contentfulAsset(title: {eq: "pwx-banner"}) {
       id
-      localFile {
-        childImageSharp {
           gatsbyImageData(
             layout: FULL_WIDTH
             formats: AUTO
             quality: 85
             placeholder: BLURRED
-            transformOptions: {grayscale: false}
           )
-        }
-      }
     }
     live:contentfulVideo(slug: {eq: "livesession-yasminumay"}) {
       id
       title
       url
       image {
-        localFile {
-          childImageSharp {
             gatsbyImageData (
               layout: FULL_WIDTH
               formats: AUTO
               quality: 85
               placeholder: BLURRED
-              transformOptions: {grayscale: false}
             )
-          }
-        }
       }
       imageBanner {
-        localFile {
-          childImageSharp {
             gatsbyImageData (
               layout: FULL_WIDTH
               formats: AUTO
               quality: 85
               placeholder: BLURRED
-              transformOptions: {grayscale: false}
             )
-          }
-        }
       }
       slug
     }
@@ -119,23 +104,15 @@ query Banner {
           mainColour
           slug
           cover {
-            localFile {
-              childImageSharp {
                 gatsbyImageData(
                   placeholder: BLURRED
                 )
-              }
-            }
             title
           }
           vinylMockup {
-            localFile {
-              childImageSharp {
                 gatsbyImageData(
                   placeholder: BLURRED
                 )
-              }
-            }
             title
           }
           description {

@@ -51,7 +51,7 @@ const VideoCard = ({ image, title, slug, textSize }) => {
                               <GatsbyImage 
                               loading="eager"
                               alt="Pinewax"
-                              image={artist.pictureVariation.localFile.childImageSharp.gatsbyImageData}
+                              image={artist.pictureVariation.gatsbyImageData}
                               />
                               </div> */}
                               <div className={cardBackText}>

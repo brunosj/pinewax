@@ -26,38 +26,25 @@ query Artists {
         raw
       }
       picture {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED
               formats: AUTO
               layout:FULL_WIDTH
-              transformOptions: {grayscale: false}
               )
-          }
-        }
       }
       pictureVariation {
-        localFile {
-          childImageSharp {
             gatsbyImageData(
               placeholder: BLURRED
               formats: AUTO
               layout:FULL_WIDTH
               )
-          }
-        }
       }
       releases {
         catalogNumber
         cover {
-          localFile {
-            childImageSharp {
               gatsbyImageData(
                 placeholder: BLURRED
               )
-            }
-          }
         }
         format
         description {

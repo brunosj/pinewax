@@ -11,15 +11,11 @@ const VideosAll = ({ className }) => {
             title
             url
             image {
-              localFile {
-                childImageSharp {
                   gatsbyImageData(
                     placeholder: BLURRED
                     formats: AUTO
                     layout:FULL_WIDTH
                   )
-                }
-              }
             }
             slug
           } 
@@ -32,7 +28,7 @@ const VideosAll = ({ className }) => {
         {data.videos.nodes.map(node => {
           return (
             <VideoCard
-            image={node.image.localFile.childImageSharp.gatsbyImageData}
+            image={node.image.gatsbyImageData}
             title={node.title}
             textSize="text-lg md:text-2xl"
             slug={`/videos/${node.slug}`}/>

@@ -6,7 +6,7 @@ import VideosAll from "../../components/videosAll"
 import {
   videoFullWidth,
   videoHalfWidth,
-} from "../../components/video.module.css"
+} from "../../components/cards/videoCard.module.css"
 
 const VideoPage = ({ data }) => {  
 
@@ -16,12 +16,12 @@ const VideoPage = ({ data }) => {
         <Video 
         videoSrcURL={data.video.url}
         videoTitle={data.video.title}
-        className={videoFullWidth}
+        videoWidth={videoFullWidth}
       />
       </div>
       <div >
       <VideosAll
-              className={videoHalfWidth}
+              videoWidth={videoHalfWidth}
               />
 
       </div>

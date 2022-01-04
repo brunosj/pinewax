@@ -2,14 +2,16 @@
 
 @font-face {
     font-family: 'faune';
-    src: url('./fonts/Faune-TextRegular.ttf');
+    src: url('./fonts/Faune-TextRegular.ttf') format('ttf');
+    src: url('./fonts/Faune-TextRegular.otf') format('otf');
     font-weight: 500;
     font-style: normal;
     }
   
   @font-face {
     font-family: 'faune';
-    src: url('./fonts/Faune-TextItalic.ttf');
+    src: url('./fonts/Faune-TextItalic.ttf') format('ttf');
+    src: url('./fonts/Faune-TextItalic.otf') format('otf');
     font-weight: 500;
     font-style: italic;
     }

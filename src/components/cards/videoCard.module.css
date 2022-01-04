@@ -1,3 +1,13 @@
+.videoFullWidth {
+	opacity: 1;
+
+}
+
+.videoHalfWidth {
+	opacity: 1;
+
+}
+
 .videoCard {
 	position: relative;
 	overflow: hidden;
@@ -39,7 +49,7 @@
 	-ms-align-items: center;
     align-items: center;
     text-align: center;
-     opacity: 1;
+    opacity: 1;
 }
 
 .cardBackText {
@@ -64,12 +74,30 @@
     transition: opacity 100ms ease-in-out;
 }
 
+.videoHalfWidth .cardBack {
+	opacity: 0;
+}
+
   @media screen and (max-width: 400px) {
 
+	.videoFullWidth {
+        width: 100%;
+        height: 35vh;
+    }
+    
+    .videoHalfWidth {
+        width: 100%;
+    }
+
 	.cardBackText {
-		opacity: 0;
+		background-color: transparent;
+		font-weight: bolder;
 	}
-	/* .cardBack {
-		opacity: 1;
-	} */
-}
+  }
+  
+	@media (min-width: 1024px) {
+		.table {
+		  grid-template-columns: max-content 1fr repeat(3, max-content);
+		}
+	  }
+

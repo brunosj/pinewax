@@ -11,8 +11,7 @@ const Releases = ({ data }) => {
       <ReleasesChild releases={data.albums.nodes} childClassName="grid grid-cols-1 md:grid-cols-3" />
       <div className="bg-pwxBlue text-white border-t border-grey20 text-xl pl-5 md:pl-12 p-5 ">
       </div>
-
-      <ReleasesChild releases={data.singles.nodes} parentClassName="grid grid-cols-2" childClassName="grid grid-cols-1 md:grid-cols-2" />
+      <ReleasesChild releases={data.singles.nodes} parentClassName="grid grid-cols-1 md:grid-cols-2" childClassName="grid grid-cols-1 md:grid-cols-2" />
         </section>
     </Layout>
   )

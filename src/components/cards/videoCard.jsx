@@ -13,7 +13,7 @@ import {
   cardImg,
 } from "./videoCard.module.css"
 
-const VideoCard = ({ image, title, slug, textSize }) => {  
+const VideoCard = ({ image, title, slug, textSize, videoWidth }) => {  
 
   const animationVariants = {
     visible: { opacity: 1, transition: { duration: 0.5 } },
@@ -31,6 +31,7 @@ const VideoCard = ({ image, title, slug, textSize }) => {
 
 
   return (
+    <div className={videoWidth}>
     <div className={videoCard}>
       <Link to={slug}>
                 <div className={cardInner}>
@@ -63,6 +64,7 @@ const VideoCard = ({ image, title, slug, textSize }) => {
                       </div>
                   </div> 
                   </Link>      
+    </div>
     </div>
   )
 }

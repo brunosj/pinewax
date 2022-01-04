@@ -41,7 +41,7 @@ const Homepage = ({ data }) => {
     <VideoCard
         image={data.live.imageBanner.gatsbyImageData}
         title={data.live.title}
-        textSize="text-lg lg:text-3xl"
+        textSize="text-xs lg:text-3xl"
         slug={`/videos/${data.live.slug}`}
         />   
 

@@ -1,14 +1,12 @@
 import React from "react"
-import {
-  videoStyle,
-} from "./video.module.css"
 
-const Video = ({ videoSrcURL, videoTitle, className, ...props }) => (
+
+const Video = ({ videoSrcURL, videoTitle, videoWidth, ...props }) => (
   <div className="top-0 left-0">
     <iframe
       src={videoSrcURL}
       title={videoTitle}
-      className={className}
+      className={videoWidth}
       allow="accelerometer; autoplay; encrypted-media; gyroscope"
       frameBorder="0"
       webkitallowfullscreen="true"

@@ -66,8 +66,8 @@
 
   @media screen and (max-width: 400px) {
 
-	.cardBackText{
-		font-size: 1.0em;
+	.cardBackText {
+		opacity: 0;
 	}
 	/* .cardBack {
 		opacity: 1;

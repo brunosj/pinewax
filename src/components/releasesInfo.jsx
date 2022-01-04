@@ -12,8 +12,6 @@ import { addToCart as addToCartStyle } from "./add-to-cart.module.css"
 
 
 const ReleasesInfo = ({ release, alignment }) => {  
-const formats = release.format
-console.log(formats)
 
     return (
         <div className="pb-4 md:pb-0">

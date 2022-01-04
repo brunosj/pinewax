@@ -2,20 +2,18 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
 import ReleasesChild from "../components/releasesChild"
-import {
-  stroke,
-} from "../components/releasesInfo.module.css"
 
 const Releases = ({ data }) => {  
 
  return (
     <Layout>
       <section className="bg-grey10">
-      <ReleasesChild releases={data.albums.nodes} />
-      <ReleasesChild releases={data.singles.nodes} />
+      <ReleasesChild releases={data.albums.nodes} childClassName="grid grid-cols-1 md:grid-cols-3" />
+      <div className="bg-pwxBlue text-white border-t border-grey20 text-xl pl-5 md:pl-12 p-5 ">
+      </div>
 
-           </section>
-
+      <ReleasesChild releases={data.singles.nodes} parentClassName="grid grid-cols-2" childClassName="grid grid-cols-1 md:grid-cols-2" />
+        </section>
     </Layout>
   )
 }
@@ -56,7 +54,10 @@ query Releases {
       }
     }
   }
-  singles:allContentfulRelease(filter: {catalogNumber: {eq: null}}) {
+  singles:allContentfulRelease(
+    filter: {catalogNumber: {eq: null}}
+    sort: {fields: releaseDate, order: DESC}
+  ) {
       nodes {
         id
         slug

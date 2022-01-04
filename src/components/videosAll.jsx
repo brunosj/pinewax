@@ -30,7 +30,7 @@ const VideosAll = ({ className }) => {
             <VideoCard
             image={node.image.gatsbyImageData}
             title={node.title}
-            textSize="text-lg md:text-2xl"
+            textSize="text-sm md:text-xl"
             slug={`/videos/${node.slug}`}/>
           )
         } 

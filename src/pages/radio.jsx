@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Gallery from '@browniebroke/gatsby-image-gallery'
@@ -61,6 +61,9 @@ const richTextOptions = {
   },
 }
 
+const pictures = data.contentfulPage.pictures
+console.log(pictures)
+
   return (
     <Layout>
       <div className="bg-grey10 grid grid-cols-1 md:grid-cols-2">
@@ -73,7 +76,7 @@ const richTextOptions = {
         </div>
         <div className="flex flex-col">
           <div className="mt-12 ml-5 md:ml-12 mr-5 md:mr-12">
-                <h1 className="text-3xl font-semibold leading-none">Pinewax Radio</h1>
+                <h1 className="text-3xl font-semibold leading-none">PWX Radio</h1>
                 <p className="mt-8 md:mt-12 mb-8">
                   {data.contentfulPage.description && renderRichText(data.contentfulPage.description, richTextOptions)}
                   </p>

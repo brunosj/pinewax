@@ -2,18 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'faune';
+    src: url("./fonts/Faune-TextRegular.ttf");
+    font-weight: 500;
+    font-style: normal;
+    }
+  
+  @font-face {
+    font-family: 'faune';
+    src: url("./fonts/Faune-DisplayBoldItalic.ttf");
+    font-weight: 500;
+    font-style: italic;
+    }
+
+  @font-face {
+    font-family: 'franklin';
+    src: url('./fonts/LibreFranklin-Regular.ttf');
+    font-weight: 500;
+    font-style: normal;
+    }
+
+  @font-face {
+    font-family: 'franklin';
+    src: url('./fonts/LibreFranklin-Italic.ttf');
+    font-weight: 500;
+    font-style: italic;
+    }
+      
+  @font-face {
+    font-family: 'space';
+    src: url("./fonts/SpaceGrotesk-Regular.ttf");
+    font-weight: 500;
+    font-style: normal;
+    }
+
+  @font-face {
+    font-family: 'dm';
+    src: url("./fonts/DMSans-Regular.ttf");
+    font-weight: 500;
+    font-style: normal;
+    }
+
+  }
+
 body {
-  font-family: var(--font-body);
   color: var(--text-color);
+  font-family: "space";
 }
+
 
 .gatsby-image-wrapper {
   margin: auto;
 }
 
-.gatsby-image-wrapper [data-main-image] {
+/* .gatsby-image-wrapper [data-main-image] {
   border-radius: var(--radius-sm);
-}
+} */
 
 /* a {
   color: #4349F6; 

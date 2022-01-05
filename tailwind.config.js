@@ -52,7 +52,10 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        faune: ["faune"],
+        faune: ['faune'],
+        franklin: ['franklin'],
+        space: ['space'],
+        dm: ['dm'],
       },
     },
   },

@@ -5,6 +5,10 @@ import { Footer } from "./footer"
 import { Seo } from "./seo"
 import { NavigationMobile } from "./navigation-mobile"
 
+import "../styles/global.css"
+import "../styles/reset.css"
+import "../styles/variables.css"
+
 export function Layout({ children }) {
   return (
     <div className="overflow-hidden">

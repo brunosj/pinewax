@@ -68,9 +68,9 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                   
                     <div className="col-span-1 md:col-span-3 text-xl pl-5 md:pl-12 p-5 ">
                         <p className="text-sm md:text-lg font-bold pb-3">{release.catalogNumber}</p>
-                        <p className="font-faune uppercase text-3xl md:text-4xl"><span className={stroke}>{release.releaseArtist}</span>
+                        <p className="font-mono md:font-faune uppercase text-3xl md:text-4xl"><span className={stroke}>{release.releaseArtist}</span>
                         </p>
-                        <p className="font-faune font-normal text-2xl md:text-3xl"><span className="">{release.title}</span>
+                        <p className="font-mono md:font-faune font-normal text-2xl md:text-3xl"><span className="">{release.title}</span>
                         </p>
                         
                     </div>

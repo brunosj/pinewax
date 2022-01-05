@@ -19,7 +19,7 @@ const ReleasesInfo = ({ release, alignment }) => {
             {release.catalogNumber}
             </h1> */}
             <div className={alignment}>
-                <h1 className="font-faune text-3xl md:text-5xl font-bold uppercase">
+                <h1 className="font-faune text-3xl md:text-5xl uppercase">
                     <span className={stroke}>{release.releaseArtist}</span>
                 </h1>
                 <h1 className="pt-1">

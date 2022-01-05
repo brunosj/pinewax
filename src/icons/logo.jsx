@@ -8,7 +8,7 @@ export default function Logo() {
     query Logo {
       file(relativePath: {eq: "pinewax_logo_white.png"}) {
             childImageSharp {
-              gatsbyImageData(formats: AUTO, height: 32, layout: CONSTRAINED)
+              gatsbyImageData(formats: AUTO, height: 32, layout: CONSTRAINED, placeholder: BLURRED)
             }
           }
     }

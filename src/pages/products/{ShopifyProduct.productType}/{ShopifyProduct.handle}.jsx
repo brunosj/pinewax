@@ -203,7 +203,7 @@ export default function Product({ data: { product, suggestions, cms } }) {
             <h1 className="text-sm md:text-lg font-bold pt-4 pb-3 ">{product.variants[0].sku}</h1>
                         <p className="font-faune uppercase text-3xl md:text-5xl"><span className={stroke}>{tags}</span>
                         </p>
-                        <p className="font-faune font-normal text-2xl md:text-4xl"><span className="">{title}</span>
+                        <p className="font-normal text-2xl md:text-3xl"><span className="">{title}</span>
                         </p>
 
             {product.productType === "Merch" && (

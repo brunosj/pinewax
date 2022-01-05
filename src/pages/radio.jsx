@@ -24,7 +24,7 @@ const Radio = () => {
               layout:FULL_WIDTH
               )
       }
-        pictures {
+      pictures {
               thumb: gatsbyImageData(
               width: 280
               height: 280
@@ -37,6 +37,26 @@ const Radio = () => {
               formats: WEBP
               quality: 85)
             }
+  }
+  allFile(
+    filter: {sourceInstanceName: {eq: "radio"}}
+    sort: {fields: name, order: ASC}
+  ) {
+    nodes {
+      childImageSharp {
+        thumb: gatsbyImageData(
+              width: 280
+              height: 280
+              placeholder: BLURRED
+              formats: WEBP
+              quality: 85
+            )
+            full: gatsbyImageData(
+              layout: FULL_WIDTH
+              formats: WEBP
+              quality: 85)
+      }
+    }
   }
 }
 `
@@ -61,7 +81,7 @@ const richTextOptions = {
   },
 }
 
-const pictures = data.contentfulPage.pictures
+const pictures = data.allFile.nodes
 console.log(pictures)
 
   return (
@@ -82,7 +102,7 @@ console.log(pictures)
                   </p>
           </div>
           <div className="ml-5 md:ml-16 mr-5 md:mr-16 mb-6 md:mb-0 my-auto" >
-                <ImageGallery pics={data.contentfulPage.pictures}/>
+                <ImageGallery pics={data.allFile.nodes}/>
           </div>
         </div>
     </div>

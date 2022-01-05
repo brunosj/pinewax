@@ -20,7 +20,7 @@ export function Footer() {
 `)
 
   return (
-    <footer className="bg-grey10 text-pwxBlue flex items-center font-semibold border-t border-grey20 lowercase">
+    <footer className="bg-grey10 text-pwxBlue flex items-center font-semibold border-t border-grey20 lowercase font-faune">
       <div className="w-full py-4 md:py-6">
             <div className="block md:flex px-6">
                 <nav className="flex order-last ml-auto" aria-label="footer">
@@ -29,7 +29,7 @@ export function Footer() {
                       <span className="">
                           <a 
                             key={`social_link${key}`}
-                            className="hover:underline tracking-wider mr-4 text-sm md:text-base"
+                            className="hover:underline tracking-wider mr-4 text-base md:text-lg"
                             activeClassName=""
                             href={link.to}
                             target="_blank"
@@ -39,7 +39,7 @@ export function Footer() {
                           </span>
                         ))}
                 </nav>
-                <div className="order-first ml-auto md:ml-0 text-xs md:text-sm pt-2 md:pt-0">Copyright &copy; {new Date().getFullYear()} Pinewax · All rights reserved</div>
+                <div className="order-first ml-auto md:ml-0 text-sm md:text-base pt-2 md:pt-0">Copyright &copy; {new Date().getFullYear()} Pinewax · All rights reserved</div>
             </div>
       </div>
     </footer>

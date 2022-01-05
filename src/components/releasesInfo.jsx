@@ -23,7 +23,7 @@ const ReleasesInfo = ({ release, alignment }) => {
                     <span className={stroke}>{release.releaseArtist}</span>
                 </h1>
                 <h1 className="pt-1">
-                <span className="font-faune text-2xl md:text-4xl font-normal"> {release.title}</span>
+                <span className="text-2xl md:text-3xl font-normal"> {release.title}</span>
                 </h1>
             </div>
             <div className="pt-5 md:pt-10 w-full ">

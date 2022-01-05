@@ -48,10 +48,18 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/static/`,
+        name: `icons`,
+        path: `${__dirname}/static/icons`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `radio`,
+        path: `${__dirname}/static/radio`,
+      },
+    },
+    
     {
       resolve: "gatsby-source-shopify",
       options: {
@@ -76,6 +84,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-gatsby-cloud",
+    "gatsby-plugin-anchor-links",
     "gatsby-plugin-postcss",
     // Add your Google Analytics ID to the .env file to enable
     // Otherwise, this plugin can be removed

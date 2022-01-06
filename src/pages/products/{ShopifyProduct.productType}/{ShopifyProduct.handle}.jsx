@@ -41,7 +41,7 @@ import {
   icon,
 } from "../../../components/releasesInfo.module.css"
 
-export default function Product({ data: { product, suggestions, cms } }) {
+export default function Product({ data: { product, suggestions, cms, cmsMerch } }) {
   const {
     options,
     variants,
@@ -121,11 +121,12 @@ export default function Product({ data: { product, suggestions, cms } }) {
   const productId = product.storefrontId
   const allProductCms = cms.nodes
   const productCms =  allProductCms.filter(node => node.shopifyProduct === productId)
+  const allProductCmsMerch = cmsMerch.nodes
+  console.log(productCmsMerch)
+  const productCmsMerch =  allProductCmsMerch.filter(node => node.shopifyProduct === productId)
+
   const Bold = ({ children }) => <span className="font-semibold">{children}</span>
-  const Italic = ({ children }) => <span className="italic">{children}</span>
-  const formatVinyl = productCms.format
-    console.log(productCms)
-  
+  const Italic = ({ children }) => <span className="italic">{children}</span>  
 
   const richTextOptions = {
     renderMark: {
@@ -136,9 +137,8 @@ export default function Product({ data: { product, suggestions, cms } }) {
       [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base pb-3">{children}</div>,
       [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">{children}</div>,
       [BLOCKS.HEADING_2]: (node, children) => <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">{children}</div>,
-      [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc">{children}</ul>,
+      [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-6">{children}</ul>,
       [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 pb-0">{children}</ol>,
-
     },
   }
 
@@ -207,7 +207,10 @@ export default function Product({ data: { product, suggestions, cms } }) {
                         </p>
 
             {product.productType === "Merch" && (
-              <p className="text-lg pt-6 md:pt-12 pb-12 md:pb-24">{description}</p>
+            <div className="pt-6 md:pt-12 pb-3 md:pb-12">
+            {/* <p className="text-lg pt-6 md:pt-12 pb-12 md:pb-24">{description}</p> */}
+              {productCmsMerch[0].description && renderRichText(productCmsMerch[0].description, richTextOptions)}
+              </div>
             )}
 
             {product.productType === "Music" && (
@@ -403,5 +406,19 @@ export const query = graphql`
         }
     }
   }
+  cmsMerch: allContentfulMerch(filter: {shopifyProduct: {ne: "null"}}) {
+    nodes {
+        title
+        description {
+          raw
+        }
+        releaseDate
+        slug
+        pictures {
+          gatsbyImageData
+        }
+        shopifyProduct
+      }
+    }
   }
 `

@@ -49,12 +49,12 @@ export function ProductCard({ product, eager }) {
 
   return (
     <Link
-      className="bg-grey10 hover:bg-pwxBlue transform transition duration-300 ease-in-out group text-black hover:text-white"
+      className="bg-grey10 border-b border-r border-grey20 hover:bg-pwxBlue transform transition duration-300 ease-in-out group text-black hover:text-white"
       to={slug}
       aria-label={`View ${title} product page`}
     >
-        <div className="border-r border-grey20 leading-none">
-          <div className="flex items-center pt-6 ">
+        <div className="leading-none">
+          <div className="flex items-center pt-6">
                 <div>
                     {/* <div className={productVendorStyle}>{vendor}</div> */}
                     <h2 className="mx-5 text-lg font-semibold leading-none">
@@ -69,7 +69,7 @@ export function ProductCard({ product, eager }) {
         </div>
       {hasImage
         ? (
-          <div className="border-r border-b border-grey20  box-border" data-name="product-image-box">
+          <div className="box-border" data-name="product-image-box">
             <div className="transform transition duration-300 ease-in-out scale-100 group-hover:scale-90 p-16">
             <GatsbyImage
               alt={firstImage?.altText ?? title}

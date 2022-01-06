@@ -122,7 +122,6 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
   const allProductCms = cms.nodes
   const productCms =  allProductCms.filter(node => node.shopifyProduct === productId)
   const allProductCmsMerch = cmsMerch.nodes
-  console.log(productCmsMerch)
   const productCmsMerch =  allProductCmsMerch.filter(node => node.shopifyProduct === productId)
 
   const Bold = ({ children }) => <span className="font-semibold">{children}</span>

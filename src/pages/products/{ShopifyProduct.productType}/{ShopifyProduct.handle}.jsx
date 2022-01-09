@@ -150,7 +150,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
           image={getSrc(firstImage.gatsbyImageData)}
         />
       ) : undefined}
-      <div className="">
+      <div className="min-h-[90vh]">
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
           {hasImages && (

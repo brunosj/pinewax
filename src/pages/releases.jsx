@@ -9,8 +9,8 @@ const Releases = ({ data }) => {
 
  return (
     <Layout>
-      <section className="bg-grey10">
-      <div className="bg-grey10 ml-auto flex border-b border-t border-grey20 text-sm">
+      <section className="">
+      <div className="ml-auto flex border-b border-t border-grey20 text-sm">
           <nav className={navStyle}>
           <AnchorLink
             key="All"

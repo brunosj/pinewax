@@ -27,7 +27,7 @@ const ArtistPage = ({ data }) => {
 
   return (
     <Layout>
-      <div className="bg-grey10 grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
 
         <div>
           <GatsbyImage

@@ -20,16 +20,17 @@ export function Footer() {
 `)
 
   return (
-    <footer className="bg-grey10 text-pwxBlue flex items-center font-semibold border-t border-grey20 lowercase font-faune">
-      <div className="w-full py-4 md:py-6">
+    <footer className="text-black flex items-center border-t border-grey20 font-light">
+      <div className="w-full py-4 md:py-3">
             <div className="block md:flex px-6">
-                <nav className="flex order-last ml-auto" aria-label="footer">
+                <nav className="flex order-last ml-auto lowercase text-xs md:text-sm tracking-wider" aria-label="footer">
                     {/* <div className="pb-6"><p className="border-b pb-1">menu</p></div> */}
+                    <div className="">
                     {data.site.siteMetadata.links.map((link, key) => (
                       <span className="">
                           <a 
                             key={`social_link${key}`}
-                            className="hover:underline tracking-wider mr-4 text-base md:text-lg"
+                            className="hover:underline mr-4 "
                             activeClassName=""
                             href={link.to}
                             target="_blank"
@@ -38,8 +39,13 @@ export function Footer() {
                           </a>
                           </span>
                         ))}
+                        </div>
                 </nav>
-                <div className="order-first ml-auto md:ml-0 text-sm md:text-base pt-2 md:pt-0">Copyright &copy; {new Date().getFullYear()} Pinewax · All rights reserved</div>
+                <div className="order-first ml-auto md:ml-0 text-xs md:text-sm pt-2 md:pt-0">&copy; {new Date().getFullYear()} Pinewax Records 
+                <span className="pl-2">•
+                <Link className="pl-2 hover:underline" to="/about">about + contact</Link>
+                </span>
+                </div>
             </div>
       </div>
     </footer>

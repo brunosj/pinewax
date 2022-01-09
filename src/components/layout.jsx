@@ -11,7 +11,7 @@ import "../styles/variables.css"
 
 export function Layout({ children }) {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-grey10">
       <Seo />
       <SkipNavLink />
       <Header />

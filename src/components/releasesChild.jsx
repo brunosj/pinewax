@@ -62,7 +62,7 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
               animate={controls}
               initial="hidden"
               variants={releaseVariants}>
-              <div className="border-t border-grey20 bg-grey10 border-r h-full" id={release.slug}> 
+              <div className="border-t border-grey20 border-r h-full" id={release.slug}> 
                 <div className="pt-5 pb-3 md:pb-8">
                 <div className={childClassName}>
                   

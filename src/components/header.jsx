@@ -34,9 +34,8 @@ export function Header() {
         </Link>
         <CartButton quantity={quantity} />  
       </header>
-      <header>
+      <header className="">
       <NavigationMobile />
-
         </header>
       <Toast show={loading || didJustAddToCart}>
         {!didJustAddToCart ? (

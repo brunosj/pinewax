@@ -38,12 +38,22 @@ const Homepage = ({ data }) => {
         />    */}
     <ReleasesLeft release={releaseOne}/>
       <ReleasesRight release={releaseTwo}/>
-    <VideoCard
-        image={data.live.imageBanner.gatsbyImageData}
-        title={data.live.title}
-        textSize="text-xs lg:text-3xl"
-        slug={`/videos/${data.live.slug}`}
-        />   
+      <div className="hidden md:block">
+        <VideoCard
+            image={data.live.imageBanner.gatsbyImageData}
+            title={data.live.title}
+            textSize="text-xs lg:text-3xl"
+            slug={`/videos/${data.live.slug}`}
+            />   
+        </div>
+        <div className="block md:hidden">
+          <VideoCard
+              image={data.live.image.gatsbyImageData}
+              title={data.live.title}
+              textSize="text-sm lg:text-3xl"
+              slug={`/videos/${data.live.slug}`}
+              />   
+        </div>
 
        <ReleasesLeft release={releaseThree} />
 

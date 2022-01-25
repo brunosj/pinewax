@@ -28,11 +28,6 @@
 	max-width: 100%;
 }
 
-
-.cardBackImg {
-  opacity: 0;
-}
-
 /* Flexbox is used for centering the heading */
 .cardBack {
 	position: absolute;
@@ -56,7 +51,7 @@
 	width: 100%;
 	color: #fff;
 	text-transform: lowercase;
-    background-color: #4349F6;
+	background-color: rgba(67, 73, 246, 0.9);
 	letter-spacing: 2px;
 	padding: 1rem 3rem;
 	line-height: 1;
@@ -91,7 +86,7 @@
     }
 
 	.cardBackText {
-		background-color: transparent;
+		background-color: rgba(67, 73, 246, 0.5);
 		font-weight: bolder;
 	}
   }

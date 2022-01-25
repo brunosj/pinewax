@@ -85,6 +85,13 @@
 		opacity: 0;
     }
 
+	.videoCard:hover .cardBack {
+		opacity: 0;
+		-webkit-transition: opacity 100ms ease-in-out;
+		-ms-transition: opacity 100ms ease-in-out;
+		transition: opacity 100ms ease-in-out;
+	}
+
 	.cardBackText {
 		background-color: rgba(67, 73, 246, 0.5);
 		font-weight: bolder;

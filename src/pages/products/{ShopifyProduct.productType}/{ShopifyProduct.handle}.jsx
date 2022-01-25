@@ -16,6 +16,9 @@ import { NumericInput } from "../../../components/numeric-input"
 import { formatPrice } from "../../../utils/format-price"
 import { Seo } from "../../../components/seo"
 import { CgChevronRight as ChevronIcon } from "react-icons/cg"
+import ProductSlider from "../../../components/slider/product-slider"
+import ProductSliderSlick from "../../../components/slider/product-slider-slick"
+
 import {
   productBox,
   container,
@@ -53,6 +56,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
     tags,
     storefrontId,
     images: [firstImage],
+    images: [original, thumbnail],
   } = product
 
   const { client } = React.useContext(StoreContext)
@@ -154,7 +158,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
         <div className="grid grid-cols-1 lg:grid-cols-2">
 
           {hasImages && (
-            <div className="">
+            <div className="block md:hidden">
               <div
                 role="group"
                 aria-label="gallery"
@@ -189,6 +193,14 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
               )}
             </div>
           )}
+
+          {hasImages && (
+              <div className="hidden md:block">
+              <ProductSliderSlick productImages={images}/>
+              </div>
+
+          )}
+
           {!hasImages && (
             <span className={noImagePreview}>No Preview image</span>
           )}
@@ -199,7 +211,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
               <Link to={product.productTypeSlug}>Store</Link>
               <ChevronIcon size={12} />
             </div> */}
-            <h1 className="text-sm md:text-lg font-bold pt-4 pb-3 ">{product.variants[0].sku}</h1>
+            <h1 className="text-sm md:text-lg font-bold pt-4 pb-3">{product.variants[0].sku}</h1>
                         <p className="font-faune uppercase text-3xl md:text-5xl"><span className={stroke}>{tags}</span>
                         </p>
                         <p className="font-normal text-2xl md:text-3xl"><span className="">{title}</span>
@@ -229,6 +241,14 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
                             <ReleaseIcon 
                             url={productCms[0].urlListen}
                             icon={<FaSpotify/>}
+                            text="Spotify"
+                            textMargin="ml-0 md:ml-2"
+                            />
+                        )}
+                        {productCms[0].urlTidal && (
+                            <ReleaseIcon 
+                            url={productCms[0].urlTidal}
+                            icon={<SiTidal/>}
                             text="Spotify"
                             textMargin="ml-0 md:ml-2"
                             />
@@ -331,8 +351,9 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
               </span>
             </div> */}
           </div>
-
           </div>
+
+
         </div>
       </div>
     </Layout>
@@ -364,6 +385,8 @@ export const query = graphql`
         # altText
         id
         gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
+        original: gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
+        thumbnail: gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
       }
       variants {
         availableForSale
@@ -399,6 +422,7 @@ export const query = graphql`
         urlAppleMusic
         urlListen
         urlBandcamp
+        urlTidal
         shopifyProduct
         description {
           raw

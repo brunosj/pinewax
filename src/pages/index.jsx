@@ -98,6 +98,7 @@ query Banner {
           releaseDate
           releaseArtist
           urlBandcamp
+          urlTidal
           urlListen
           urlAppleMusic
           shopifyProduct

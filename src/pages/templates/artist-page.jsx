@@ -139,6 +139,7 @@ query ArtistPageQuery($slug: String) {
         urlAppleMusic
         urlListen
         urlBandcamp
+        urlTidal
       }
       videos {
         title

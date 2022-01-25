@@ -67,6 +67,7 @@ query Releases {
         urlAppleMusic
         urlListen
         urlBandcamp
+        urlTidal
         cover {
             gatsbyImageData(
               placeholder: BLURRED, 
@@ -102,6 +103,7 @@ query Releases {
         urlAppleMusic
         urlListen
         urlBandcamp
+        urlTidal
         cover {
             gatsbyImageData(
               placeholder: BLURRED, 

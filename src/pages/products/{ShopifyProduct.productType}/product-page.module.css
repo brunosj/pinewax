@@ -27,12 +27,14 @@
 .productImageList {
   display: flex;
   overflow-x: auto;
+  position: relative;
 }
 
 .productImageListItem {
   display: flex;
   flex: 0 0 100%;
   white-space: nowrap;
+  transform: translate3d(-10%, 0px, 0px);
 }
 
 .scrollForMore {
@@ -41,7 +43,7 @@
   display: none;
   font-size: var(--text-lg);
   transform: translate3d(-50%, 0px, 0px);
-  left: 50%;
+  left: -50%;
   position: absolute;
 }
 
@@ -173,6 +175,14 @@
   .addToCartStyle {
     grid-template-columns: min-content max-content;
   }
+
+  .productImageListItem {
+    display: flex;
+    flex: 0 0 100%;
+    white-space: nowrap;
+    transform: translate3d(0, 0px, 0px);
+  }
+  
 }
 
 @media (min-width: 1024px) {
@@ -180,3 +190,4 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+

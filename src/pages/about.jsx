@@ -32,11 +32,12 @@ const About = () => {
 
 const richTextOptions = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base pb-3">{children}</div>,
-    [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">{children}</div>,
-    [BLOCKS.HEADING_2]: (node, children) => <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">{children}</div>,
+    [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base mb-1">{children}</div>,
+    [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl md:text-2xl text-gray-900 font-semibold py-6">{children}</div>,
+    [BLOCKS.HEADING_2]: (node, children) => <div className="text-large md:text-xl text-gray-900 font-normal py-4">{children}</div>,
     [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-6 pb-0">{children}</ul>,
     [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 pb-0">{children}</ol>,
+    [BLOCKS.QUOTE]: (node, children) => <div className="text-lg leading-none mb-0">{children}</div>,
     [INLINES.HYPERLINK]: ({ data }, children)  => {
       return <a 
       href={data.uri}

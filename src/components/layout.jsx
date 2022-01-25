@@ -9,9 +9,13 @@ import "../styles/global.css"
 import "../styles/reset.css"
 import "../styles/variables.css"
 
+// import "../components/slider/slick.css"
+// import "../components/slider/slick-theme.css"
+
+
 export function Layout({ children }) {
   return (
-    <div className="overflow-hidden bg-grey10">
+    <div className="overflow-hidden bg-grey10 min-h-[100vh]">
       <Seo />
       <SkipNavLink />
       <Header />

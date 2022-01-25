@@ -25,6 +25,8 @@ const Radio = () => {
               )
       }
       pictures {
+        localFile {
+            childImageSharp {
               thumb: gatsbyImageData(
               width: 280
               height: 280
@@ -36,7 +38,9 @@ const Radio = () => {
               layout: FULL_WIDTH
               formats: WEBP
               quality: 85)
-            }
+             }
+          }
+        }
   }
   allFile(
     filter: {sourceInstanceName: {eq: "radio"}}
@@ -102,7 +106,7 @@ console.log(pictures)
                   </p>
           </div>
           <div className="ml-5 md:ml-16 mr-5 md:mr-16 mb-6 md:mb-0 my-auto" >
-                <ImageGallery pics={data.allFile.nodes}/>
+                <ImageGallery pics={data.contentfulPage.pictures}/>
           </div>
         </div>
     </div>

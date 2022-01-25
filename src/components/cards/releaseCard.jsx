@@ -66,6 +66,12 @@ const ReleaseCard = ({ releases }) => {
                             icon={<FaSpotify/>}
                             text="" />
                         )}
+                        {release.urlTidal && (
+                            <ReleaseIcon 
+                            url={release.urlTidal}
+                            icon={<SiTidal/>}
+                            text="" />
+                        )}
                         {release.urlAppleMusic && (
                             <ReleaseIcon 
                             url={release.urlListen}

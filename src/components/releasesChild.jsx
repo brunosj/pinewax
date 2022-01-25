@@ -151,6 +151,14 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                             textMargin="ml-0 md:ml-2"
                             />
                         )}
+                        {release.urlTidal && (
+                            <ReleaseIcon 
+                            url={release.urlTidal}
+                            icon={<SiTidal/>}
+                            text="Tidal"
+                            textMargin="ml-0 md:ml-2"
+                            />
+                        )}
                         {release.urlAppleMusic && (
                             <ReleaseIcon 
                             url={release.urlListen}

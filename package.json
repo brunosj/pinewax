@@ -51,10 +51,13 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
+    "react-image-gallery": "^1.2.7",
     "react-intersection-observer": "^8.33.1",
     "react-scrollmagic": "^2.3.0",
+    "react-slick": "^0.28.1",
     "scrollama": "^3.0.2",
     "shopify-buy": "^2.13.0",
+    "slick-carousel": "^1.8.1",
     "urql": "^2.0.6"
   },
   "devDependencies": {

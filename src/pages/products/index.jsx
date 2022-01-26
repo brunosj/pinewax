@@ -4,13 +4,9 @@ import { Layout } from "../../components/layout"
 import { ProductListing } from "../../components/product-listing"
 import { Seo } from "../../components/seo"
 import { MoreButton } from "../../components/more-button"
-import { title } from "./index.module.css"
 import { NavigationStore } from "../../components/navigation-store"
 import {
-  header,
-  container,
   logo as logoCss,
-  searchButton,
   nav,
 } from "../../components/header.module.css"
 

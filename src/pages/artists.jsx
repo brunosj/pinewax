@@ -1,10 +1,9 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
-import { GatsbyImage } from "gatsby-plugin-image"
 import ArtistCard from "../components/cards/artistCard"
 
-const Artists = ({ data }) => {  
+const Artists = ({ data }) => {
 
   return (
     <Layout>

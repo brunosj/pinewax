@@ -1,19 +1,11 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { StoreContext } from "../context/store-context"
 import Logo from "../icons/logo"
 import { NavigationDesktop } from "./navigation-desktop"
 import { NavigationMobile } from "./navigation-mobile"
 import { CartButton } from "./cart-button"
-import SearchIcon from "../icons/search"
 import { Toast } from "./toast"
-import {
-  header,
-  container,
-  logo as logoCss,
-  searchButton,
-  nav,
-} from "./header.module.css"
 
 export function Header() {
   const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
@@ -32,11 +24,11 @@ export function Header() {
         <Link to="/search" className='text-grey50 hover:text-grey90 place-items-center ml-auto lg:ml-0 '>
           {/* <SearchIcon /> */}
         </Link>
-        <CartButton quantity={quantity} />  
+        <CartButton quantity={quantity} />
       </header>
       <header className="">
-      <NavigationMobile />
-        </header>
+        <NavigationMobile />
+      </header>
       <Toast show={loading || didJustAddToCart}>
         {!didJustAddToCart ? (
           "Updating…"

@@ -3,14 +3,6 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { getShopifyImage } from "gatsby-source-shopify"
 import { formatPrice } from "../utils/format-price"
-import {
-  productCardStyle,
-  productHeadingStyle,
-  productImageStyle,
-  productDetailsStyle,
-  productVendorStyle,
-  productPrice,
-} from "./product-card.module.css"
 
 export function ProductCard({ product, eager }) {
   const {
@@ -19,9 +11,7 @@ export function ProductCard({ product, eager }) {
     slug,
     images: [firstImage],
     tags,
-    createdAt,
     storefrontImages,
-    variants,
   } = product
 
   const price = formatPrice(

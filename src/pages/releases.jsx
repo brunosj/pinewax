@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
 import ReleasesChild from "../components/releasesChild"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import { navStyle, navLink, activeLink } from "../components/navigation.module.css"
+import { activeLink, navLink, navStyle } from "../components/navigation.module.css"
 
 const Releases = ({ data }) => {
 

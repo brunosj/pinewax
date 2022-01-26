@@ -1,8 +1,8 @@
 import * as React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import VideoCard from "./cards/videoCard"
 
-const VideosAll = ({ videoWidth }) => {  
+const VideosAll = ({ videoWidth }) => {
   const data = useStaticQuery(graphql`
     query VideosAll {
       videos:allContentfulVideo(sort: {fields: releaseDate, order: DESC}) {
@@ -25,17 +25,17 @@ const VideosAll = ({ videoWidth }) => {
 
   return (
     <div className="grid grid-cols-2">
-        {data.videos.nodes.map(node => {
-          return (
-            <VideoCard
+      {data.videos.nodes.map(node => {
+        return (
+          <VideoCard
             image={node.image.gatsbyImageData}
             title={node.title}
             textSize="text-xs md:text-xl"
             slug={`/videos/${node.slug}`}
-            videoWidth={videoWidth}/>
-          )
-        } 
-          )}
+            videoWidth={videoWidth} />
+        )
+      }
+      )}
     </div>
   )
 }

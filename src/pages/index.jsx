@@ -1,61 +1,37 @@
 import * as React from "react"
-import { useEffect } from "react";
-import { useAnimation, motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
-import { GatsbyImage } from "gatsby-plugin-image"
 import ReleasesLeft from "../components/releasesLeft"
 import ReleasesRight from "../components/releasesRight"
 import VideoCard from "../components/cards/videoCard"
 
-const Homepage = ({ data }) => {  
+const Homepage = ({ data }) => {
   const releaseOne = data.releases.nodes[0]
   const releaseTwo = data.releases.nodes[1]
   const releaseThree = data.releases.nodes[2]
-  
-  const indexVariants = {
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-    hidden: { opacity: 0 }
-  };
-
-  const controls = useAnimation();
-  const [ref, inView] = useInView( { rootMargin: '0px 0px', } );
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
 
   return (
     <Layout>
-   {/* <GatsbyImage
-      loading="eager"
-      alt="Pinewax"
-      image={data.banner.gatsbyImageData}
-        />    */}
-    <ReleasesLeft release={releaseOne}/>
-      <ReleasesRight release={releaseTwo}/>
+      <ReleasesLeft release={releaseOne} />
+      <ReleasesRight release={releaseTwo} />
       <div className="hidden md:block">
         <VideoCard
-            image={data.live.imageBanner.gatsbyImageData}
-            title={data.live.title}
-            textSize="text-xs lg:text-3xl"
-            slug={`/videos/${data.live.slug}`}
-            />   
-        </div>
-        <div className="block md:hidden">
-          <VideoCard
-              image={data.live.image.gatsbyImageData}
-              title={data.live.title}
-              textSize="text-sm lg:text-3xl"
-              slug={`/videos/${data.live.slug}`}
-              />   
-        </div>
+          image={data.live.imageBanner.gatsbyImageData}
+          title={data.live.title}
+          textSize="text-xs lg:text-3xl"
+          slug={`/videos/${data.live.slug}`}
+        />
+      </div>
+      <div className="block md:hidden">
+        <VideoCard
+          image={data.live.image.gatsbyImageData}
+          title={data.live.title}
+          textSize="text-sm lg:text-3xl"
+          slug={`/videos/${data.live.slug}`}
+        />
+      </div>
 
-       <ReleasesLeft release={releaseThree} />
+      <ReleasesLeft release={releaseThree} />
 
 
     </Layout>

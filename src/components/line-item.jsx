@@ -7,11 +7,8 @@ import { getShopifyImage } from "gatsby-source-shopify"
 import DeleteIcon from "../icons/delete"
 import { NumericInput } from "./numeric-input"
 import {
-  title,
   remove,
   variant,
-  totals,
-  priceColumn,
 } from "./line-item.module.css"
 
 export function LineItem({ item }) {
@@ -38,7 +35,7 @@ export function LineItem({ item }) {
   )
 
   const tags = item.storefrontId
-console.log(tags)
+  console.log(tags)
 
   const handleRemove = () => {
     removeLineItem(checkout.id, item.id)
@@ -111,7 +108,7 @@ console.log(tags)
           onDecrement={doDecrement}
           onChange={(e) => handleQuantityChange(e.currentTarget.value)}
         />
-                <div className={remove}>
+        <div className={remove}>
           <button onClick={handleRemove}>
             <DeleteIcon /> Remove
           </button>

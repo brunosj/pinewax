@@ -1,47 +1,29 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { Layout } from "../../../components/layout"
 import isEqual from "lodash.isequal"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
-import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { StoreContext } from "../../../context/store-context"
 import { AddToCart } from "../../../components/add-to-cart"
 import { AddToCartVinyl } from "../../../components/add-to-cartVinyl"
 import ReleaseIcon from "../../../icons/releaseIcon"
 import { FaSpotify, FaApple } from 'react-icons/fa';
 import { SiTidal, SiBandcamp } from 'react-icons/si';
-import { BsFillVinylFill } from 'react-icons/bs';
-import { NumericInput } from "../../../components/numeric-input"
 import { formatPrice } from "../../../utils/format-price"
 import { Seo } from "../../../components/seo"
-import { CgChevronRight as ChevronIcon } from "react-icons/cg"
-import ProductSlider from "../../../components/slider/product-slider"
 import ProductSliderSlick from "../../../components/slider/product-slider-slick"
 
 import {
-  productBox,
-  container,
-  header,
-  productImageWrapper,
+  noImagePreview,
   productImageList,
   productImageListItem,
   scrollForMore,
-  noImagePreview,
-  optionsWrapper,
-  priceValue,
   selectVariant,
-  labelFont,
-  breadcrumb,
-  tagList,
-  addToCartStyle,
-  metaSection,
-  productDescription,
 } from "./product-page.module.css"
 import {
   stroke,
-  buyButton,
-  icon,
 } from "../../../components/releasesInfo.module.css"
 
 export default function Product({ data: { product, suggestions, cms, cmsMerch } }) {
@@ -124,12 +106,12 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
   // linking the Shopify product with the release data from Contentful
   const productId = product.storefrontId
   const allProductCms = cms.nodes
-  const productCms =  allProductCms.filter(node => node.shopifyProduct === productId)
+  const productCms = allProductCms.filter(node => node.shopifyProduct === productId)
   const allProductCmsMerch = cmsMerch.nodes
-  const productCmsMerch =  allProductCmsMerch.filter(node => node.shopifyProduct === productId)
+  const productCmsMerch = allProductCmsMerch.filter(node => node.shopifyProduct === productId)
 
   const Bold = ({ children }) => <span className="font-semibold">{children}</span>
-  const Italic = ({ children }) => <span className="italic">{children}</span>  
+  const Italic = ({ children }) => <span className="italic">{children}</span>
 
   const richTextOptions = {
     renderMark: {
@@ -195,9 +177,9 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
           )}
 
           {hasImages && (
-              <div className="hidden md:block">
-              <ProductSliderSlick productImages={images}/>
-              </div>
+            <div className="hidden md:block">
+              <ProductSliderSlick productImages={images} />
+            </div>
 
           )}
 
@@ -206,104 +188,104 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
           )}
 
           <div className="">
-          <div className="mt-6 md:mt-12 mx-5 md:mx-12 lg:pr-48">
-            {/* <div className={breadcrumb}>
+            <div className="mt-6 md:mt-12 mx-5 md:mx-12 lg:pr-48">
+              {/* <div className={breadcrumb}>
               <Link to={product.productTypeSlug}>Store</Link>
               <ChevronIcon size={12} />
             </div> */}
-            <h1 className="text-sm md:text-lg font-bold pt-4 pb-3">{product.variants[0].sku}</h1>
-                        <p className="font-faune uppercase text-3xl md:text-5xl"><span className={stroke}>{tags}</span>
-                        </p>
-                        <p className="font-normal text-2xl md:text-3xl"><span className="">{title}</span>
-                        </p>
+              <h1 className="text-sm md:text-lg font-bold pt-4 pb-3">{product.variants[0].sku}</h1>
+              <p className="font-faune uppercase text-3xl md:text-5xl"><span className={stroke}>{title}</span>
+              </p>
+              <p className="mt-1 font-normal text-2xl md:text-3xl"><span className="">{tags}</span>
+              </p>
 
-            {product.productType === "Merch" && (
-            <div className="pt-6 md:pt-12 pb-3 md:pb-12">
-            {/* <p className="text-lg pt-6 md:pt-12 pb-12 md:pb-24">{description}</p> */}
-              {productCmsMerch[0].description && renderRichText(productCmsMerch[0].description, richTextOptions)}
-              </div>
-            )}
+              {product.productType === "Merch" && (
+                <div className="pt-6 md:pt-12 pb-3 md:pb-12">
+                  {/* <p className="text-lg pt-6 md:pt-12 pb-12 md:pb-24">{description}</p> */}
+                  {productCmsMerch[0].description && renderRichText(productCmsMerch[0].description, richTextOptions)}
+                </div>
+              )}
 
-            {product.productType === "Music" && (
-            <div className="pt-6 md:pt-12 pb-3 md:pb-12">
-              {productCms[0].description && renderRichText(productCms[0].description, richTextOptions)}
+              {product.productType === "Music" && (
+                <div className="pt-6 md:pt-12 pb-3 md:pb-12">
+                  {productCms[0].description && renderRichText(productCms[0].description, richTextOptions)}
 
-              <div className="flex items-center pt-6 gap-5">
-                         {productCms[0].urlBandcamp && (
-                             <ReleaseIcon 
-                                url={productCms[0].urlBandcamp}
-                                icon={<SiBandcamp/>}
-                                text="Bandcamp"
-                                textMargin="ml-0 md:ml-2"
-                                />
-                        )}
-                        {productCms[0].urlListen && (
-                            <ReleaseIcon 
-                            url={productCms[0].urlListen}
-                            icon={<FaSpotify/>}
-                            text="Spotify"
-                            textMargin="ml-0 md:ml-2"
-                            />
-                        )}
-                        {productCms[0].urlTidal && (
-                            <ReleaseIcon 
-                            url={productCms[0].urlTidal}
-                            icon={<SiTidal/>}
-                            text="Spotify"
-                            textMargin="ml-0 md:ml-2"
-                            />
-                        )}
-                        {productCms[0].urlAppleMusic && (
-                            <ReleaseIcon 
-                            url={productCms[0].urlListen}
-                            icon={<FaApple/>}
-                            text="Apple Music"
-                            textMargin="ml-0 md:ml-2"
-                            />
-                        )}
+                  <div className="flex items-center pt-6 gap-5">
+                    {productCms[0].urlBandcamp && (
+                      <ReleaseIcon
+                        url={productCms[0].urlBandcamp}
+                        icon={<SiBandcamp />}
+                        text="Bandcamp"
+                        textMargin="ml-0 md:ml-2"
+                      />
+                    )}
+                    {productCms[0].urlListen && (
+                      <ReleaseIcon
+                        url={productCms[0].urlListen}
+                        icon={<FaSpotify />}
+                        text="Spotify"
+                        textMargin="ml-0 md:ml-2"
+                      />
+                    )}
+                    {productCms[0].urlTidal && (
+                      <ReleaseIcon
+                        url={productCms[0].urlTidal}
+                        icon={<SiTidal />}
+                        text="Spotify"
+                        textMargin="ml-0 md:ml-2"
+                      />
+                    )}
+                    {productCms[0].urlAppleMusic && (
+                      <ReleaseIcon
+                        url={productCms[0].urlListen}
+                        icon={<FaApple />}
+                        text="Apple Music"
+                        textMargin="ml-0 md:ml-2"
+                      />
+                    )}
 
-                        </div>
-
-            </div>
-            
-            )}
-          </div>
-
-          <div className="">
-          <div className="ml-5 md:ml-12 flex items-center py-6 text-lg font-semibold">
-            <fieldset className="">
-              {hasVariants &&
-                options.map(({ id, name, values }, index) => (
-                  <div className={selectVariant} key={id}>
-                    <select
-                      aria-label="Variants"
-                      onChange={(event) => handleOptionChange(index, event)}
-                    >
-                      <option value="">{`Select ${name}`}</option>
-                      {values.map((value) => (
-                        <option value={value} key={`${name}-${value}`}>
-                          {value}
-                        </option>
-                      ))}
-                    </select>
                   </div>
-                ))}
-            </fieldset>
 
-            {product.productType === "Music" && (
-            <div className="text-xl">
-              Vinyl
-              <span className="text-base ml-3">{productCms[0].vinylVariant}</span>
+                </div>
 
-            </div>
-            )}
-            <div className="ml-auto mr-3">
-              {price}
+              )}
             </div>
 
-            {product.productType === "Music" && (
-            <div className="ml-auto mr-5 md:mr-12">
-              {/* <NumericInput
+            <div className="">
+              <div className="ml-5 md:ml-12 flex items-center py-6 text-lg font-semibold">
+                <fieldset className="">
+                  {hasVariants &&
+                    options.map(({ id, name, values }, index) => (
+                      <div className={selectVariant} key={id}>
+                        <select
+                          aria-label="Variants"
+                          onChange={(event) => handleOptionChange(index, event)}
+                        >
+                          <option value="">{`Select ${name}`}</option>
+                          {values.map((value) => (
+                            <option value={value} key={`${name}-${value}`}>
+                              {value}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    ))}
+                </fieldset>
+
+                {product.productType === "Music" && (
+                  <div className="text-xl">
+                    Vinyl
+                    <span className="text-base ml-3">{productCms[0].vinylVariant}</span>
+
+                  </div>
+                )}
+                <div className="ml-auto mr-3">
+                  {price}
+                </div>
+
+                {product.productType === "Music" && (
+                  <div className="ml-auto mr-5 md:mr-12">
+                    {/* <NumericInput
                 aria-label="Quantity"
                 onIncrement={() => setQuantity((q) => Math.min(q + 1, 20))}
                 onDecrement={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -311,17 +293,17 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
                 value={quantity}
                 min="1"
                 max="20"
-              /> */}  
-              <AddToCartVinyl
-                variantId={productVariant.storefrontId}
-                quantity={quantity}
-                available={available}
-              />
-            </div>
-            )}
-            {product.productType !== "Music" && (
-            <div className="ml-auto mr-5 md:mr-12">
-              {/* <NumericInput
+              /> */}
+                    <AddToCartVinyl
+                      variantId={productVariant.storefrontId}
+                      quantity={quantity}
+                      available={available}
+                    />
+                  </div>
+                )}
+                {product.productType !== "Music" && (
+                  <div className="ml-auto mr-5 md:mr-12">
+                    {/* <NumericInput
                 aria-label="Quantity"
                 onIncrement={() => setQuantity((q) => Math.min(q + 1, 20))}
                 onDecrement={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -329,16 +311,16 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
                 value={quantity}
                 min="1"
                 max="20"
-              /> */}  
-              <AddToCart
-                variantId={productVariant.storefrontId}
-                quantity={quantity}
-                available={available}
-              />
-            </div>
-            )}
-          </div>
-            {/* <div className={metaSection}>
+              /> */}
+                    <AddToCart
+                      variantId={productVariant.storefrontId}
+                      quantity={quantity}
+                      available={available}
+                    />
+                  </div>
+                )}
+              </div>
+              {/* <div className={metaSection}>
               <span className={labelFont}>Type</span>
               <span className={tagList}>
                 <Link to={product.productTypeSlug}>{product.productType}</Link>
@@ -350,7 +332,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
                 ))}
               </span>
             </div> */}
-          </div>
+            </div>
           </div>
 
 

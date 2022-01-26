@@ -6,26 +6,25 @@ import "./slick.css"
 
 const ProductSliderSlick = ({ productImages }) => {
 
-    const settings = {
-      dots: true,
-      infinite: true,
-      arrows: false,
-      speed: 0,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      fade: true,
-      swipeToSlide: true,
-    };
+  const settings = {
+    dots: true,
+    infinite: true,
+    arrows: false,
+    speed: 0,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    swipeToSlide: true,
+  };
 
-    return (
-      <div>
-        <Slider {...settings}>
+  return (
+    <div>
+      <Slider {...settings}>
 
-          {productImages[0] && (
-              <div className="w-full mt-16 mb-12">
-                <div className="flex m-auto">
-                <GatsbyImage
+        {productImages[0] && (
+          <div className="w-full mt-16 mb-12">
+            <div className="flex m-auto">
+              <GatsbyImage
                 objectFit="contain"
                 loading="eager"
                 alt={
@@ -34,15 +33,15 @@ const ProductSliderSlick = ({ productImages }) => {
                     : `Product Image`
                 }
                 image={productImages[0].gatsbyImageData}
-                />
-                </div>
-                </div>
-              )}
+              />
+            </div>
+          </div>
+        )}
 
-            {productImages[1] && (
-              <div className="w-full mt-16 mb-12">
-              <div className="flex m-auto">
-                <GatsbyImage
+        {productImages[1] && (
+          <div className="w-full mt-16 mb-12">
+            <div className="flex m-auto">
+              <GatsbyImage
                 objectFit="contain"
                 loading="lazy"
                 alt={
@@ -51,15 +50,15 @@ const ProductSliderSlick = ({ productImages }) => {
                     : `Product Image`
                 }
                 image={productImages[1].gatsbyImageData}
-                />
-                  </div>
-                </div>
-              )}
-            
-            {productImages[2] && (
-              <div className="w-full mt-16 mb-12">
-              <div className="flex m-auto">
-               <GatsbyImage
+              />
+            </div>
+          </div>
+        )}
+
+        {productImages[2] && (
+          <div className="w-full mt-16 mb-12">
+            <div className="flex m-auto">
+              <GatsbyImage
                 objectFit="contain"
                 loading="lazy"
                 alt={
@@ -68,15 +67,15 @@ const ProductSliderSlick = ({ productImages }) => {
                     : `Product Image`
                 }
                 image={productImages[2].gatsbyImageData}
-                />
-                </div>
-                </div>
-              )}
+              />
+            </div>
+          </div>
+        )}
 
-            {productImages[3] && (
-              <div className="w-full mt-16 mb-12">
-              <div className="flex m-auto">
-               <GatsbyImage
+        {productImages[3] && (
+          <div className="w-full mt-16 mb-12">
+            <div className="flex m-auto">
+              <GatsbyImage
                 objectFit="contain"
                 loading="lazy"
                 alt={
@@ -85,15 +84,15 @@ const ProductSliderSlick = ({ productImages }) => {
                     : `Product Image`
                 }
                 image={productImages[3].gatsbyImageData}
-                />
-                </div>
-                </div>
-              )}
+              />
+            </div>
+          </div>
+        )}
 
-          {productImages[4] && (
-              <div className="w-full mt-16 mb-12">
-              <div className="flex m-auto">
-               <GatsbyImage
+        {productImages[4] && (
+          <div className="w-full mt-16 mb-12">
+            <div className="flex m-auto">
+              <GatsbyImage
                 objectFit="contain"
                 loading="lazy"
                 alt={
@@ -102,15 +101,15 @@ const ProductSliderSlick = ({ productImages }) => {
                     : `Product Image`
                 }
                 image={productImages[4].gatsbyImageData}
-                />
-                </div>
-                </div>
-              )}
+              />
+            </div>
+          </div>
+        )}
 
-          {productImages[5] && (
-              <div className="w-full mt-16 mb-12">
-              <div className="flex m-auto">
-               <GatsbyImage
+        {productImages[5] && (
+          <div className="w-full mt-16 mb-12">
+            <div className="flex m-auto">
+              <GatsbyImage
                 objectFit="contain"
                 loading="lazy"
                 alt={
@@ -119,14 +118,14 @@ const ProductSliderSlick = ({ productImages }) => {
                     : `Product Image`
                 }
                 image={productImages[5].gatsbyImageData}
-                />
-                </div>
-                </div>
-              )}  
+              />
+            </div>
+          </div>
+        )}
 
-        </Slider>
-      </div>
-    );
-  }
+      </Slider>
+    </div>
+  );
+}
 
-  export default ProductSliderSlick
+export default ProductSliderSlick

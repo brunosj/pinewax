@@ -19,6 +19,7 @@ export default function ProductTypeIndex({
   data: { products },
   pageContext: { productType },
 }) {
+
   return (
     <Layout>
       <Seo title={`Category: ${productType}`} />
@@ -37,7 +38,7 @@ export const query = graphql`
   query($productType: String!) {
     products: allShopifyProduct(
       filter: { productType: { eq: $productType } }
-      sort: { fields: publishedAt, order: ASC }
+      sort: { fields: createdAt, order: DESC }
       limit: 24
     ) {
       nodes {

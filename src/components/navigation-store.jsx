@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery, Link } from "gatsby"
 import * as React from "react"
 import slugify from "@sindresorhus/slugify"
-import { navStyle, navLink, activeLink } from "./navigation.module.css"
+import { navStyle, navLink, navStyleLowerCase, activeLink } from "./navigation.module.css"
 
 export function NavigationStore({ className }) {
   const {
@@ -16,26 +16,26 @@ export function NavigationStore({ className }) {
 
   return (
     <div className="ml-auto flex border-b border-t border-grey20 text-sm">
-    <nav className={[navStyle, className].join(" ")}>
-      <Link
-        key="All"
-        className={navLink}
-        to="/products/"
-        activeClassName={activeLink}
-      >
-        All products
-      </Link>
-      {productTypes.map((name) => (
+      <nav className={[navStyleLowerCase, className].join(" ")}>
         <Link
-          key={name}
+          key="All"
           className={navLink}
-          to={`/products/${slugify(name)}`}
+          to="/products/"
           activeClassName={activeLink}
         >
-          {name}
+          all products
         </Link>
-      ))}
-    </nav>
+        {productTypes.map((name) => (
+          <Link
+            key={name}
+            className={navLink}
+            to={`/products/${slugify(name)}`}
+            activeClassName={activeLink}
+          >
+            {name}
+          </Link>
+        ))}
+      </nav>
     </div>
   )
 }

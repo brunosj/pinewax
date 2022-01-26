@@ -19,6 +19,7 @@ export function ProductCard({ product, eager }) {
     slug,
     images: [firstImage],
     tags,
+    createdAt,
     storefrontImages,
     variants,
   } = product
@@ -53,30 +54,30 @@ export function ProductCard({ product, eager }) {
       to={slug}
       aria-label={`View ${title} product page`}
     >
-        <div className="leading-none">
-          <div className="flex items-center pt-6">
-                <div>
-                    {/* <div className={productVendorStyle}>{vendor}</div> */}
-                    <h2 className="mx-5 text-lg font-semibold leading-none">
-                      {tags}
-                    </h2>
-                    <h2 className="mx-5 text-lg ">{title}</h2>
-                </div>
-                <div className="mr-5 ml-auto">
-                  {price}
-                </div>
-            </div>
+      <div className="leading-none">
+        <div className="flex items-center pt-6">
+          <div>
+            {/* <div className={productVendorStyle}>{vendor}</div> */}
+            <h2 className="mx-5 text-lg font-semibold leading-none">
+              {tags}
+            </h2>
+            <h2 className="mx-5 text-lg ">{title}</h2>
+          </div>
+          <div className="mr-5 ml-auto">
+            {price}
+          </div>
         </div>
+      </div>
       {hasImage
         ? (
           <div className="box-border" data-name="product-image-box">
             <div className="transform transition duration-300 ease-in-out scale-100 group-hover:scale-90 p-16">
-            <GatsbyImage
-              alt={firstImage?.altText ?? title}
-              image={firstImage?.gatsbyImageData ?? storefrontImageData}
-              loading={eager ? "eager" : "lazy"}
-              imgStyle={{ zIndex: '0'  }}
-            />
+              <GatsbyImage
+                alt={firstImage?.altText ?? title}
+                image={firstImage?.gatsbyImageData ?? storefrontImageData}
+                loading={eager ? "eager" : "lazy"}
+                imgStyle={{ zIndex: '0' }}
+              />
             </div>
           </div>
         ) : (
@@ -92,6 +93,7 @@ export const query = graphql`
   fragment ProductCard on ShopifyProduct {
     id
     title
+    createdAt
     tags
     slug: gatsbyPath(
       filePath: "/products/{ShopifyProduct.productType}/{ShopifyProduct.handle}"

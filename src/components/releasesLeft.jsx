@@ -25,7 +25,7 @@ const ReleasesLeft = ({ release }) => {
 
  
     return (
-            <div style={{
+            <section style={{
                 backgroundColor: release.mainColour
                  }} > 
             <motion.div
@@ -72,7 +72,7 @@ const ReleasesLeft = ({ release }) => {
 
                     </div>
                     </motion.div>      
-        </div>
+        </section>
     )
   }
 

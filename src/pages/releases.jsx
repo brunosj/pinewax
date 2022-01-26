@@ -5,42 +5,44 @@ import ReleasesChild from "../components/releasesChild"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { navStyle, navLink, activeLink } from "../components/navigation.module.css"
 
-const Releases = ({ data }) => {  
+const Releases = ({ data }) => {
 
- return (
+  return (
     <Layout>
-      <section className="">
-      <div className="ml-auto flex border-b border-t border-grey20 text-sm">
+      <article className="">
+        <div className="ml-auto flex border-b border-t border-grey20 text-sm">
           <nav className={navStyle}>
-          <AnchorLink
-            key="All"
-            className={navLink}
-            to="/releases#albums"
-            activeClassName={activeLink}
-            title="Albums & EPs" 
-          >
-            Albums & EPs
-          </AnchorLink>
-          <AnchorLink
-            key="All"
-            className={navLink}
-            to="/releases#singles"
-            activeClassName={activeLink}
-            title="Singles" 
-          >
-            Singles
-          </AnchorLink>
+            <AnchorLink
+              key="All"
+              className={navLink}
+              to="/releases#albums"
+              activeClassName={activeLink}
+              title="Albums & EPs"
+            >
+              albums & EPs
+            </AnchorLink>
+            <AnchorLink
+              key="All"
+              className={navLink}
+              to="/releases#singles"
+              activeClassName={activeLink}
+              title="Singles"
+            >
+              singles
+            </AnchorLink>
           </nav>
-      </div>
-      <div id="albums">
-         <ReleasesChild releases={data.albums.nodes} childClassName="grid grid-cols-1 md:grid-cols-3"/>
-      </div>
-      <div className="bg-pwxBlue text-white border-t border-grey20 text-xl pl-5 md:pl-12 p-5 ">
-      </div>
-      <div id="singles">
-         <ReleasesChild releases={data.singles.nodes} parentClassName="grid grid-cols-1 md:grid-cols-2" childClassName="grid grid-cols-1 md:grid-cols-2" id="singles"/>
-      </div>
-      </section>
+        </div>
+        <section id="albums">
+          <p className="text-xl pl-5 md:pl-12 py-3 font-normal uppercase tracking-widest">Albums & EPs</p>
+          <ReleasesChild releases={data.albums.nodes} childClassName="grid grid-cols-1 md:grid-cols-3" />
+        </section>
+        <div className="bg-pwxBlue text-white border-t border-grey20 text-xl pl-5 md:pl-12 p-5 ">
+        </div>
+        <section id="singles">
+          <p className="text-xl pl-5 md:pl-12 py-3 font-normal uppercase tracking-widest">Singles</p>
+          <ReleasesChild releases={data.singles.nodes} parentClassName="grid grid-cols-1 md:grid-cols-2" childClassName="grid grid-cols-1 md:grid-cols-2" id="singles" />
+        </section>
+      </article>
     </Layout>
   )
 }
@@ -49,7 +51,7 @@ export default Releases
 
 export const query = graphql`
 query Releases {
-  albums:allContentfulRelease(sort: {fields: catalogNumber, order: DESC}, filter: {catalogNumber: {ne: null}}) {
+  albums:allContentfulRelease(sort: {fields: releaseDate, order: DESC}, filter: {catalogNumber: {ne: null}}) {
       nodes {
         id
         slug

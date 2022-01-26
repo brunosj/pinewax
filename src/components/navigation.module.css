@@ -9,6 +9,18 @@
   padding: 10px 20px;
 }
 
+.navStyleLowerCase {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-weight: var(--medium);
+  margin-left: auto;
+  padding: 10px 20px;
+  text-transform: lowercase;
+}
+
 .navLink {
   cursor: pointer;
   text-decoration: none;

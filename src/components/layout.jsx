@@ -15,13 +15,13 @@ import "../styles/variables.css"
 
 export function Layout({ children }) {
   return (
-    <body className="overflow-hidden bg-grey10 min-h-[100vh]">
+    <div className="overflow-hidden bg-grey10 min-h-[100vh]">
       <Seo />
       {/* <SkipNavLink /> */}
       <Header />
       <SkipNavContent>{children}</SkipNavContent>
       <Footer />
       {/* <NavigationMobile /> */}
-    </body>
+    </div>
   )
 }

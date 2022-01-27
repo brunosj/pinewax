@@ -194,23 +194,67 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
               <ChevronIcon size={12} />
             </div> */}
               <h1 className="text-sm md:text-lg font-bold pt-4 pb-3">{product.variants[0].sku}</h1>
-              <p className="font-faune uppercase text-3xl md:text-5xl"><span className={stroke}>{title}</span>
-              </p>
-              <p className="mt-1 font-normal text-2xl md:text-3xl"><span className="">{tags}</span>
-              </p>
+
+              {product.productType === "Music" && (
+                <p>
+                  <p className="font-faune uppercase text-3xl md:text-5xl">
+                    <span className={stroke}>{title}</span>
+                  </p>
+                  <p className="mt-1 font-normal text-2xl md:text-3xl"><span className="">{tags}</span>
+                  </p>
+                </p>
+              )}
 
               {product.productType === "Merch" && (
-                <div className="pt-6 md:pt-12 pb-3 md:pb-12">
-                  {/* <p className="text-lg pt-6 md:pt-12 pb-12 md:pb-24">{description}</p> */}
+                <p>
+                  <p className="mt-1 font-normal text-2xl md:text-3xl"><span className="">{title}</span>
+                  </p>
+                </p>
+              )}
+
+              {product.productType === "Merch" && (
+                <div className="pt-6 pb-3 md:pt-12 md:pb-12">
+
                   {productCmsMerch[0].description && renderRichText(productCmsMerch[0].description, richTextOptions)}
                 </div>
               )}
 
               {product.productType === "Music" && (
-                <div className="pt-6 md:pt-12 pb-3 md:pb-12">
+                <div className="pt-6 pb-3 md:pt-12 md:pb-12">
+
                   {productCms[0].description && renderRichText(productCms[0].description, richTextOptions)}
 
-                  <div className="flex items-center pt-6 gap-5">
+                  <div className="flex flex-wrap items-end text-sm pt-3 md:pt-6 pb-3 md:pb-6">
+                    <div className="w-1/2 md:w-1/4 font-semibold text-grey50">Release date
+                    </div>
+                    <div className="w-1/2 md:w-3/4">
+                      {productCms[0].releaseDate}
+                    </div>
+                    <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
+                      {productCms[0].format.length > 1 && (
+                        <span>
+                          Formats
+                        </span>
+                      )}
+                      {productCms[0].format.length === 1 && (
+                        <span>
+                          Format
+                        </span>
+                      )}
+                    </div>
+                    <div className="w-1/2 md:w-3/4">
+                      {productCms[0].format[0]}
+                      {productCms[0].format[1] && (
+                        <span> / {productCms[0].format[1]}</span>
+                      )}</div>
+                    {/* <div className="w-1/2 md:w-1/4 font-semibold text-grey50">Catalog number
+                    </div>
+                    <div className="w-1/2 md:w-3/4">
+                      {product.variants[0].sku}
+                    </div> */}
+                  </div>
+
+                  <div className="flex items-center pt-3 gap-5">
                     {productCms[0].urlBandcamp && (
                       <ReleaseIcon
                         url={productCms[0].urlBandcamp}
@@ -252,7 +296,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
             </div>
 
             <div className="">
-              <div className="ml-5 md:ml-12 flex items-center py-6 text-lg font-semibold">
+              <div className="ml-5 md:ml-12 flex items-center pb-6 text-lg font-semibold">
                 <fieldset className="">
                   {hasVariants &&
                     options.map(({ id, name, values }, index) => (
@@ -400,6 +444,7 @@ export const query = graphql`
         id
         title
         format
+        releaseDate(formatString: "D MMMM YYYY")
         vinylVariant
         urlAppleMusic
         urlListen

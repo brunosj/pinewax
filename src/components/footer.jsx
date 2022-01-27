@@ -20,7 +20,7 @@ export function Footer() {
 
   return (
     <footer className="text-black flex items-center border-t border-grey20 font-light">
-      <div className="w-full py-4 md:py-3">
+      <div className="w-full py-4">
         <div className="block md:flex px-6">
           <nav className="flex order-last ml-auto lowercase text-xs md:text-sm tracking-wider" aria-label="footer">
             {/* <div className="pb-6"><p className="border-b pb-1">menu</p></div> */}

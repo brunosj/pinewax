@@ -23,7 +23,7 @@ export function AddToCartVinyl({ variantId, quantity, available, ...props }) {
     >
       <BsFillVinylFill />
 
-      <span className="text-sm ml-2">{available ? "Buy Vinyl" : "Out of Stock"}</span>
+      <span className="text-sm md:text-base ml-2">{available ? "Buy Vinyl" : "Out of Stock"}</span>
     </button>
   )
 }

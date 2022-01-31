@@ -25,7 +25,7 @@ export function AddToCart({ variantId, quantity, available, ...props }) {
 
       {/* <svg className={icon}><Record /></svg> */}
 
-      <span className="ml-2 text-sm md:text-lg font-semibold">{available ? "Add to cart" : "Out of Stock"}</span>
+      <span className="ml-2 text-sm md:text-base">{available ? "Add to cart" : "Out of Stock"}</span>
     </button>
   )
 }

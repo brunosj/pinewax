@@ -275,7 +275,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
                       <ReleaseIcon
                         url={productCms[0].urlTidal}
                         icon={<SiTidal />}
-                        text="Spotify"
+                        text="Tidal"
                         textMargin="ml-0 md:ml-2"
                       />
                     )}

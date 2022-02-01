@@ -25,6 +25,7 @@ export function Footer() {
           <nav className="flex order-last ml-auto lowercase text-xs md:text-sm tracking-wider" aria-label="footer">
             {/* <div className="pb-6"><p className="border-b pb-1">menu</p></div> */}
             <div className="">
+              <Link className="hover:underline mr-4" to="/about">about + contact</Link>
               {data.site.siteMetadata.links.map((link, key) => (
                 <span className="">
                   <a
@@ -42,9 +43,6 @@ export function Footer() {
             </div>
           </nav>
           <div className="order-first ml-auto md:ml-0 text-xs md:text-sm pt-2 md:pt-0">&copy; {new Date().getFullYear()} Pinewax Records
-            <span className="pl-2">•
-              <Link className="pl-2 hover:underline" to="/about">about + contact</Link>
-            </span>
           </div>
         </div>
       </div>

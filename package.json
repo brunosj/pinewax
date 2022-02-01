@@ -53,6 +53,7 @@
     "react-icons": "^4.3.1",
     "react-image-gallery": "^1.2.7",
     "react-intersection-observer": "^8.33.1",
+    "react-scroll-to-top": "^1.0.8",
     "react-scrollmagic": "^2.3.0",
     "react-slick": "^0.28.1",
     "scrollama": "^3.0.2",

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Layout } from "../../../components/layout"
 import isEqual from "lodash.isequal"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
@@ -376,6 +376,15 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
                 ))}
               </span>
             </div> */}
+            </div>
+            <div className="mt-0 mb-3 md:mb-0 md:mt-6 mx-5 md:mx-12 flex">
+              <Link
+                to="/about"
+                className="ml-0 md:ml-auto">
+                <p className='inline text-xs md:text-sm hover:underline'>
+                  Shipping/Return policy
+                </p>
+              </Link>
             </div>
           </div>
 

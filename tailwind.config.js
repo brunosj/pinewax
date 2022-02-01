@@ -3,7 +3,7 @@ module.exports = {
     "./src/**/*.{html,js,jsx,ts,tsx}",
     "./src/components/**/*.{html,js,jsx,ts,tsx}",
     "./src/pages/**/*.{html,js,jsx,ts,tsx}",
-    "./src/icons/**/*.{html,js,jsx,ts,tsx}",  
+    "./src/icons/**/*.{html,js,jsx,ts,tsx}",
   ],
   theme: {
     container: {
@@ -27,7 +27,7 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     colors: {
-      white: "#ffffff", 
+      white: "#ffffff",
       black: "#000000",
       pwxBlue: "#4349F6",
       pwxBlueLight: "#dcdfed",

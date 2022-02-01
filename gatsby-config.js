@@ -4,7 +4,7 @@ const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   downloadLocal: true,
-  };
+};
 
 module.exports = {
   siteMetadata: {
@@ -26,21 +26,19 @@ module.exports = {
       // { name: "DJs", to: "/djs" },
     ],
     links: [
+      { name: "Bandcamp", to: "https://pinewaxrecords.bandcamp.com/" },
       { name: "Instagram", to: "https://www.instagram.com/pinewaxrecords" },
-      { name: "YouTube", to: "https://www.youtube.com/c/Pinewaxrecords" },
-      { name: "Spotify", to: "https://open.spotify.com/user/wqjrhoph2kzp7au7kysbu8spy" },
-      { name: "Facebook", to: "https://www.facebook.com/pinewaxrecords" },
-      ]
-    },
+    ]
+  },
 
   flags: {
     FAST_DEV: true,
   },
   plugins: [
-    { 
-      resolve: 'gatsby-plugin-sharp', 
-      options: { 
-        failOnError: false 
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        failOnError: false
       },
     },
     "gatsby-transformer-sharp",
@@ -59,7 +57,7 @@ module.exports = {
         path: `${__dirname}/static/radio`,
       },
     },
-    
+
     {
       resolve: "gatsby-source-shopify",
       options: {
@@ -78,9 +76,9 @@ module.exports = {
     },
     {
       // This website relies on Contentful as main CMS. In some cases, content is rendered using the rich-text-react-renderer (https://github.com/contentful/rich-text/tree/master/packages/rich-text-react-renderer)
-        resolve: `gatsby-source-contentful`,
-        options: contentfulConfig,
-      },
+      resolve: `gatsby-source-contentful`,
+      options: contentfulConfig,
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-gatsby-cloud",

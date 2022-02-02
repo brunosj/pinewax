@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState, useEffect } from "react";
 import { Link } from "gatsby"
 import { StoreContext } from "../context/store-context"
 import Logo from "../icons/logo"
@@ -6,6 +7,7 @@ import { NavigationDesktop } from "./navigation-desktop"
 import { NavigationMobile } from "./navigation-mobile"
 import { CartButton } from "./cart-button"
 import { Toast } from "./toast"
+import { useScrollPosition } from "../utils/useScrollPosition"
 
 export function Header() {
   const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
@@ -14,9 +16,25 @@ export function Header() {
     return total + item.quantity
   }, 0)
 
+  const [navbar, setNavbar] = useState(false)
+
+  const collapseNav = () => {
+    console.log(window.scrollY)
+    if (window.scrollY >= 64) {
+      setNavbar(true)
+    } else {
+      setNavbar(false)
+    }
+  }
+
+  useEffect(() => {
+    collapseNav()
+    window.addEventListener("scroll", collapseNav)
+  })
+
   return (
-    <div className="bg-pwxBlue z-50 fixed lg:relative w-full top-0 h-16 md:h-auto">
-      <header className="flex w-full py-2 px-5 items-center">
+    <div className={navbar ? "bg-pwxBlue z-50 fixed w-full top-0 h-2 transition-all duration-150 ease-in" : "bg-pwxBlue z-50 fixed w-full top-0 h-16 transition-all duration-100 ease-in"}>
+      <header className={navbar ? "flex w-full py-2 px-5 items-center opacity-0 transition-opacity duration-75 ease-in" : "opacity-1 flex w-full py-2 px-5 items-center transition-opacity duration-100 ease-in"}>
         <Link to="/">
           <Logo />
         </Link>
@@ -57,6 +75,6 @@ export function Header() {
           </>
         )}
       </Toast>
-    </div>
+    </div >
   )
 }

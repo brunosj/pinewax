@@ -16,7 +16,7 @@ export function NavigationMobile() {
   `)
 
   return (
-    <nav className="bg-pwxBlue h-11 fixed  w-full  z-50 bottom-0 px-5 justify-between pt-2 pb-3 flex md:hidden ml-auto lowercase font-semibold tracking-wider font-faune ">
+    <nav className="bg-pwxBlue h-11 md:h-0 fixed  w-full  z-50 bottom-0 px-5 justify-between pt-2 pb-3 flex md:hidden ml-auto lowercase font-semibold tracking-wider font-faune ">
       {data.site.siteMetadata.menu.map((link, key) => (
         <Link
           key={`menu_link${key}`}

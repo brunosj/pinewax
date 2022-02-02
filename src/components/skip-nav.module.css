@@ -24,7 +24,7 @@
 .section {
   min-height: 87vh;
   background-color: #f7f7f7;
-  margin-top: 0px;
+  margin-top: 64px;
 }
 
 @media screen and (max-width: 450px) {

@@ -18,7 +18,7 @@ const Releases = ({ data }) => {
           width="40"
           height="40"
           svgPath="M0 12c0 6.627 5.373 12 12 12s12-5.373 12-12-5.373-12-12-12-12 5.373-12 12zm18-1h-4v7h-4v-7h-4l6-6 6 6z"
-          className=" bg-transparent right-5 bottom-5 md:right-8 md:bottom-8 fixed z-2 cursor-pointer w-12 h-12 transition opacity-100 ease-in-out duration-1000"
+          className=" bg-transparent right-1 bottom-12 md:right-8 md:bottom-8 fixed z-2 cursor-pointer w-12 h-12 transition opacity-100 ease-in-out duration-1000"
         />
         <div className="ml-auto flex border-b border-t border-grey20 text-sm">
           <nav className={navStyle}>

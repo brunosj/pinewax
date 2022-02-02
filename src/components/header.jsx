@@ -15,7 +15,7 @@ export function Header() {
   }, 0)
 
   return (
-    <div className="bg-pwxBlue z-1">
+    <div className="bg-pwxBlue z-50 fixed lg:relative w-full top-0 h-16 md:h-auto">
       <header className="flex w-full py-2 px-5 items-center">
         <Link to="/">
           <Logo />
@@ -26,9 +26,9 @@ export function Header() {
         </Link>
         <CartButton quantity={quantity} />
       </header>
-      <header className="">
+      {/* <header className="bg-pwxBlue bottom-0">
         <NavigationMobile />
-      </header>
+      </header> */}
       <Toast show={loading || didJustAddToCart}>
         {!didJustAddToCart ? (
           "Updating…"

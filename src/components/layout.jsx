@@ -7,6 +7,7 @@ import { Seo } from "./seo"
 import "../styles/global.css"
 import "../styles/reset.css"
 import "../styles/variables.css"
+import { NavigationMobile } from "./navigation-mobile"
 
 export function Layout({ children }) {
   return (
@@ -14,6 +15,7 @@ export function Layout({ children }) {
       <Seo />
       <Header />
       <SkipNavContent>{children}</SkipNavContent>
+      <NavigationMobile />
       <Footer />
     </div>
   )

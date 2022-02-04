@@ -34,7 +34,7 @@ export function LineItem({ item }) {
     Number(item.variant.priceV2.amount) * quantity
   )
 
-  const tags = item.storefrontId
+  const tags = item.title
   console.log(tags)
 
   const handleRemove = () => {

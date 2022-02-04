@@ -14,6 +14,7 @@ const ArtistPage = ({ data }) => {
       [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base pb-3">{children}</div>,
       [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">{children}</div>,
       [BLOCKS.HEADING_2]: (node, children) => <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">{children}</div>,
+      [BLOCKS.HEADING_6]: (node, children) => <div className="text-sm pb-3">{children}</div>,
       [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc">{children}</ul>,
       [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 pb-0">{children}</ol>,
       [INLINES.HYPERLINK]: ({ data }, children) => {

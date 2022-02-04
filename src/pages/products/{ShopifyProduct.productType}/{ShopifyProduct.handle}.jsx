@@ -4,7 +4,7 @@ import { Layout } from "../../../components/layout"
 import isEqual from "lodash.isequal"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
 import { StoreContext } from "../../../context/store-context"
 import { AddToCart } from "../../../components/add-to-cart"
 import { AddToCartVinyl } from "../../../components/add-to-cartVinyl"
@@ -26,7 +26,7 @@ import {
   stroke,
 } from "../../../components/releasesInfo.module.css"
 
-export default function Product({ data: { product, suggestions, cms, cmsMerch } }) {
+export default function Product({ data: { product, suggestions, cms, cmsMerch, artistReleasesList } }) {
   const {
     options,
     variants,
@@ -106,9 +106,12 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
   // linking the Shopify product with the release data from Contentful
   const productId = product.storefrontId
   const allProductCms = cms.nodes
+  const productArtistName = product.tags
   const productCms = allProductCms.filter(node => node.shopifyProduct === productId)
   const allProductCmsMerch = cmsMerch.nodes
   const productCmsMerch = allProductCmsMerch.filter(node => node.shopifyProduct === productId)
+  // const allArtistReleases = artistReleasesList.nodes
+  // const artistReleases = allArtistReleases.filter(node => node.name === productArtistName)
 
   const Bold = ({ children }) => <span className="font-semibold">{children}</span>
   const Italic = ({ children }) => <span className="italic">{children}</span>
@@ -122,8 +125,17 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
       [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base pb-3">{children}</div>,
       [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">{children}</div>,
       [BLOCKS.HEADING_2]: (node, children) => <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">{children}</div>,
+      [BLOCKS.HEADING_6]: (node, children) => <div className="text-sm pb-3">{children}</div>,
       [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-6">{children}</ul>,
       [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 pb-0">{children}</ol>,
+      [INLINES.HYPERLINK]: ({ data }, children) => {
+        return <a
+          href={data.uri}
+          target='_blank'
+          rel='noopener noreferrer'
+          className='font-semibold text-pwxBlue hover:underline'>
+          {children}</a>
+      },
     },
   }
 
@@ -296,7 +308,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
             </div>
 
             <div className="">
-              <div className="ml-5 md:ml-12 flex items-center pb-6 text-lg font-semibold">
+              <div className="ml-5 md:ml-12 flex items-center pb-2 text-lg font-semibold">
                 <fieldset className="">
                   {hasVariants &&
                     options.map(({ id, name, values }, index) => (
@@ -377,7 +389,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch } 
               </span>
             </div> */}
             </div>
-            <div className="mt-0 mb-3 md:mb-0 md:mt-6 mx-5 md:mx-12 flex">
+            <div className="mt-0 mb-3 md:mb-0 md:mt-3 mx-5 md:mx-12 flex">
               <Link
                 to="/about"
                 className="ml-0 md:ml-auto">
@@ -452,6 +464,7 @@ export const query = graphql`
       nodes {
         id
         title
+        releaseArtist
         format
         releaseDate(formatString: "D MMMM YYYY")
         vinylVariant
@@ -479,5 +492,41 @@ export const query = graphql`
         shopifyProduct
       }
     }
+  artistReleasesList: allContentfulArtist {
+    nodes {
+      name
+      releases {
+                id
+        slug
+        title
+        releaseArtist
+        releaseDate(formatString: "D MMMM YYYY")
+        catalogNumber
+        format
+        tracklist
+        vinylVariant
+        shopifyProduct
+        description {
+          raw
+        }
+        urlAppleMusic
+        urlListen
+        urlBandcamp
+        urlTidal
+        cover {
+            gatsbyImageData(
+              placeholder: BLURRED, 
+              formats: AUTO, 
+              layout: CONSTRAINED)
+      }
+      vinylMockup {
+            gatsbyImageData(
+              placeholder: BLURRED, 
+              formats: AUTO, 
+              layout: CONSTRAINED)
+      }
+      }
+    }
+  }
   }
 `

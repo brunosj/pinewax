@@ -32,6 +32,20 @@ export function Header() {
     window.addEventListener("scroll", collapseNav)
   })
 
+  const [scrollPosition, setSrollPosition] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setSrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className={navbar ? "bg-pwxBlue z-50 fixed w-full top-0 h-2 transition-all duration-150 ease-in" : "bg-pwxBlue z-50 fixed w-full top-0 h-16 transition-all duration-100 ease-in"}>
       <header className={navbar ? "flex w-full py-2 px-5 items-center opacity-0 transition-opacity duration-75 ease-in" : "opacity-1 flex w-full py-2 px-5 items-center transition-opacity duration-100 ease-in"}>

@@ -21,6 +21,7 @@ query ($query: String!, $sortKey: ProductSortKeys, $first: Int, $last: Int, $aft
       node {
         title
         vendor
+        storefrontId
         productType
         handle
         priceRangeV2: priceRange {

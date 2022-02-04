@@ -31,13 +31,6 @@ query Artists {
               layout:FULL_WIDTH
               )
       }
-      pictureVariation {
-            gatsbyImageData(
-              placeholder: BLURRED
-              formats: AUTO
-              layout:FULL_WIDTH
-              )
-      }
       releases {
         catalogNumber
         cover {

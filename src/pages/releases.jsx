@@ -66,6 +66,8 @@ query Releases {
         id
         slug
         title
+        artwork
+        artworkUrl
         releaseArtist
         releaseDate(formatString: "D MMMM YYYY")
         catalogNumber
@@ -102,6 +104,8 @@ query Releases {
         id
         slug
         title
+        artwork
+        artworkUrl
         releaseArtist
         releaseDate(formatString: "D MMMM YYYY")
         catalogNumber

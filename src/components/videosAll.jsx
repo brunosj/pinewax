@@ -30,7 +30,7 @@ const VideosAll = ({ videoWidth }) => {
           <VideoCard
             image={node.image.gatsbyImageData}
             title={node.title}
-            textSize="text-xs md:text-xl"
+            textSize="text-xs md:text-base lg:text-xl"
             slug={`/videos/${node.slug}`}
             videoWidth={videoWidth} />
         )

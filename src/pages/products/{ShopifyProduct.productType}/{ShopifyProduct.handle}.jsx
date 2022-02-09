@@ -259,11 +259,21 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
                       {productCms[0].format[1] && (
                         <span> / {productCms[0].format[1]}</span>
                       )}</div>
-                    {/* <div className="w-1/2 md:w-1/4 font-semibold text-grey50">Catalog number
-                    </div>
-                    <div className="w-1/2 md:w-3/4">
-                      {product.variants[0].sku}
-                    </div> */}
+                    {productCms[0].artwork && (
+                      <div className="w-1/2 md:w-1/4 font-semibold text-grey50">Artwork
+                      </div>
+                    )}
+                    {productCms[0].artwork && (
+                      <div className="w-1/2 md:w-3/4">
+                        <a
+                          href={productCms[0].artworkUrl}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='font-semibold text-pwxBlue hover:underline'>
+                          {productCms[0].artwork}
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   <div className="flex items-center pt-3 gap-5">
@@ -389,7 +399,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
               </span>
             </div> */}
             </div>
-            <div className="mt-0 mb-3 md:mb-0 md:mt-3 mx-5 md:mx-12 flex">
+            <div className="mt-0 mb-3 md:mt-3 mx-5 md:mx-12 flex">
               <Link
                 to="/about"
                 className="ml-0 md:ml-auto">

@@ -44,37 +44,38 @@ export function ProductCard({ product, eager }) {
       to={slug}
       aria-label={`View ${title} product page`}
     >
-      <div className="leading-none">
-        <div className="flex items-center pt-6">
-          <div>
-            {/* <div className={productVendorStyle}>{vendor}</div> */}
-            <h2 className="mx-5 text-lg font-semibold leading-none">
-              {tags}
-            </h2>
-            <h2 className="mx-5 text-lg ">{title}</h2>
-          </div>
-          <div className="mr-5 ml-auto">
-            {price}
-          </div>
-        </div>
-      </div>
-      {hasImage
-        ? (
-          <div className="box-border" data-name="product-image-box">
-            <div className="transform transition duration-300 ease-in-out scale-100 group-hover:scale-90 p-16">
-              <GatsbyImage
-                alt={firstImage?.altText ?? title}
-                image={firstImage?.gatsbyImageData ?? storefrontImageData}
-                loading={eager ? "eager" : "lazy"}
-                imgStyle={{ zIndex: '0' }}
-              />
+      <div className="flex flex-col w-full h-full">
+        <div className="flex h-full text-center m-auto">
+          <div className="pt-8 px-6 md:px-12 flex flex-col">
+            <div className="pb-2">
+              {/* <div className={productVendorStyle}>{vendor}</div> */}
+              <h2 className="text-lg md:text-xl font-semibold leading-none">{title}</h2>
+              <h2 className="text-base md:text-lg">
+                {tags}
+              </h2>
+            </div>
+            <div className="mt-auto">
+              {price}
             </div>
           </div>
-        ) : (
-          <div style={{ height: defaultImageHeight, width: defaultImageWidth }} />
-        )
-      }
-
+        </div>
+        {hasImage
+          ? (
+            <div className="box-border" data-name="product-image-box">
+              <div className="transform transition duration-300 ease-in-out scale-100 group-hover:scale-90 pt-6 pb-6 md:pb-12 px-6 md:px-12">
+                <GatsbyImage
+                  alt={firstImage?.altText ?? title}
+                  image={firstImage?.gatsbyImageData ?? storefrontImageData}
+                  loading={eager ? "eager" : "lazy"}
+                  imgStyle={{ zIndex: '0' }}
+                />
+              </div>
+            </div>
+          ) : (
+            <div style={{ height: defaultImageHeight, width: defaultImageWidth }} />
+          )
+        }
+      </div>
     </Link>
   )
 }

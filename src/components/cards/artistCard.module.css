@@ -84,23 +84,8 @@
 
 /* Example for media query: change number of items per row */
 
-@media screen and (max-width: 1190px) {
-	.artistCard{
-		width: 20%; /* Fallback */
-		width: -webkit-calc(100% / 5);
-		width: calc(100% / 5);
-	}
-}
 
-@media screen and (max-width: 945px) {
-	.artistCard{
-		width: 25%; /* Fallback */
-		width: -webkit-calc(100% / 4);
-		width: calc(100% / 4);
-	}
-}
-
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 1080px) {
 	.artistCard{
 		width: 33.3333333%; /* Fallback */
 		width: -webkit-calc(100% / 3);
@@ -108,15 +93,7 @@
 	}
 }
 
-@media screen and (max-width: 660px) {
-	.artistCard{
-		width: 33.3333333%; /* Fallback */
-		width: -webkit-calc(100% / 3);
-		width: calc(100% / 3);
-	}
-}
-
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 811px) {
 	.artistCard{
 		width: 50%; /* Fallback */
 		width: -webkit-calc(100% / 2);

@@ -1,8 +1,8 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
-import ReleasesLeft from "../components/releasesLeft"
-import ReleasesRight from "../components/releasesRight"
+import ReleasesLeft from "../components/releasesCoverLeft"
+import ReleasesRight from "../components/releasesCoverRight"
 import VideoCard from "../components/cards/videoCard"
 
 const Homepage = ({ data }) => {
@@ -47,7 +47,7 @@ query Banner {
           gatsbyImageData(
             layout: FULL_WIDTH
             formats: AUTO
-            quality: 85
+            quality: 100
             placeholder: BLURRED
           )
     }
@@ -59,7 +59,7 @@ query Banner {
             gatsbyImageData (
               layout: FULL_WIDTH
               formats: AUTO
-              quality: 85
+              quality: 100
               placeholder: BLURRED
             )
       }
@@ -67,7 +67,7 @@ query Banner {
             gatsbyImageData (
               layout: FULL_WIDTH
               formats: AUTO
-              quality: 85
+              quality: 100
               placeholder: BLURRED
             )
       }

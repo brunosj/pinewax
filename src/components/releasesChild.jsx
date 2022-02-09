@@ -96,7 +96,7 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                     )}
                   </div>
 
-                  <div className="md:pt-0 flex flex-col p-5 md:p-0">
+                  <div className="col-span-2 lg:col-span-1 md:pt-0 flex flex-col p-5 md:p-0">
                     <div className="w-full pr-0 md:pr-20">
                       {release.description && renderRichText(release.description, richTextOptions)}
                     </div>
@@ -196,7 +196,7 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                   </div>
 
                   {release.tracklist && (
-                    <div className="hidden md:block col-span-1 mr-48 text-sm">
+                    <div className="hidden lg:block mr-48 text-sm">
                       <p className="font-semibold px-5 pb-5 text-grey50">Tracklisting</p>
                       {release.tracklist.map(track => {
                         return (

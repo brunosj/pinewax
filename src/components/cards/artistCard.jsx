@@ -9,7 +9,6 @@ import {
   cardFront,
   cardBack,
   cardBackText,
-
 } from "./artistCard.module.css"
 import { Link } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'

@@ -65,7 +65,7 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
               <div className="pt-5 pb-3 md:pb-8">
                 <div className={childClassName}>
 
-                  <div className="col-span-1 md:col-span-3 text-xl pl-5 md:pl-12 p-5 ">
+                  <div className="col-span-3 text-xl pl-5 md:pl-12 p-5 ">
                     {/* <p className="text-sm md:text-lg font-bold pb-3">{release.catalogNumber}</p> */}
                     <p className="font-faune uppercase text-3xl md:text-4xl"><span className={stroke}>{release.title}</span>
                     </p>
@@ -75,7 +75,7 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                   </div>
 
 
-                  <div className="col-span-1 flex items-center md:justify-center px-5 md:px-0">
+                  <div className="col-span-3 md:col-span-1 flex items-center md:justify-center px-5 md:px-0">
                     {release.vinylMockup && (
                       <div className="w-40 h-40 md:w-60 md:h-60">
                         <GatsbyImage

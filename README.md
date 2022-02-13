@@ -4,38 +4,31 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby Starter Shopify
+  Pinewax Store (2022)
 </h1>
 
-Kick off your next [Shopify](https://www.shopify.com/) project with this boilerplate. This starter creates a store with a custom landing page, individual filtered views for each product, detailed product pages, advanced instant search and a shopping cart. All styled with CSS Modules.
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.png" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-shopify)
-
-Check out the [demo site](https://shopify-demo.gatsbyjs.com) showcasing a proof-of-concept with 10k products and 30k variants.
 
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the Shopify starter.
+    Use the Gatsby CLI to create a new site, specifying the Pinewax repo.
 
     ```shell
     # create a new Gatsby site using the Shopify starter
-    gatsby new my-shopify-store https://github.com/gatsbyjs/gatsby-starter-shopify
+    gatsby new pinewax https://github.com/brunosj/pinewax.git
     ```
 
 2.  **Link to your store**
 
-    Follow these instructions here to [link your Shopify store](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-shopify#readme). If you want to try with a development store, see [the sample data and instructions here](example/).
+    Follow these instructions here to [link your Shopify store](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-shopify#readme). 
 
 3.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-shopify-starter/
+    cd pinewax/
     gatsby develop
     ```
 
@@ -45,17 +38,16 @@ Check out the [demo site](https://shopify-demo.gatsbyjs.com) showcasing a proof-
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-shopify-starter` directory in your code editor of choice and edit `src/pages/index.jsx`. Save your changes and the browser will update in real time!
+    Open the `pinewax` directory in your code editor of choice and edit `src/pages/index.jsx`. Save your changes and the browser will update in real time!
 
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in this project.
 
     .
-    ├── example
     ├── src
     ├── static
-    ├── .env.example
+    ├── .env
     ├── gatsby-browser.js
     ├── gatsby-config.js
     └── gatsby-node.js
@@ -93,7 +85,7 @@ The whole logic for how the site looks and behaves is inside `src`.
 
 3.  **`/icons`**: Contains all custom SVG icons and the logo.
 
-4.  **`/pages`**: Contains the homepage and all automatically generated pages for each product category and individual product pages. The [File System Route API](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/) is used to create those pages from your Shopify data.
+4.  **`/pages`**: Contains the homepage and all automatically generated pages for each product category and individual product pages. The [File System Route API](https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/) is used to create those pages from your Shopify data. Other pages (e.g. "Artists", "Videos") are generated using the [Gatsby Node API](https://www.gatsbyjs.com/docs/node-apis/).
 
 5.  **`/styles`**: Contains globals styles. These are `variables.css`, used to define shared CSS custom properties, `reset.css`, which contains a CSS reset based on Chakra, and `global.css`, which includes a tiny set of global styles.
 
@@ -101,18 +93,5 @@ The whole logic for how the site looks and behaves is inside `src`.
 
 ### 🎨 Styling
 
-The site uses [CSS Modules](https://github.com/css-modules/css-modules) for styling, which allows you to use regular CSS, scoped to the individual component. Theme values such as fonts, colors and spacing are set in `src/styles/variables.css`.
+The site uses a combination of [CSS Modules](https://github.com/css-modules/css-modules) - which allows you to use regular CSS, scoped to the individual component - and [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework - for styling. Theme values such as fonts, colors and spacing are set in `src/styles/variables.css`.
 
-## 🎓 Learning Gatsby
-
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.com/). Here are some places to start:
-
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.

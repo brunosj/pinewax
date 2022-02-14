@@ -10,7 +10,7 @@ module.exports = {
   siteMetadata: {
     siteTitle: "Pinewax Records",
     siteTitleDefault: "Pinewax Records",
-    siteUrl: "https://pinewaxrecords.com",
+    siteUrl: "https://pwx-website-preview.netlify.app",
     hrefLang: "en",
     siteDescription:
       "Pinewax Records, a collectively-run record label based in Berlin",

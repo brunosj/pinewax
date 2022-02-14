@@ -34,9 +34,9 @@ const ReleasesLeft = ({ release }) => {
                 initial="hidden"
                 variants={releaseVariants}>
 
-                <div className="container px-0 lg:px-48 grid grid-cols-1 lg:grid-cols-3">
+                <div className="px-0 md:px-16 lg:px-24 xl:px-48 3xl:px-64 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
 
-                    <div className="flex px-5 lg:px-0">
+                    <div className="flex px-5 lg:px-0 justify-start">
                         <div className="flex items-center">
                             <Link
                                 to={`/releases#${release.slug}`}
@@ -68,7 +68,7 @@ const ReleasesLeft = ({ release }) => {
                         </div>
 
                     </div>
-                    <div className="flex items-center justify-start ml-0 lg:ml-auto col-span-2">
+                    <div className="flex items-center justify-start ml-0 lg:ml-auto 2xl:col-span-2">
                         <div className="p-5 lg:p-0 text-left">
                             <ReleasesInfo release={release} />
                         </div>

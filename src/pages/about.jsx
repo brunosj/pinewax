@@ -4,6 +4,7 @@ import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, INLINES } from "@contentful/rich-text-types"
+import { Seo } from "../components/seo"
 
 const About = () => {
   const data = useStaticQuery(graphql`
@@ -63,6 +64,9 @@ const About = () => {
 
   return (
     <Layout>
+      <Seo
+        title="About"
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 pb-6">
         <div>
           <GatsbyImage

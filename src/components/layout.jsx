@@ -3,6 +3,7 @@ import { SkipNavContent } from "./skip-nav"
 import { Header } from "./header"
 import { Footer } from "./footer"
 import { Seo } from "./seo"
+import SiteMetadata from "./siteMetadata"
 
 import "../styles/global.css"
 import "../styles/reset.css"

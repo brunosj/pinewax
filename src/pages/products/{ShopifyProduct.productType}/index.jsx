@@ -18,7 +18,7 @@ export default function ProductTypeIndex({
 
   return (
     <Layout>
-      <Seo title={`Category: ${productType}`} />
+      <Seo title={productType} />
       <NavigationStore className={nav} />
       <ProductListing products={products.nodes} />
       {products.pageInfo.hasNextPage && (

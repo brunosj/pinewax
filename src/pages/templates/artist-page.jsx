@@ -1,11 +1,13 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../../components/layout"
+import SiteMetadata from "../../components/siteMetadata"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import VideoCard from "../../components/cards/videoCard"
 import ReleaseCard from "../../components/cards/releaseCard"
+import { Seo } from "../../components/seo"
 
 const ArtistPage = ({ data }) => {
 
@@ -31,6 +33,9 @@ const ArtistPage = ({ data }) => {
 
   return (
     <Layout>
+      <Seo
+        title={data.artist.name}
+        image={data.artist.pictureSeo.localFile.url} />
       <div className="grid grid-cols-1 md:grid-cols-2">
 
         <div>
@@ -117,6 +122,11 @@ query ArtistPageQuery($slug: String) {
               layout:FULL_WIDTH
               )
            }
+    pictureSeo: picture {
+      localFile {
+          url
+        }
+    }
       releases {
         catalogNumber
         releaseArtist

@@ -13,7 +13,7 @@ import {
 export default function Products({ data: { products } }) {
   return (
     <Layout>
-      <Seo title="All Products" />
+      <Seo title="Store" />
       <NavigationStore className={nav} />
       {/* <div className="container">All Products</div> */}
       <ProductListing products={products.nodes} />

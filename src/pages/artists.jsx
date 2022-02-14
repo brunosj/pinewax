@@ -1,12 +1,14 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
+import { Seo } from "../components/seo"
 import ArtistCard from "../components/cards/artistCard"
 
 const Artists = ({ data }) => {
 
   return (
     <Layout>
+      <Seo title="Artists" />
       <ArtistCard artists={data.artists.nodes} />
     </Layout>
   )

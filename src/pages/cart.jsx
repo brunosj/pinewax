@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Layout } from "../components/layout"
+import { Seo } from "../components/seo"
 import { StoreContext } from "../context/store-context"
 import { LineItem } from "../components/line-item"
 import { formatPrice } from "../utils/format-price"
@@ -26,6 +27,7 @@ export default function CartPage() {
 
   return (
     <Layout>
+      <Seo title="Cart" />
       <div className={wrap}>
         {emptyCart ? (
           <div className={emptyStateContainer}>

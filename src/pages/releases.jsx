@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
+import { Seo } from "../components/seo"
 import ReleasesChild from "../components/releasesChild"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { activeLink, navLink, navStyle } from "../components/navigation.module.css"
@@ -10,6 +11,7 @@ const Releases = ({ data }) => {
 
   return (
     <Layout>
+      <Seo title="Releases" />
       <article className="">
         <ScrollToTop
           smooth

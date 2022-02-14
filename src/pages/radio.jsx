@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Layout } from "../components/layout"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { Seo } from "../components/seo"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import ImageGallery from "../components/ImageGallery"
@@ -88,6 +89,7 @@ const Radio = () => {
 
   return (
     <Layout>
+      <Seo title="Radio" />
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div>
           <GatsbyImage

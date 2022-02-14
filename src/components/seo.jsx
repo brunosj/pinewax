@@ -50,7 +50,7 @@ export function Seo({
     <Helmet
       title={title}
       defaultTitle={siteTitleDefault}
-      titleTemplate={`%s | ${siteTitle}`}
+      titleTemplate={`${siteTitle} - %s`}
     >
       <html lang={hrefLang} />
       <meta name="description" content={seo.description} />
@@ -87,3 +87,4 @@ export function Seo({
     </Helmet>
   )
 }
+

@@ -19,7 +19,7 @@ export function Header() {
   const [navbar, setNavbar] = useState(false)
 
   const collapseNav = () => {
-    console.log(window.scrollY)
+    // console.log(window.scrollY)
     if (window.scrollY >= 64) {
       setNavbar(true)
     } else {

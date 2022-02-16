@@ -30,12 +30,14 @@ const ArtistPage = ({ data }) => {
 
     },
   }
+  // console.log(data.artist.pictureSeo.localFile.url)
 
   return (
     <Layout>
       <Seo
         title={data.artist.name}
-        image={data.artist.pictureSeo.localFile.url} />
+      // image={data.artist.pictureSeo.localFile.url}
+      />
       <div className="grid grid-cols-1 xl:grid-cols-2">
 
         <div>

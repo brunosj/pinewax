@@ -85,7 +85,6 @@ const Radio = () => {
   }
 
   const pictures = data.allFile.nodes
-  console.log(pictures)
 
   return (
     <Layout>

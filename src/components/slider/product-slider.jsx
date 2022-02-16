@@ -10,7 +10,7 @@ const ProductSlider = ({ productImages }) => {
 
   const images = [
     {
-      original: getSrc(productImages[0]), 
+      original: getSrc(productImages[0]),
       thumbnail: getSrc(productImages[0]),
     },
     {
@@ -23,22 +23,19 @@ const ProductSlider = ({ productImages }) => {
     },
   ];
 
-console.log(images)
-
-
-    return (
-      <div>
-    <ImageGallery 
+  return (
+    <div>
+      <ImageGallery
         items={images}
         showNav={false}
         showFullscreenButton={false}
         showPlayButton={false}
-        slideDuration= {0}
+        slideDuration={0}
         autoPlay={false}
         additionalClass="py-16 px-24"
-        
-        />
-        </div>
-    );
-  }
+
+      />
+    </div>
+  );
+}
 export default ProductSlider

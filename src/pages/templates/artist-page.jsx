@@ -30,7 +30,7 @@ const ArtistPage = ({ data }) => {
 
     },
   }
-  console.log(data.artist.pictureSeo.localFile.url)
+  // console.log(data.artist.pictureSeo.localFile.url)
 
   return (
     <Layout>

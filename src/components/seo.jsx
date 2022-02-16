@@ -43,7 +43,7 @@ export function Seo({
     title: title || siteTitleDefault,
     description: description || siteDescription,
     url: pathname ? `${siteUrl}${pathname}` : location.href,
-    image: image || siteImage,
+    image: image || `${siteUrl}${siteImage}`,
   }
 
   return (

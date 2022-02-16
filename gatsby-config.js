@@ -13,7 +13,7 @@ module.exports = {
     siteUrl: "https://pinewaxrecords.com",
     hrefLang: "en",
     siteDescription:
-      "Pinewax Records, a collectively-run record label based in Berlin",
+      "A collectively-run record label based in Berlin",
     siteImage: "/default-og-image.jpg",
     twitter: "@pinewaxrecords",
     menu: [

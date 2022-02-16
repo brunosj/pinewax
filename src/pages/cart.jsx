@@ -37,7 +37,7 @@ export default function CartPage() {
               sometimes it’s hard to chose — maybe this helps:
             </p> */}
             <Link to="/products" className={emptyStateLink}>
-              View products
+              Visit store
             </Link>
           </div>
         ) : (

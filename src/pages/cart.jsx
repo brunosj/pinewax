@@ -27,7 +27,9 @@ export default function CartPage() {
 
   return (
     <Layout>
-      <Seo title="Cart" />
+      <Seo
+        title="Cart"
+        description="Pinewax Store" />
       <div className={wrap}>
         {emptyCart ? (
           <div className={emptyStateContainer}>

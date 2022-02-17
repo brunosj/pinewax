@@ -11,7 +11,10 @@ const Releases = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title="Releases" />
+      <Seo
+        title="Releases"
+        description="Pinewax Catalog (albums, EPs and singles)"
+      />
       <article className="">
         <ScrollToTop
           smooth

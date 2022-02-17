@@ -66,6 +66,7 @@ const About = () => {
     <Layout>
       <Seo
         title="About"
+        description="Information on the label, our contact details, shipping/return policy and legal notice"
       />
       <div className="grid grid-cols-1 md:grid-cols-2 pb-6">
         <div>

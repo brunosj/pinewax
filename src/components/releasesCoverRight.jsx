@@ -43,9 +43,11 @@ const ReleasesRight = ({ release }) => {
 
           <div className="flex px-5 lg:px-0">
             <div className="flex ml-0 lg:ml-auto items-center">
-              <Link
-                to={`/releases#${release.slug}`} >
-                {release.vinylMockup && (
+
+              {release.vinylMockup && (
+                <Link
+                  to={`/products/music/${release.slug}`}
+                >
                   <div className="py-0 lg:py-16">
                     <div className="w-60 h-60 lg:w-96 lg:h-96 ">
                       <GatsbyImage
@@ -55,8 +57,12 @@ const ReleasesRight = ({ release }) => {
                       />
                     </div>
                   </div>
-                )}
-                {!release.vinylMockup && (
+                </Link>
+              )}
+              {!release.vinylMockup && (
+                <Link
+                  to={`/releases#${release.slug}`}
+                >
                   <div className="pb-8 lg:pb-24 pt-12 lg:pt-24">
                     <div className="w-60 h-60 lg:w-80 lg:h-80">
                       <GatsbyImage
@@ -66,9 +72,8 @@ const ReleasesRight = ({ release }) => {
                       />
                     </div>
                   </div>
-
-                )}
-              </Link>
+                </Link>
+              )}
             </div>
           </div>
 

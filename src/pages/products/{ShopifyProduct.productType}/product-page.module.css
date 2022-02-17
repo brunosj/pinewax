@@ -30,11 +30,18 @@
   position: relative;
 }
 
+.productImageListItem:nth-child(1) {
+  display: flex;
+  flex: 0 0 100%;
+  white-space: nowrap;
+  transform: translate3d(-5%, 0px, 0px);
+}
+
 .productImageListItem {
   display: flex;
   flex: 0 0 100%;
   white-space: nowrap;
-  transform: translate3d(-10%, 0px, 0px);
+  transform: translate3d(-13%, 0px, 0px);
 }
 
 .scrollForMore {

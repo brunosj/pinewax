@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Layout } from "../components/layout"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { Seo } from "../components/seo"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, INLINES } from "@contentful/rich-text-types"
@@ -23,11 +23,6 @@ const Radio = () => {
               layout:FULL_WIDTH
               )
       }
-      pictureSeo: mainPicture {
-      localFile {
-          url
-        }
-    }
       pictures {
         localFile {
             childImageSharp {
@@ -96,7 +91,7 @@ const Radio = () => {
       <Seo
         title="Radio"
         description="Tune in to Pinewax Radio every fourth Saturday 2-4pm on THF Radio"
-        image={data.contentfulPage.pictureSeo.localFile.url}
+        image={getSrc(data.contentfulPage.mainPicture.gatsbyImageData)}
 
       />
       <div className="grid grid-cols-1 lg:grid-cols-2">

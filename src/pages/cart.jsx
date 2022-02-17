@@ -23,7 +23,6 @@ export default function CartPage() {
   }
 
   const itemsInCart = checkout.lineItems
-  // console.log(itemsInCart)
 
   return (
     <Layout>

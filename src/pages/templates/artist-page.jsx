@@ -123,11 +123,6 @@ query ArtistPageQuery($slug: String) {
               layout:FULL_WIDTH
               )
            }
-    pictureSeo: picture {
-          localFile {
-              url
-            }
-      }
       releases {
         catalogNumber
         releaseArtist

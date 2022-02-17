@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { Layout } from "../../components/layout"
 import { Seo } from "../../components/seo"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import Video from "../../components/video"
 import VideosAll from "../../components/videosAll"
 import {
@@ -15,7 +16,8 @@ const VideoPage = ({ data }) => {
     <Layout>
       <Seo
         title={data.video.title}
-        image={data.video.imageSeo.localFile.url} />
+        image={getSrc(data.video.image.gatsbyImageData)}
+      />
       <div className="">
         <Video
           videoSrcURL={data.video.url}
@@ -44,11 +46,6 @@ query VideoQuery($slug: String) {
     image {
           gatsbyImageData
         }
-    imageSeo: image {
-      localFile {
-          url
-        }
-    }
     slug
   }
 }

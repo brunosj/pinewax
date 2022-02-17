@@ -23,6 +23,11 @@ const Radio = () => {
               layout:FULL_WIDTH
               )
       }
+      pictureSeo: mainPicture {
+      localFile {
+          url
+        }
+    }
       pictures {
         localFile {
             childImageSharp {
@@ -88,7 +93,12 @@ const Radio = () => {
 
   return (
     <Layout>
-      <Seo title="Radio" />
+      <Seo
+        title="Radio"
+        description="Tune in to Pinewax Radio every fourth Saturday 2-4pm on THF Radio"
+        image={data.contentfulPage.pictureSeo.localFile.url}
+
+      />
       <div className="grid grid-cols-1 lg:grid-cols-2">
         <div>
           <GatsbyImage

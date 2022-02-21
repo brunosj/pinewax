@@ -1,14 +1,13 @@
 {
-  "name": "gatsby-starter-shopify",
+  "name": "pinewaxrecords",
   "version": "1.0.0",
   "private": true,
-  "description": "A Gatsby starter using the latest Shopify plugin showcasing a store with product overview, individual product pages, and a cart.",
-  "author": "LekoArts <hello@lekoarts.de>",
+  "description": "Pinewax, a collectively-run record label based in Berlin.",
+  "author": "Bruno SJ <https://github.com/brunosj>",
   "license": "0BSD",
   "keywords": [
     "gatsby",
     "shopify",
-    "starter",
     "ecommerce",
     "e-commerce"
   ],

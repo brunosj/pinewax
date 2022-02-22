@@ -4,7 +4,7 @@ const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   downloadLocal: true,
-};
+}
 
 module.exports = {
   siteMetadata: {
@@ -12,8 +12,7 @@ module.exports = {
     siteTitleDefault: "Pinewax Records",
     siteUrl: "https://pinewaxrecords.com",
     hrefLang: "en",
-    siteDescription:
-      "Pinewax, a collectively-run record label based in Berlin",
+    siteDescription: "Pinewax, a collectively-run record label based in Berlin",
     siteImage: "/default-og-image.jpg",
     twitter: "@pinewaxrecords",
     menu: [
@@ -28,7 +27,7 @@ module.exports = {
     links: [
       { name: "Bandcamp", to: "https://pinewaxrecords.bandcamp.com/" },
       { name: "Instagram", to: "https://www.instagram.com/pinewaxrecords" },
-    ]
+    ],
   },
 
   flags: {
@@ -36,9 +35,9 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-sharp',
+      resolve: "gatsby-plugin-sharp",
       options: {
-        failOnError: false
+        failOnError: false,
       },
     },
     "gatsby-transformer-sharp",
@@ -58,13 +57,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `videos`,
-        path: `${__dirname}/src/videos`,
-      },
-    },
-    {
       resolve: "gatsby-source-shopify",
       options: {
         password: process.env.SHOPIFY_SHOP_PASSWORD,
@@ -73,12 +65,12 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /assets/
-        }
-      }
+          include: /assets/,
+        },
+      },
     },
     {
       // This website relies on Contentful as main CMS. In some cases, content is rendered using the rich-text-react-renderer (https://github.com/contentful/rich-text/tree/master/packages/rich-text-react-renderer)

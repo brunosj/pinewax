@@ -57,7 +57,13 @@ module.exports = {
         path: `${__dirname}/static/radio`,
       },
     },
-
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `videos`,
+        path: `${__dirname}/src/videos`,
+      },
+    },
     {
       resolve: "gatsby-source-shopify",
       options: {

@@ -12,10 +12,10 @@ import {
   cardBackText,
 } from "./videoCard.module.css"
 
-const VideoCard = ({ image, title, slug, textSize, videoWidth }) => {
+const VideoCardSnippet = ({ source, title, slug, textSize, videoWidth }) => {
 
   const animationVariants = {
-    visible: { opacity: 1, transition: { duration: 1 } },
+    visible: { opacity: 1, transition: { duration: 0.5 } },
     hidden: { opacity: 0 }
   };
 
@@ -35,12 +35,13 @@ const VideoCard = ({ image, title, slug, textSize, videoWidth }) => {
         <Link to={slug}>
           <div className={cardInner}>
             <div className={cardFront}>
-              <GatsbyImage
-                loading="eager"
-                alt="Pinewax"
-                image={image}
-              />
-
+              <video
+                autoplay="true"
+                muted="true"
+                className="w-full grayscale hover:grayscale-0 transition-all duration-300"
+                loop="true">
+                <source src={source} type="video/mp4" />
+              </video>
               <motion.div
                 ref={ref}
                 animate={controls}
@@ -68,5 +69,5 @@ const VideoCard = ({ image, title, slug, textSize, videoWidth }) => {
   )
 }
 
-export default VideoCard
+export default VideoCardSnippet
 

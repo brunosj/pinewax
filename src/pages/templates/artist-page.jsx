@@ -39,12 +39,14 @@ const ArtistPage = ({ data }) => {
       />
       <div className="grid grid-cols-1 xl:grid-cols-2">
 
-        <div>
-          <GatsbyImage
-            loading="eager"
-            alt="Pinewax"
-            image={data.artist.picture.gatsbyImageData}
-          />
+        <div className="col-span-1 h-full box-border sticky top-0">
+          <div className="sticky">
+            <GatsbyImage
+              loading="eager"
+              alt="Pinewax"
+              image={data.artist.picture.gatsbyImageData}
+            />
+          </div>
         </div>
 
         <div className="flex flex-col">

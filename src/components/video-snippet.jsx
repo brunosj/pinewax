@@ -31,6 +31,7 @@ const VideoLanding = ({ source, slug, title }) => {
           disablePictureInPicture
           className="w-full"
           loop="true"
+          playsInline="true"
         >
           <source src={source} type="video/mp4" />
         </video>

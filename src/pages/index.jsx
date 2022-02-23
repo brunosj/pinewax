@@ -14,11 +14,16 @@ const Homepage = ({ data }) => {
   return (
     <Layout>
       <ReleasesLeft release={releaseOne} />
+      <VideoSnippet
+        source={data.releaseVideo.videoSnippet.file.url}
+        slug={`/videos/${data.releaseVideo.slug}`}
+        title={data.releaseVideo.title}
+      />
       <ReleasesRight release={releaseTwo} />
       <VideoSnippet
-        source={data.live.videoSnippet.file.url}
-        slug={`/videos/${data.live.slug}`}
-        title={data.live.title}
+        source={data.liveVideo.videoSnippet.file.url}
+        slug={`/videos/${data.liveVideo.slug}`}
+        title={data.liveVideo.title}
       />
       {/* <div className="hidden md:block">
         <VideoCard
@@ -36,7 +41,6 @@ const Homepage = ({ data }) => {
           slug={`/videos/${data.live.slug}`}
         />
       </div> */}
-
       <ReleasesLeft release={releaseThree} />
     </Layout>
   )
@@ -55,7 +59,36 @@ export const query = graphql`
         placeholder: BLURRED
       )
     }
-    live: contentfulVideo(slug: { eq: "livesession-yasminumay" }) {
+    liveVideo: contentfulVideo(slug: { eq: "livesession-yasminumay" }) {
+      id
+      title
+      url
+      image {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          formats: AUTO
+          quality: 100
+          placeholder: BLURRED
+        )
+      }
+      imageBanner {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          formats: AUTO
+          quality: 100
+          placeholder: BLURRED
+        )
+      }
+      videoSnippet {
+        file {
+          url
+        }
+      }
+      slug
+    }
+    releaseVideo: contentfulVideo(
+      slug: { eq: "helmuth-and-milch-skybar-video" }
+    ) {
       id
       title
       url

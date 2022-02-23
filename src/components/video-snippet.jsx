@@ -40,12 +40,12 @@ const VideoLanding = ({ source, slug, title }) => {
           animate={controls}
           initial="hidden"
           variants={animationVariants}
-          //   whileInView="visible"
+          whileInView="visible"
         >
-          <div className="absolute flex items-center left-5 top-5 right-5 bottom-5 text-white text-center">
-            <div className="w-full text-sm md:text-base font-bold lg:font-normal lg:text-4xl md:bg-pwxBlue py-4 px-12 leading-none tracking-[2px]">
+          <div className="absolute flex lg:items-center left-0 lg:left-5 lg:top-5 right-0 lg:right-5 bottom-2 lg:bottom-5 text-white text-left lg:text-center">
+            <span className="w-full text-sm md:text-base font-bold lg:font-normal lg:text-4xl bg-pwxBlue py-2 lg:py-4 px-5 lg:px-12 leading-none tracking-[2px]">
               {title}
-            </div>
+            </span>
           </div>
         </motion.div>
       </div>

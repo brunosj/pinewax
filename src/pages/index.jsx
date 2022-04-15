@@ -15,9 +15,9 @@ const Homepage = ({ data }) => {
     <Layout>
       <ReleasesLeft release={releaseOne} />
       <VideoSnippet
-        source={data.releaseVideo.videoSnippet.file.url}
-        slug={`/videos/${data.releaseVideo.slug}`}
-        title={data.releaseVideo.title}
+        source={data.shakurVideo.videoSnippet.file.url}
+        slug={`/videos/${data.shakurVideo.slug}`}
+        title={data.shakurVideo.title}
       />
       <ReleasesRight release={releaseTwo} />
       <VideoSnippet
@@ -58,6 +58,35 @@ export const query = graphql`
         quality: 100
         placeholder: BLURRED
       )
+    }
+    shakurVideo: contentfulVideo(
+      slug: { eq: "vincent-bababoutilabo-rosa-shakur-interviewreise-phaeb" }
+    ) {
+      id
+      title
+      url
+      image {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          formats: AUTO
+          quality: 100
+          placeholder: BLURRED
+        )
+      }
+      imageBanner {
+        gatsbyImageData(
+          layout: FULL_WIDTH
+          formats: AUTO
+          quality: 100
+          placeholder: BLURRED
+        )
+      }
+      videoSnippet {
+        file {
+          url
+        }
+      }
+      slug
     }
     liveVideo: contentfulVideo(slug: { eq: "livesession-yasminumay" }) {
       id

@@ -60,7 +60,7 @@ export const query = graphql`
       )
     }
     shakurVideo: contentfulVideo(
-      slug: { eq: "vincent-bababoutilabo-rosa-shakur-interviewreise-phaeb" }
+      slug: { eq: "vincent-bababoutilabo-interviewreise-marap-hamburg" }
     ) {
       id
       title

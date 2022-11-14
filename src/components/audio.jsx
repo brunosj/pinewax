@@ -1,7 +1,7 @@
 import React from "react"
 
 const Audio = ({ audioSrcURL, audioTitle }) => (
-  <div className="w-full pt-6">
+  <div className="w-full">
     <iframe
       width="100%"
       height="42px"

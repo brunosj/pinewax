@@ -211,10 +211,12 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                       </div>
                     </div>
 
-                    <Audio
-                      audioTitle={release.title}
-                      audioSrcURL={release.urlEmbed}
-                    />
+                    <div className="pr-0 md:pr-20  pt-6">
+                      <Audio
+                        audioTitle={release.title}
+                        audioSrcURL={release.urlEmbed}
+                      />
+                    </div>
                   </div>
 
                   {release.tracklist && (

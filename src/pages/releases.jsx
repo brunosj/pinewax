@@ -3,12 +3,15 @@ import { graphql } from "gatsby"
 import { Layout } from "../components/layout"
 import { Seo } from "../components/seo"
 import ReleasesChild from "../components/releasesChild"
-import { AnchorLink } from "gatsby-plugin-anchor-links";
-import { activeLink, navLink, navStyle } from "../components/navigation.module.css"
-import ScrollToTop from "react-scroll-to-top";
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+import {
+  activeLink,
+  navLink,
+  navStyle,
+} from "../components/navigation.module.css"
+import ScrollToTop from "react-scroll-to-top"
 
 const Releases = ({ data }) => {
-
   return (
     <Layout>
       <Seo
@@ -48,14 +51,25 @@ const Releases = ({ data }) => {
           </nav>
         </div>
         <section id="albums">
-          <p className="text-xl pl-5 md:pl-12 py-3 font-normal uppercase tracking-widest">Albums & EPs</p>
-          <ReleasesChild releases={data.albums.nodes} childClassName="grid grid-cols-1 md:grid-cols-3" />
+          <p className="text-xl pl-5 md:pl-12 py-3 font-normal uppercase tracking-widest">
+            Albums & EPs
+          </p>
+          <ReleasesChild
+            releases={data.albums.nodes}
+            childClassName="grid grid-cols-1 md:grid-cols-3"
+          />
         </section>
-        <div className="bg-pwxBlue text-white border-t border-grey20 text-xl pl-5 md:pl-12 p-5 ">
-        </div>
+        <div className="bg-pwxBlue text-white border-t border-grey20 text-xl pl-5 md:pl-12 p-5 "></div>
         <section id="singles">
-          <p className="text-xl pl-5 md:pl-12 py-3 font-normal uppercase tracking-widest">Singles</p>
-          <ReleasesChild releases={data.singles.nodes} parentClassName="grid grid-cols-1 md:grid-cols-2" childClassName="grid grid-cols-1 md:grid-cols-2" id="singles" />
+          <p className="text-xl pl-5 md:pl-12 py-3 font-normal uppercase tracking-widest">
+            Singles
+          </p>
+          <ReleasesChild
+            releases={data.singles.nodes}
+            parentClassName="grid grid-cols-1 md:grid-cols-2"
+            childClassName="grid grid-cols-1 md:grid-cols-2"
+            id="singles"
+          />
         </section>
       </article>
     </Layout>
@@ -65,8 +79,52 @@ const Releases = ({ data }) => {
 export default Releases
 
 export const query = graphql`
-query Releases {
-  albums:allContentfulRelease(sort: {fields: releaseDate, order: DESC}, filter: {catalogNumber: {ne: null}}) {
+  query Releases {
+    albums: allContentfulRelease(
+      sort: { fields: releaseDate, order: DESC }
+      filter: { catalogNumber: { ne: null } }
+    ) {
+      nodes {
+        id
+        slug
+        title
+        artwork
+        artworkUrl
+        releaseArtist
+        releaseDate(formatString: "D MMMM YYYY")
+        catalogNumber
+        format
+        tracklist
+        vinylVariant
+        shopifyProduct
+        description {
+          raw
+        }
+        urlAppleMusic
+        urlListen
+        urlBandcamp
+        urlTidal
+        urlEmbed
+        cover {
+          gatsbyImageData(
+            placeholder: BLURRED
+            formats: AUTO
+            layout: CONSTRAINED
+          )
+        }
+        vinylMockup {
+          gatsbyImageData(
+            placeholder: BLURRED
+            formats: AUTO
+            layout: CONSTRAINED
+          )
+        }
+      }
+    }
+    singles: allContentfulRelease(
+      filter: { catalogNumber: { eq: null } }
+      sort: { fields: releaseDate, order: DESC }
+    ) {
       nodes {
         id
         slug
@@ -88,56 +146,20 @@ query Releases {
         urlBandcamp
         urlTidal
         cover {
-            gatsbyImageData(
-              placeholder: BLURRED, 
-              formats: AUTO, 
-              layout: CONSTRAINED)
-      }
-      vinylMockup {
-            gatsbyImageData(
-              placeholder: BLURRED, 
-              formats: AUTO, 
-              layout: CONSTRAINED)
-      }
-    }
-  }
-  singles:allContentfulRelease(
-    filter: {catalogNumber: {eq: null}}
-    sort: {fields: releaseDate, order: DESC}
-  ) {
-      nodes {
-        id
-        slug
-        title
-        artwork
-        artworkUrl
-        releaseArtist
-        releaseDate(formatString: "D MMMM YYYY")
-        catalogNumber
-        format
-        tracklist
-        vinylVariant
-        shopifyProduct
-        description {
-          raw
+          gatsbyImageData(
+            placeholder: BLURRED
+            formats: AUTO
+            layout: CONSTRAINED
+          )
         }
-        urlAppleMusic
-        urlListen
-        urlBandcamp
-        urlTidal
-        cover {
-            gatsbyImageData(
-              placeholder: BLURRED, 
-              formats: AUTO, 
-              layout: CONSTRAINED)
-      }
-      vinylMockup {
-            gatsbyImageData(
-              placeholder: BLURRED, 
-              formats: AUTO, 
-              layout: CONSTRAINED)
+        vinylMockup {
+          gatsbyImageData(
+            placeholder: BLURRED
+            formats: AUTO
+            layout: CONSTRAINED
+          )
+        }
       }
     }
   }
-}
 `

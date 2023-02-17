@@ -60,7 +60,7 @@ export const query = graphql`
       )
     }
     shakurVideo: contentfulVideo(
-      slug: { eq: "vincent-bababoutilabo-interviewreise-marap-hamburg" }
+      slug: { eq: "kuso-gvki-geegee-monobloc-reel" }
     ) {
       id
       title

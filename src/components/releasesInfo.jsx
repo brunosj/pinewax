@@ -7,6 +7,7 @@ import VinylIcon from "../icons/vinylIcon"
 import { stroke } from "./releasesInfo.module.css"
 
 const ReleasesInfo = ({ release, alignment }) => {
+  console.log(release.format)
   return (
     <div className="pb-4 md:pb-0">
       {/* <h1 className="">
@@ -25,7 +26,7 @@ const ReleasesInfo = ({ release, alignment }) => {
       </div>
       <div className="pt-5 md:pt-10 w-full ">
         <div className="flex items-center md:p-0 gap-5">
-          {(release.format[0] || release.format[1] === "Vinyl") && (
+          {(release.format[0] === "Vinyl" || release.format[1] === "Vinyl") && (
             <VinylIcon
               url={`/products/music/${release.slug}`}
               icon={<BsFillVinylFill />}

@@ -14,11 +14,13 @@ const Homepage = ({ data }) => {
   return (
     <Layout>
       <ReleasesLeft release={releaseOne} />
+
       <VideoSnippet
         source={data.shakurVideo.videoSnippet.file.url}
-        slug={`/videos/${data.shakurVideo.slug}`}
+        slug={`/releases#monobloc`}
         title={data.shakurVideo.title}
       />
+
       <ReleasesRight release={releaseTwo} />
       <VideoSnippet
         source={data.liveVideo.videoSnippet.file.url}

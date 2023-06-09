@@ -94,7 +94,7 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                     </p>
                   </div>
 
-                  <div className="col-span-3 md:col-span-1 flex items-center md:justify-center px-5 md:px-0">
+                  <div className="col-span-3 md:col-span-1 flex items-center md:justify-center px-5 md:px-0 ">
                     {release.vinylMockup && (
                       <div className="w-40 h-40 md:w-60 md:h-60">
                         <GatsbyImage
@@ -115,8 +115,8 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                     )}
                   </div>
 
-                  <div className="col-span-2 lg:col-span-1 md:pt-0 flex flex-col p-5 md:p-0">
-                    <div className="w-full pr-0 md:pr-20">
+                  <div className="col-span-2 lg:col-span-1 md:pt-0 flex flex-col p-5 md:p-0 pr-6 md:pr-16">
+                    <div className="w-full">
                       {release.description &&
                         renderRichText(release.description, richTextOptions)}
                     </div>
@@ -168,7 +168,7 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                     </div>
 
                     <div className="pt-5 md:pt-8">
-                      <div className="flex items-center gap-5">
+                      <div className="flex items-center gap-5 flex-wrap">
                         {release.shopifyProduct && (
                           <VinylIcon
                             url={`/products/music/${release.slug}`}
@@ -211,7 +211,7 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                       </div>
                     </div>
 
-                    <div className="pr-0 md:pr-20  pt-6">
+                    <div className="pt-6">
                       <Audio
                         audioTitle={release.title}
                         audioSrcURL={release.urlEmbed}

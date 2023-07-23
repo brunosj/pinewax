@@ -122,39 +122,35 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
                     </div>
 
                     <div className="flex flex-wrap text-sm pt-2 md:pt-5 ">
-                      <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
+                      <div className="w-1/2  font-semibold text-grey50">
                         Release date
                       </div>
-                      <div className="w-1/2 md:w-3/4">
-                        {release.releaseDate}
-                      </div>
-                      <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
+                      <div className="w-1/2 ">{release.releaseDate}</div>
+                      <div className="w-1/2  font-semibold text-grey50">
                         {release.format.length > 1 && <span>Formats</span>}
                         {release.format.length === 1 && <span>Format</span>}
                       </div>
-                      <div className="w-1/2 md:w-3/4">
+                      <div className="w-1/2 ">
                         {release.format[0]}
                         {release.format[1] && (
                           <span> / {release.format[1]}</span>
                         )}
                       </div>
                       {release.catalogNumber && (
-                        <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
+                        <div className="w-1/2 font-semibold text-grey50">
                           Catalog number
                         </div>
                       )}
                       {release.catalogNumber && (
-                        <div className="w-1/2 md:w-3/4">
-                          {release.catalogNumber}
-                        </div>
+                        <div className="w-1/2 ">{release.catalogNumber}</div>
                       )}
                       {release.artwork && (
-                        <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
+                        <div className="w-1/2  font-semibold text-grey50">
                           Artwork
                         </div>
                       )}
                       {release.artwork && (
-                        <div className="w-1/2 md:w-3/4">
+                        <div className="w-1/2 ">
                           <a
                             href={release.artworkUrl}
                             target="_blank"

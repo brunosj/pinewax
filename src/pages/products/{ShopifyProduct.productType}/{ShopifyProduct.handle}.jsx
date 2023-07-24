@@ -9,8 +9,8 @@ import { StoreContext } from "../../../context/store-context"
 import { AddToCart } from "../../../components/add-to-cart"
 import { AddToCartVinyl } from "../../../components/add-to-cartVinyl"
 import ReleaseIcon from "../../../icons/releaseIcon"
-import { FaSpotify, FaApple } from 'react-icons/fa';
-import { SiTidal, SiBandcamp } from 'react-icons/si';
+import { FaSpotify, FaApple } from "react-icons/fa"
+import { SiTidal, SiBandcamp } from "react-icons/si"
 import { formatPrice } from "../../../utils/format-price"
 import { Seo } from "../../../components/seo"
 import ProductSliderSlick from "../../../components/slider/product-slider-slick"
@@ -22,11 +22,11 @@ import {
   scrollForMore,
   selectVariant,
 } from "./product-page.module.css"
-import {
-  stroke,
-} from "../../../components/releasesInfo.module.css"
+import { stroke } from "../../../components/releasesInfo.module.css"
 
-export default function Product({ data: { product, suggestions, cms, cmsMerch, artistReleasesList } }) {
+export default function Product({
+  data: { product, suggestions, cms, cmsMerch, artistReleasesList },
+}) {
   const {
     options,
     variants,
@@ -107,34 +107,60 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
   const productId = product.storefrontId
   const allProductCms = cms.nodes
   const productArtistName = product.tags
-  const productCms = allProductCms.filter(node => node.shopifyProduct === productId)
+  const productCms = allProductCms.filter(
+    (node) => atob(node.shopifyProduct) === productId
+  )
   const allProductCmsMerch = cmsMerch.nodes
-  const productCmsMerch = allProductCmsMerch.filter(node => node.shopifyProduct === productId)
+  const productCmsMerch = allProductCmsMerch.filter(
+    (node) => atob(node.shopifyProduct) === productId
+  )
   // const allArtistReleases = artistReleasesList.nodes
   // const artistReleases = allArtistReleases.filter(node => node.name === productArtistName)
 
-  const Bold = ({ children }) => <span className="font-semibold">{children}</span>
+  const Bold = ({ children }) => (
+    <span className="font-semibold">{children}</span>
+  )
   const Italic = ({ children }) => <span className="italic">{children}</span>
 
   const richTextOptions = {
     renderMark: {
-      [MARKS.BOLD]: text => <Bold>{text}</Bold>,
-      [MARKS.ITALIC]: text => <Italic>{text}</Italic>,
+      [MARKS.BOLD]: (text) => <Bold>{text}</Bold>,
+      [MARKS.ITALIC]: (text) => <Italic>{text}</Italic>,
     },
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base pb-3">{children}</div>,
-      [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">{children}</div>,
-      [BLOCKS.HEADING_2]: (node, children) => <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">{children}</div>,
-      [BLOCKS.HEADING_6]: (node, children) => <div className="text-sm pb-3">{children}</div>,
-      [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc pl-6">{children}</ul>,
-      [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 pb-0">{children}</ol>,
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <div className="text-base pb-3">{children}</div>
+      ),
+      [BLOCKS.HEADING_1]: (node, children) => (
+        <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">
+          {children}
+        </div>
+      ),
+      [BLOCKS.HEADING_2]: (node, children) => (
+        <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">
+          {children}
+        </div>
+      ),
+      [BLOCKS.HEADING_6]: (node, children) => (
+        <div className="text-sm pb-3">{children}</div>
+      ),
+      [BLOCKS.UL_LIST]: (node, children) => (
+        <ul className="list-disc pl-6">{children}</ul>
+      ),
+      [BLOCKS.OL_LIST]: (node, children) => (
+        <ol className="list-decimal pl-6 pb-0">{children}</ol>
+      ),
       [INLINES.HYPERLINK]: ({ data }, children) => {
-        return <a
-          href={data.uri}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='font-semibold text-pwxBlue hover:underline'>
-          {children}</a>
+        return (
+          <a
+            href={data.uri}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-pwxBlue hover:underline"
+          >
+            {children}
+          </a>
+        )
       },
     },
   }
@@ -150,7 +176,6 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
       ) : undefined}
       <div className="min-h-[90vh]">
         <div className="grid grid-cols-1 lg:grid-cols-2">
-
           {hasImages && (
             <div className="block md:hidden">
               <div
@@ -192,7 +217,6 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
             <div className="hidden md:block">
               <ProductSliderSlick productImages={images} />
             </div>
-
           )}
 
           {!hasImages && (
@@ -205,71 +229,74 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
               <Link to={product.productTypeSlug}>Store</Link>
               <ChevronIcon size={12} />
             </div> */}
-              <h1 className="text-sm md:text-lg font-bold pt-4 pb-3">{product.variants[0].sku}</h1>
+              <h1 className="text-sm md:text-lg font-bold pt-4 pb-3">
+                {product.variants[0].sku}
+              </h1>
 
               {product.productType === "Music" && (
                 <p>
                   <p className="font-faune uppercase text-3xl md:text-5xl">
                     <span className={stroke}>{title}</span>
                   </p>
-                  <p className="mt-1 font-normal text-2xl md:text-3xl"><span className="">{tags}</span>
+                  <p className="mt-1 font-normal text-2xl md:text-3xl">
+                    <span className="">{tags}</span>
                   </p>
                 </p>
               )}
 
               {product.productType === "Merch" && (
                 <p>
-                  <p className="mt-1 font-normal text-2xl md:text-3xl"><span className="">{title}</span>
+                  <p className="mt-1 font-normal text-2xl md:text-3xl">
+                    <span className="">{title}</span>
                   </p>
                 </p>
               )}
 
               {product.productType === "Merch" && (
                 <div className="pt-6 pb-3 md:pt-12 md:pb-12">
-
-                  {productCmsMerch[0].description && renderRichText(productCmsMerch[0].description, richTextOptions)}
+                  {productCmsMerch[0].description &&
+                    renderRichText(
+                      productCmsMerch[0].description,
+                      richTextOptions
+                    )}
                 </div>
               )}
 
               {product.productType === "Music" && (
                 <div className="pt-6 pb-3 md:pt-12 md:pb-12">
-
-                  {productCms[0].description && renderRichText(productCms[0].description, richTextOptions)}
+                  {productCms[0].description &&
+                    renderRichText(productCms[0].description, richTextOptions)}
 
                   <div className="flex flex-wrap items-end text-sm pt-3 md:pt-6 pb-3 md:pb-6">
-                    <div className="w-1/2 md:w-1/4 font-semibold text-grey50">Release date
+                    <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
+                      Release date
                     </div>
                     <div className="w-1/2 md:w-3/4">
                       {productCms[0].releaseDate}
                     </div>
                     <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
-                      {productCms[0].format.length > 1 && (
-                        <span>
-                          Formats
-                        </span>
-                      )}
-                      {productCms[0].format.length === 1 && (
-                        <span>
-                          Format
-                        </span>
-                      )}
+                      {productCms[0].format.length > 1 && <span>Formats</span>}
+                      {productCms[0].format.length === 1 && <span>Format</span>}
                     </div>
                     <div className="w-1/2 md:w-3/4">
                       {productCms[0].format[0]}
                       {productCms[0].format[1] && (
                         <span> / {productCms[0].format[1]}</span>
-                      )}</div>
+                      )}
+                    </div>
                     {productCms[0].artwork && (
-                      <div className="w-1/2 md:w-1/4 font-semibold text-grey50">Artwork
+                      <div className="w-1/2 md:w-1/4 font-semibold text-grey50">
+                        Artwork
                       </div>
                     )}
                     {productCms[0].artwork && (
                       <div className="w-1/2 md:w-3/4">
                         <a
                           href={productCms[0].artworkUrl}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='font-semibold text-pwxBlue hover:underline'>
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-pwxBlue hover:underline"
+                        >
                           {productCms[0].artwork}
                         </a>
                       </div>
@@ -309,11 +336,8 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
                         textMargin="ml-0 md:ml-2"
                       />
                     )}
-
                   </div>
-
                 </div>
-
               )}
             </div>
 
@@ -341,25 +365,28 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
                 {product.productType === "Music" && (
                   <div className="text-xl">
                     Vinyl
-                    <span className="text-base ml-3">{productCms[0].vinylVariant}</span>
-
+                    <span className="text-base ml-3">
+                      {productCms[0].vinylVariant}
+                    </span>
                   </div>
                 )}
-                <div className="ml-auto mr-3">
-                  {price}
-                </div>
+                <div className="ml-auto mr-3">{price}</div>
 
                 {product.productType === "Music" && (
                   <div className="ml-auto mr-5 md:mr-12">
                     {/* <NumericInput
-                aria-label="Quantity"
-                onIncrement={() => setQuantity((q) => Math.min(q + 1, 20))}
-                onDecrement={() => setQuantity((q) => Math.max(1, q - 1))}
-                onChange={(event) => setQuantity(event.currentTarget.value)}
-                value={quantity}
-                min="1"
-                max="20"
-              /> */}
+                      aria-label="Quantity"
+                      onIncrement={() =>
+                        setQuantity((q) => Math.min(q + 1, 20))
+                      }
+                      onDecrement={() => setQuantity((q) => Math.max(1, q - 1))}
+                      onChange={(event) =>
+                        setQuantity(event.currentTarget.value)
+                      }
+                      value={quantity}
+                      min="1"
+                      max="20"
+                    /> */}
                     <AddToCartVinyl
                       variantId={productVariant.storefrontId}
                       quantity={quantity}
@@ -400,17 +427,13 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
             </div> */}
             </div>
             <div className="mt-0 mb-3 md:mt-3 mx-5 md:mx-12 flex">
-              <Link
-                to="/about"
-                className="ml-0 md:ml-auto">
-                <p className='inline text-xs md:text-sm hover:underline'>
+              <Link to="/about" className="ml-0 md:ml-auto">
+                <p className="inline text-xs md:text-sm hover:underline">
                   Shipping/Return policy
                 </p>
               </Link>
             </div>
           </div>
-
-
         </div>
       </div>
     </Layout>
@@ -418,7 +441,7 @@ export default function Product({ data: { product, suggestions, cms, cmsMerch, a
 }
 
 export const query = graphql`
-  query($id: String!, $productType: String!) {
+  query ($id: String!, $productType: String!) {
     product: shopifyProduct(id: { eq: $id }) {
       title
       description
@@ -442,8 +465,16 @@ export const query = graphql`
         # altText
         id
         gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
-        original: gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
-        thumbnail: gatsbyImageData(layout: CONSTRAINED, width: 640, aspectRatio: 1)
+        original: gatsbyImageData(
+          layout: CONSTRAINED
+          width: 640
+          aspectRatio: 1
+        )
+        thumbnail: gatsbyImageData(
+          layout: CONSTRAINED
+          width: 640
+          aspectRatio: 1
+        )
       }
       variants {
         availableForSale
@@ -470,7 +501,7 @@ export const query = graphql`
         ...ProductCard
       }
     }
-    cms: allContentfulRelease(filter: { shopifyProduct: {ne: "null"}}) {
+    cms: allContentfulRelease(filter: { shopifyProduct: { ne: null } }) {
       nodes {
         id
         title
@@ -486,10 +517,10 @@ export const query = graphql`
         description {
           raw
         }
+      }
     }
-  }
-  cmsMerch: allContentfulMerch(filter: {shopifyProduct: {ne: "null"}}) {
-    nodes {
+    cmsMerch: allContentfulMerch(filter: { shopifyProduct: { ne: null } }) {
+      nodes {
         title
         description {
           raw
@@ -502,41 +533,43 @@ export const query = graphql`
         shopifyProduct
       }
     }
-  artistReleasesList: allContentfulArtist {
-    nodes {
-      name
-      releases {
-                id
-        slug
-        title
-        releaseArtist
-        releaseDate(formatString: "D MMMM YYYY")
-        catalogNumber
-        format
-        tracklist
-        vinylVariant
-        shopifyProduct
-        description {
-          raw
+    artistReleasesList: allContentfulArtist {
+      nodes {
+        name
+        releases {
+          id
+          slug
+          title
+          releaseArtist
+          releaseDate(formatString: "D MMMM YYYY")
+          catalogNumber
+          format
+          tracklist
+          vinylVariant
+          shopifyProduct
+          description {
+            raw
+          }
+          urlAppleMusic
+          urlListen
+          urlBandcamp
+          urlTidal
+          cover {
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: AUTO
+              layout: CONSTRAINED
+            )
+          }
+          vinylMockup {
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: AUTO
+              layout: CONSTRAINED
+            )
+          }
         }
-        urlAppleMusic
-        urlListen
-        urlBandcamp
-        urlTidal
-        cover {
-            gatsbyImageData(
-              placeholder: BLURRED, 
-              formats: AUTO, 
-              layout: CONSTRAINED)
-      }
-      vinylMockup {
-            gatsbyImageData(
-              placeholder: BLURRED, 
-              formats: AUTO, 
-              layout: CONSTRAINED)
-      }
       }
     }
-  }
   }
 `

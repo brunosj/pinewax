@@ -8,6 +8,8 @@ This repo contains the website of [Pinewax](https://pinewaxrecords.com), a platf
 
 The site is a [Gatsby](https://www.gatsbyjs.com/) project deployed on [Netlify](https://netlify.com/). Data is sourced from [Contentful](https://www.contentful.com/) and [Shopify](https://www.shopify.com/), using the "Light" plan to have access to the API and the inventory/payment features. Styling is done with [Tailwind CSS](https://tailwindcss.com) and [CSS Modules](https://github.com/css-modules/css-modules).
 
+Update 15.01.2024: Shopify store has been disabled.
+
 ## Installation
 
 1. Use the git CLI to close the repo

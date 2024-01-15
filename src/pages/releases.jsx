@@ -96,7 +96,6 @@ export const query = graphql`
         format
         tracklist
         vinylVariant
-        shopifyProduct
         description {
           raw
         }
@@ -137,7 +136,6 @@ export const query = graphql`
         format
         tracklist
         vinylVariant
-        shopifyProduct
         description {
           raw
         }

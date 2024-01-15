@@ -10,24 +10,42 @@ import ReleaseCard from "../../components/cards/releaseCard"
 import { Seo } from "../../components/seo"
 
 const ArtistPage = ({ data }) => {
-
   const richTextOptions = {
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => <div className="text-base pb-3">{children}</div>,
-      [BLOCKS.HEADING_1]: (node, children) => <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">{children}</div>,
-      [BLOCKS.HEADING_2]: (node, children) => <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">{children}</div>,
-      [BLOCKS.HEADING_6]: (node, children) => <div className="text-sm pb-3">{children}</div>,
-      [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc">{children}</ul>,
-      [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal pl-6 pb-0">{children}</ol>,
+      [BLOCKS.PARAGRAPH]: (node, children) => (
+        <div className="text-base pb-3">{children}</div>
+      ),
+      [BLOCKS.HEADING_1]: (node, children) => (
+        <div className="text-xl text-gray-900 font-semibold pt-4 pb-3">
+          {children}
+        </div>
+      ),
+      [BLOCKS.HEADING_2]: (node, children) => (
+        <div className="text-large text-gray-900 font-normal underline pt-4 pb-3">
+          {children}
+        </div>
+      ),
+      [BLOCKS.HEADING_6]: (node, children) => (
+        <div className="text-sm pb-3">{children}</div>
+      ),
+      [BLOCKS.UL_LIST]: (node, children) => (
+        <ul className="list-disc">{children}</ul>
+      ),
+      [BLOCKS.OL_LIST]: (node, children) => (
+        <ol className="list-decimal pl-6 pb-0">{children}</ol>
+      ),
       [INLINES.HYPERLINK]: ({ data }, children) => {
-        return <a
-          href={data.uri}
-          target='_blank'
-          rel='noopener noreferrer'
-          className='font-semibold text-pwxBlue hover:underline'>
-          {children}</a>
+        return (
+          <a
+            href={data.uri}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-pwxBlue hover:underline"
+          >
+            {children}
+          </a>
+        )
       },
-
     },
   }
 
@@ -38,7 +56,6 @@ const ArtistPage = ({ data }) => {
         image={getSrc(data.artist.picture.gatsbyImageData)}
       />
       <div className="grid grid-cols-1 xl:grid-cols-2">
-
         <div className="col-span-1 h-full box-border sticky top-0">
           <div className="sticky">
             <GatsbyImage
@@ -51,25 +68,30 @@ const ArtistPage = ({ data }) => {
 
         <div className="flex flex-col">
           <div className="mt-12 ml-5 md:ml-12 mr-5 md:mr-12">
-            <h1 className="text-3xl font-semibold leading-none">{data.artist.name}</h1>
-            <p className="mt-8 md:mt-12 mb-8"> {data.artist.bio && renderRichText(data.artist.bio, richTextOptions)}</p>
+            <h1 className="text-3xl font-semibold leading-none">
+              {data.artist.name}
+            </h1>
+            <p className="mt-8 md:mt-12 mb-8">
+              {" "}
+              {data.artist.bio &&
+                renderRichText(data.artist.bio, richTextOptions)}
+            </p>
           </div>
 
           {data.artist.releases && (
             <div className="mt-auto border-t border-grey20">
-
-              <div className=""><h2 className="border-b border-grey20 py-5 text-xl font-semibold leading-none"><span className="ml-5 md:ml-12">Releases</span></h2></div>
+              <div className="">
+                <h2 className="border-b border-grey20 py-5 text-xl font-semibold leading-none">
+                  <span className="ml-5 md:ml-12">Releases</span>
+                </h2>
+              </div>
 
               <div className="ml-5 md:ml-12 mr-5 md:mr-12 flex flex-wrap md:justify-start justify-around">
                 <ReleaseCard releases={data.artist.releases} />
               </div>
             </div>
           )}
-
-
-
         </div>
-
       </div>
       {data.artist.videos && (
         <div className="">
@@ -77,13 +99,14 @@ const ArtistPage = ({ data }) => {
 
           {data.artist.videos.length > 1 && (
             <div className="grid grid-cols-1 md:grid-cols-2">
-              {data.artist.videos.map(node => {
+              {data.artist.videos.map((node) => {
                 return (
                   <VideoCard
                     image={node.image.gatsbyImageData}
                     title={node.title}
                     textSize="text-sm md:text-xl"
-                    slug={`/videos/${node.slug}`} />
+                    slug={`/videos/${node.slug}`}
+                  />
                 )
               })}
             </div>
@@ -94,12 +117,10 @@ const ArtistPage = ({ data }) => {
                 image={data.artist.videos[0].image.gatsbyImageData}
                 title={data.artist.videos[0].title}
                 textSize="text-sm md:text-xl"
-                slug={`/videos/${data.artist.videos[0].slug}`} />
-
+                slug={`/videos/${data.artist.videos[0].slug}`}
+              />
             </div>
           )}
-
-
         </div>
       )}
     </Layout>
@@ -109,8 +130,8 @@ const ArtistPage = ({ data }) => {
 export default ArtistPage
 
 export const query = graphql`
-query ArtistPageQuery($slug: String) {
-  artist: contentfulArtist(slug: {eq: $slug}) {
+  query ArtistPageQuery($slug: String) {
+    artist: contentfulArtist(slug: { eq: $slug }) {
       id
       name
       slug
@@ -118,36 +139,37 @@ query ArtistPageQuery($slug: String) {
         raw
       }
       picture {
-            gatsbyImageData(
-              placeholder: BLURRED
-              formats: AUTO
-              aspectRatio: 1
-              layout:FULL_WIDTH
-              )
-           }
+        gatsbyImageData(
+          placeholder: BLURRED
+          formats: AUTO
+          aspectRatio: 1
+          layout: FULL_WIDTH
+        )
+      }
       releases {
         catalogNumber
         releaseArtist
         title
         slug
         cover {
-              gatsbyImageData(
-              placeholder: BLURRED, 
-              formats: AUTO, 
-              layout: CONSTRAINED)
-           }
+          gatsbyImageData(
+            placeholder: BLURRED
+            formats: AUTO
+            layout: CONSTRAINED
+          )
+        }
         format
         description {
           raw
         }
         vinylMockup {
-            gatsbyImageData(
-              placeholder: BLURRED, 
-              formats: AUTO, 
-              layout: CONSTRAINED)
-              }
+          gatsbyImageData(
+            placeholder: BLURRED
+            formats: AUTO
+            layout: CONSTRAINED
+          )
+        }
         releaseDate
-        shopifyProduct
         urlAppleMusic
         urlListen
         urlBandcamp
@@ -157,9 +179,9 @@ query ArtistPageQuery($slug: String) {
         title
         slug
         image {
-              gatsbyImageData
-            }
-          }
+          gatsbyImageData
         }
       }
+    }
+  }
 `

@@ -42,7 +42,6 @@ export const query = graphql`
             raw
           }
           releaseDate
-          shopifyProduct
           urlBuy
           urlListen
         }

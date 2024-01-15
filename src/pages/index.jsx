@@ -161,7 +161,6 @@ export const query = graphql`
         urlTidal
         urlListen
         urlAppleMusic
-        shopifyProduct
         mainColour
         slug
         cover {

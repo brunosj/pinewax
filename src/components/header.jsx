@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useState, useEffect } from "react"
 import { Link } from "gatsby"
-import { StoreContext } from "../context/store-context"
+// import { StoreContext } from "../context/store-context"
 import Logo from "../icons/logo"
 import { NavigationDesktop } from "./navigation-desktop"
 import { NavigationMobile } from "./navigation-mobile"

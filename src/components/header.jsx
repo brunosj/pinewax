@@ -10,11 +10,11 @@ import { Toast } from "./toast"
 import { useScrollPosition } from "../utils/useScrollPosition"
 
 export function Header() {
-  const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
-  const items = checkout ? checkout.lineItems : []
-  const quantity = items.reduce((total, item) => {
-    return total + item.quantity
-  }, 0)
+  // const { checkout, loading, didJustAddToCart } = React.useContext(StoreContext)
+  // const items = checkout ? checkout.lineItems : []
+  // const quantity = items.reduce((total, item) => {
+  //   return total + item.quantity
+  // }, 0)
 
   const [navbar, setNavbar] = useState(false)
 
@@ -71,12 +71,12 @@ export function Header() {
         >
           {/* <SearchIcon /> */}
         </Link>
-        <CartButton quantity={quantity} />
+        {/* <CartButton quantity={quantity} /> */}
       </header>
       {/* <header className="bg-pwxBlue bottom-0">
         <NavigationMobile />
       </header> */}
-      <Toast show={loading || didJustAddToCart}>
+      {/* <Toast show={loading || didJustAddToCart}>
         {!didJustAddToCart ? (
           "Updating…"
         ) : (
@@ -103,7 +103,7 @@ export function Header() {
             </svg>
           </>
         )}
-      </Toast>
+      </Toast> */}
     </div>
   )
 }

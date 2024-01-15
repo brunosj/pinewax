@@ -20,7 +20,7 @@ module.exports = {
       { name: "Releases", to: "/releases" },
       { name: "Artists", to: "/artists" },
       { name: "Radio", to: "/radio" },
-      { name: "Store", to: "/products" },
+      // { name: "Store", to: "/products" },
       // { name: "Events", to: "/events" },
       // { name: "DJs", to: "/djs" },
     ],
@@ -49,14 +49,14 @@ module.exports = {
         path: `${__dirname}/static/icons`,
       },
     },
-    {
-      resolve: "gatsby-source-shopify",
-      options: {
-        password: process.env.SHOPIFY_SHOP_PASSWORD,
-        storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
-        shopifyConnections: ["collections"],
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-shopify",
+    //   options: {
+    //     password: process.env.SHOPIFY_SHOP_PASSWORD,
+    //     storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
+    //     shopifyConnections: ["collections"],
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

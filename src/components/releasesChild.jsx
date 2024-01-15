@@ -165,13 +165,13 @@ const ReleasesChild = ({ releases, parentClassName, childClassName }) => {
 
                     <div className="pt-5 md:pt-8">
                       <div className="flex items-center gap-5 flex-wrap">
-                        {release.shopifyProduct && (
+                        {/* {release.shopifyProduct && (
                           <VinylIcon
                             url={`/products/music/${release.slug}`}
                             icon={<BsFillVinylFill />}
                             text="Buy Vinyl"
                           />
-                        )}
+                        )} */}
                         {release.urlBandcamp && (
                           <ReleaseIcon
                             url={release.urlBandcamp}

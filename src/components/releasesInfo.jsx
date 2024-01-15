@@ -26,13 +26,13 @@ const ReleasesInfo = ({ release, alignment }) => {
       </div>
       <div className="pt-5 md:pt-10 w-full ">
         <div className="flex items-center md:p-0 gap-5">
-          {(release.format[0] === "Vinyl" || release.format[1] === "Vinyl") && (
+          {/* {(release.format[0] === "Vinyl" || release.format[1] === "Vinyl") && (
             <VinylIcon
               url={`/products/music/${release.slug}`}
               icon={<BsFillVinylFill />}
               text="Buy Vinyl"
             />
-          )}
+          )} */}
           {release.urlBandcamp && (
             <ReleaseIcon
               url={release.urlBandcamp}
